@@ -1,6 +1,6 @@
 from ashishk3s_ashish_test_snowflake_airflow_job.utils import *
 
-def Python_1():
+def tablueExport():
 
     def test_tableau():
         from pathlib import Path
@@ -23,10 +23,11 @@ def Python_1():
         from airflow.providers.tableau.hooks.tableau import TableauHook
         # Configure for TSC to publish
         # Note: Do not store creds/tokens in plaintext, please use env vars :)
-        # from properties
+        # from gem properties
+        tableau_connection_id = 'tableau_ashish'
         hyper_name = 'customer.hyper'
-        site_name = 'ashish0b1f0348d6'
         # from connection
+        site_name = 'ashish0b1f0348d6'
         server_address = 'https://prod-apnortheast-a.online.tableau.com/'
         project_name = 'Samples'
         # For more on tokens, head here:
@@ -109,7 +110,7 @@ def Python_1():
             # Sign in to server
             # tableau_auth = TSC.PersonalAccessTokenAuth('token', '3pHW1FGfREqgrkktd6y0MA==:Aqnk7VGoWtWSOXQIOrrrDx8iSFu4ihEP', site_id=site_name)
             # server = TSC.Server(server_address, use_server_version=False)
-            with TableauHook(site_id = site_name, tableau_conn_id = 'tableau') as hook:
+            with TableauHook(site_id = site_name, tableau_conn_id = tableau_connection_id) as hook:
                 print(f"Signing into {site_name} at {server_address}")
                 # Define publish mode - Overwrite, Append, or CreateNew
                 publish_mode = TSC.Server.PublishMode.Overwrite
@@ -148,4 +149,9 @@ def Python_1():
     from datetime import timedelta
     from airflow.operators.python import PythonOperator
 
-    return PythonOperator(task_id = "Python_1", python_callable = test_tableau, show_return_value_in_logs = True)
+    return PythonOperator(
+        task_id = "tablueExport",
+        python_callable = test_tableau,
+        show_return_value_in_logs = True, 
+        retries = 1
+    )

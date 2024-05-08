@@ -7,7 +7,7 @@ from airflow import DAG
 from airflow.models.param import Param
 from airflow.decorators import task
 sys.path.insert(0, os.path.abspath(os.path.dirname(__file__)))
-from ashishk3s_ashish_test_snowflake_airflow_job.tasks import Python_1
+from ashishk3s_ashish_test_snowflake_airflow_job.tasks import tablueExport
 PROPHECY_RELEASE_TAG = "__PROJECT_ID_PLACEHOLDER__/__PROJECT_RELEASE_VERSION_PLACEHOLDER__"
 
 with DAG(
@@ -18,4 +18,4 @@ with DAG(
     catchup = False, 
     max_active_runs = 1
 ) as dag:
-    Python_1_op = Python_1()
+    tablueExport_op = tablueExport()

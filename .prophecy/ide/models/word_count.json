@@ -21,8 +21,8 @@
       "component" : "TargetModel",
       "metadata" : {
         "label" : "word_count",
-        "x" : 160,
-        "y" : -60,
+        "x" : 140,
+        "y" : -40,
         "phase" : 0,
         "macroDependencies" : [ ]
       },
