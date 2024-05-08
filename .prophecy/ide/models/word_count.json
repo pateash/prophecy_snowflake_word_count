@@ -7,6 +7,12 @@
     "sourceSuggestions" : {
       "sources" : [ ]
     },
+    "graphConfig" : {
+      "entityConfig" : {
+        "materialized" : "table",
+        "type" : "ModelConfig"
+      }
+    },
     "version" : 3
   },
   "processes" : {
@@ -16,7 +22,7 @@
       "metadata" : {
         "label" : "word_count",
         "x" : 160,
-        "y" : -20,
+        "y" : -60,
         "phase" : 0,
         "macroDependencies" : [ ]
       },
