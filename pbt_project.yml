@@ -1,0 +1,108 @@
+name: test_snowflake
+description: ''
+version: 0.0.1
+author: null
+language: sql
+buildSystem: ''
+buildSystemDetails: null
+pipelines: {}
+datasets: {}
+templates: {}
+jobs:
+  jobs/airflow_job:
+    name: airflow_job
+    description: ''
+    fabricUID: 2
+    scheduler:
+      Composer: {}
+    cloudProvider: null
+    jobSize: null
+    scheduleCron: 0 0 * * *
+    timeout: null
+    alerting:
+      emails: ''
+      onStart: false
+      onSuccess: false
+      onFailure: false
+    pipelines: []
+    jobClusterMode:
+      clusterMode:
+        Single: {}
+      clusterId: null
+    enabled: null
+    createdAt: '2024-05-07 15:24:15'
+    author: ashish@prophecy.io
+gemContainer:
+  languageVersion: ''
+  gemLibsVersion: ''
+  gems: {}
+  dependencies: null
+functions:
+  author: null
+  createdAt: '2024-05-07 15:22:48'
+  udfs: {}
+  udafs: {}
+  expressions: {}
+  airflowFunctions: {}
+subgraphs: {}
+sqlModels:
+  .prophecy/metadata/sqlmodels/test:
+    name: test
+    schema:
+      providerType: Snowflake
+      fields:
+      - name: LINE
+        dataType:
+          type: String
+      - name: WORDS
+        dataType:
+          type: Array
+      - name: WORDS_COUNT
+        dataType:
+          type: Number
+    description: null
+    author: ashish@prophecy.io
+    files:
+    - models/test.sql
+    - .prophecy/ide/models/test.json
+    sqlDependencies:
+      models: []
+      datasets: []
+      seeds: []
+      sources: []
+      snapshots: []
+    createdAt: '2024-05-07 15:23:09'
+sqlSnapshots: {}
+sqlTests: {}
+sqlMacros: {}
+sqlSeeds: {}
+sqlSources:
+  .prophecy/metadata/sqlsources/ASHISH_PUBLIC:
+    name: ASHISH.PUBLIC
+    description: null
+    author: ashish@prophecy.io
+    files:
+    - prophecy-sources/sources.yml
+    createdAt: '2024-05-07 15:23:30'
+    tables:
+    - name: README
+      schema:
+        providerType: snowflake
+        fields:
+        - name: LINE
+          dataType:
+            type: String
+      description: null
+      author: ashish@prophecy.io
+      createdAt: '2024-05-07 15:23:30'
+sqlUnreferencedSources: {}
+sqlPipeline:
+  name: sqlPipeline
+  description: null
+  author: ashish@prophecy.io
+  createdAt: '2024-05-07 15:22:48'
+dependencies: []
+projectDependencies: {}
+flags:
+  shouldAddDefaultDependenciesIfAbsent: true
+pipelineConfigurations: {}

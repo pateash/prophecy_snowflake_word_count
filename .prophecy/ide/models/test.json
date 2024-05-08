@@ -1,0 +1,280 @@
+{
+  "id" : "test",
+  "metainfo" : {
+    "label" : "test",
+    "autoLayout" : false,
+    "staleState" : "none",
+    "sourceSuggestions" : {
+      "sources" : [ ]
+    },
+    "version" : 3
+  },
+  "processes" : {
+    "test##mwTMCSGB" : {
+      "id" : "test##mwTMCSGB",
+      "component" : "TargetModel",
+      "metadata" : {
+        "label" : "test",
+        "x" : 940,
+        "y" : -40,
+        "phase" : 0,
+        "macroDependencies" : [ ]
+      },
+      "properties" : {
+        "customQueryDisabled" : true,
+        "customQuery" : false,
+        "incrementalEditorDisabled" : true,
+        "query" : "SELECT * \n\nFROM word_count\n",
+        "incrementalKey" : false,
+        "incremental" : {
+          "expression" : "true"
+        }
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "xr99IbVk",
+          "schema" : {
+            "providerType" : "Snowflake",
+            "fields" : [ {
+              "name" : "LINE",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "WORDS",
+              "dataType" : {
+                "type" : "Array"
+              }
+            }, {
+              "name" : "WORDS_COUNT",
+              "dataType" : {
+                "type" : "Number"
+              }
+            } ]
+          },
+          "slug" : "word_count"
+        } ],
+        "outputs" : [ {
+          "id" : "qK7q9CHT",
+          "schema" : {
+            "providerType" : "Snowflake",
+            "fields" : [ {
+              "name" : "LINE",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "WORDS",
+              "dataType" : {
+                "type" : "Array"
+              }
+            }, {
+              "name" : "WORDS_COUNT",
+              "dataType" : {
+                "type" : "Number"
+              }
+            } ]
+          },
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      }
+    },
+    "NqHL1LlgOGBfATcYp0h2l" : {
+      "id" : "NqHL1LlgOGBfATcYp0h2l",
+      "component" : "Source",
+      "metadata" : {
+        "label" : "README",
+        "slug" : "README",
+        "x" : 20,
+        "y" : 20,
+        "phase" : 0
+      },
+      "properties" : {
+        "table" : {
+          "name" : "README",
+          "sourceType" : "Source",
+          "sourceName" : "ASHISH.PUBLIC",
+          "alias" : "",
+          "additionalProperties" : null
+        }
+      },
+      "ports" : {
+        "inputs" : [ ],
+        "outputs" : [ {
+          "id" : "o6ds4M1JJUlQKgCWNsyJH",
+          "schema" : {
+            "providerType" : "snowflake",
+            "fields" : [ {
+              "name" : "LINE",
+              "dataType" : {
+                "type" : "String"
+              }
+            } ]
+          },
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      }
+    },
+    "6B5GzZKoBPfgGVSqH2YVB$$cgsXwvU-JHsyL3ampItWw" : {
+      "id" : "6B5GzZKoBPfgGVSqH2YVB$$cgsXwvU-JHsyL3ampItWw",
+      "component" : "Reformat",
+      "metadata" : {
+        "label" : "word_count",
+        "slug" : "word_count",
+        "x" : 660,
+        "y" : 0,
+        "phase" : 0,
+        "macroDependencies" : [ ]
+      },
+      "properties" : {
+        "columnsSelector" : [ "8jjt_rZngEB87is-GQd-8$$aOy_kRFG0DMKq7HJAxyOb##LINE", "8jjt_rZngEB87is-GQd-8$$aOy_kRFG0DMKq7HJAxyOb##WORDS" ],
+        "expressions" : [ {
+          "expression" : {
+            "expression" : "LINE"
+          },
+          "alias" : "LINE"
+        }, {
+          "expression" : {
+            "expression" : "WORDS"
+          },
+          "alias" : "WORDS"
+        }, {
+          "expression" : {
+            "expression" : "ARRAY_SIZE(WORDS)"
+          },
+          "alias" : "words_count"
+        } ]
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "8jjt_rZngEB87is-GQd-8$$aOy_kRFG0DMKq7HJAxyOb",
+          "schema" : {
+            "providerType" : "Snowflake",
+            "fields" : [ {
+              "name" : "LINE",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "WORDS",
+              "dataType" : {
+                "type" : "Array"
+              }
+            } ]
+          },
+          "slug" : "in0"
+        } ],
+        "outputs" : [ {
+          "id" : "DuryF25R2WtRP9D5iN3qP$$HaEm4qGD9DDA-jm6bTa1O",
+          "schema" : {
+            "providerType" : "Snowflake",
+            "fields" : [ {
+              "name" : "LINE",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "WORDS",
+              "dataType" : {
+                "type" : "Array"
+              }
+            }, {
+              "name" : "WORDS_COUNT",
+              "dataType" : {
+                "type" : "Number"
+              }
+            } ]
+          },
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      }
+    },
+    "Ti0EIAyvKowsVnFC97q9A$$F0B-2gGtsfrOdB5vY_FCv" : {
+      "id" : "Ti0EIAyvKowsVnFC97q9A$$F0B-2gGtsfrOdB5vY_FCv",
+      "component" : "Reformat",
+      "metadata" : {
+        "label" : "tokenize",
+        "slug" : "tokenize",
+        "x" : 280,
+        "y" : 20,
+        "phase" : 0,
+        "macroDependencies" : [ ]
+      },
+      "properties" : {
+        "columnsSelector" : [ "jnCxicDKzIszeeLlcH3l5$$nnuMb_HpR2p7u5fDyzAT7##LINE", "jnCxicDKzIszeeLlcH3l5$$nnuMb_HpR2p7u5fDyzAT7##line" ],
+        "expressions" : [ {
+          "expression" : {
+            "expression" : "LINE"
+          },
+          "alias" : "LINE"
+        }, {
+          "expression" : {
+            "expression" : "CASE \n        WHEN LINE is NOT NULL THEN SPLIT(REGEXP_REPLACE(line, '\\\\s+', ' '), ' ')\n        ELSE ARRAY_CONSTRUCT( ) \nEND \n\n\n "
+          },
+          "alias" : "words"
+        } ]
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "jnCxicDKzIszeeLlcH3l5$$nnuMb_HpR2p7u5fDyzAT7",
+          "schema" : {
+            "providerType" : "snowflake",
+            "fields" : [ {
+              "name" : "LINE",
+              "dataType" : {
+                "type" : "String"
+              }
+            } ]
+          },
+          "slug" : "in0"
+        } ],
+        "outputs" : [ {
+          "id" : "EcIWObj0LCjt6u5HEMQMO$$SF0vFbjLhiX-vSDVD6cFP",
+          "schema" : {
+            "providerType" : "Snowflake",
+            "fields" : [ {
+              "name" : "LINE",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "WORDS",
+              "dataType" : {
+                "type" : "Array"
+              }
+            } ]
+          },
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      }
+    }
+  },
+  "connections" : [ {
+    "id" : "34WSgW8WBjY87qQdcZA-C",
+    "source" : "Ti0EIAyvKowsVnFC97q9A$$F0B-2gGtsfrOdB5vY_FCv",
+    "sourcePort" : "EcIWObj0LCjt6u5HEMQMO$$SF0vFbjLhiX-vSDVD6cFP",
+    "target" : "6B5GzZKoBPfgGVSqH2YVB$$cgsXwvU-JHsyL3ampItWw",
+    "targetPort" : "8jjt_rZngEB87is-GQd-8$$aOy_kRFG0DMKq7HJAxyOb"
+  }, {
+    "id" : "igH653XPeuj4N14FC3GXl",
+    "source" : "6B5GzZKoBPfgGVSqH2YVB$$cgsXwvU-JHsyL3ampItWw",
+    "sourcePort" : "DuryF25R2WtRP9D5iN3qP$$HaEm4qGD9DDA-jm6bTa1O",
+    "target" : "test##mwTMCSGB",
+    "targetPort" : "xr99IbVk"
+  }, {
+    "id" : "IG_8itMLJXve5onXuXcuq",
+    "source" : "NqHL1LlgOGBfATcYp0h2l",
+    "sourcePort" : "o6ds4M1JJUlQKgCWNsyJH",
+    "target" : "Ti0EIAyvKowsVnFC97q9A$$F0B-2gGtsfrOdB5vY_FCv",
+    "targetPort" : "jnCxicDKzIszeeLlcH3l5$$nnuMb_HpR2p7u5fDyzAT7"
+  } ],
+  "component" : "Model"
+}

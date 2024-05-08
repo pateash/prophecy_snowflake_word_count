@@ -1,0 +1,14 @@
+---
+version: 2
+sources:
+- name: "ASHISH.PUBLIC"
+  database: "ASHISH"
+  schema: "PUBLIC"
+  config:
+    enabled: true
+  tables:
+  - name: "README"
+    columns:
+    - name: "LINE"
+      dataType:
+        type: "String"

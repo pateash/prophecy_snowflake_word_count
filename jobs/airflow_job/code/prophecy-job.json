@@ -1,0 +1,45 @@
+{
+  "metainfo" : {
+    "type" : "Composer",
+    "fabricId" : "2",
+    "jobId" : "jobs/airflow_job",
+    "name" : "airflow_job",
+    "dagName" : "ashishk3s_ashish_test_snowflake_airflow_job",
+    "schedule" : "0 0 * * *",
+    "enabled" : false,
+    "alerting" : {
+      "emails" : "",
+      "onStart" : false,
+      "onSuccess" : false,
+      "onFailure" : false
+    },
+    "maxConcurrentRuns" : 1,
+    "processDefaultSettings" : {
+      "ignore_first_depends_on_past" : true,
+      "do_xcom_push" : true
+    },
+    "availableFabrics" : [ {
+      "id" : "2",
+      "name" : "Airflow-Composer"
+    } ],
+    "maxActiveRuns" : 1,
+    "catchup" : false,
+    "scheduleTimeZone" : "UTC",
+    "dagParams" : {
+      "instances" : {
+        "default" : { }
+      },
+      "params" : { },
+      "selected" : "default"
+    },
+    "airflowFunctions" : [ ],
+    "dynamicPipelineStatus" : {
+      "databricks" : false,
+      "dataproc" : false,
+      "emr" : false,
+      "onprem" : false
+    }
+  },
+  "processes" : { },
+  "connections" : [ ]
+}
