@@ -20,7 +20,7 @@ tokenize AS (
 
 ),
 
-word_count AS (
+add_word_count AS (
 
   SELECT 
     LINE AS LINE,
@@ -33,4 +33,4 @@ word_count AS (
 
 SELECT *
 
-FROM word_count
+FROM add_word_count

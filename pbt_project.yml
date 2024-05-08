@@ -46,8 +46,8 @@ functions:
   airflowFunctions: {}
 subgraphs: {}
 sqlModels:
-  .prophecy/metadata/sqlmodels/test:
-    name: test
+  .prophecy/metadata/sqlmodels/word_count:
+    name: word_count
     schema:
       providerType: Snowflake
       fields:
@@ -63,15 +63,15 @@ sqlModels:
     description: null
     author: ashish@prophecy.io
     files:
-    - models/test.sql
-    - .prophecy/ide/models/test.json
+    - models/word_count.sql
+    - .prophecy/ide/models/word_count.json
     sqlDependencies:
       models: []
       datasets: []
       seeds: []
       sources: []
       snapshots: []
-    createdAt: '2024-05-07 15:23:09'
+    createdAt: '2024-05-08 09:31:47'
 sqlSnapshots: {}
 sqlTests: {}
 sqlMacros: {}

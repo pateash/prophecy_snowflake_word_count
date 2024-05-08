@@ -697,7 +697,7 @@
     "prophecyProjectDependencies" : { }
   },
   "entitiesToSync" : [ {
-    "name" : "test",
+    "name" : "word_count",
     "type" : "Model",
     "syncedOnce" : false
   } ],
