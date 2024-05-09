@@ -41,14 +41,140 @@
     }
   },
   "processes" : {
+    "io_BDfYiD_TmOWRPyfTqd" : {
+      "id" : "io_BDfYiD_TmOWRPyfTqd",
+      "component" : "SFTPSensor",
+      "metadata" : {
+        "label" : "ReadmeSFTPFileSensor",
+        "slug" : "ReadmeSFTPFileSensor",
+        "x" : -100,
+        "y" : 40
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "rV8HsH4yNZpPxnlkI-rpD",
+          "slug" : ""
+        } ],
+        "outputs" : [ {
+          "id" : "qFW-7H4U6WqBPvgtxYq35",
+          "slug" : ""
+        } ]
+      },
+      "settings" : { },
+      "properties" : {
+        "pokeInterval" : 60,
+        "sftpConnectionId" : "sftp_prophecy",
+        "filepath" : "{{ params.SFTP_FILE_LOCATION }}",
+        "showAdvanceProperties" : true,
+        "timeout" : 600,
+        "taskId" : null
+      },
+      "connections" : [ ],
+      "processes" : { }
+    },
+    "K_nxr0o5A6q8ozjcnzAuK$$CkYtJLK71NCBkk3hw2Dav" : {
+      "id" : "K_nxr0o5A6q8ozjcnzAuK$$CkYtJLK71NCBkk3hw2Dav",
+      "component" : "Model",
+      "metadata" : {
+        "label" : "SnowflakeModel",
+        "slug" : "SnowflakeModel",
+        "x" : 600,
+        "y" : 0
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "8gurbvC4wQoQSrKYrm7GK$$1kMgQVfx7gdrCSMgKX43a",
+          "slug" : ""
+        } ],
+        "outputs" : [ {
+          "id" : "DHXV04t-JgIGw64-Moesd$$hFjQeeSUFtT4vs4wC5b1X",
+          "slug" : ""
+        } ]
+      },
+      "settings" : { },
+      "properties" : {
+        "cacheSelectedOnly" : null,
+        "gitSubPath" : null,
+        "runModelWithParents" : false,
+        "defer" : null,
+        "noDefer" : null,
+        "runSeed" : false,
+        "gitEntity" : "branch",
+        "noPartialParse" : null,
+        "model" : null,
+        "warnErrorOptions" : null,
+        "gitTokenSecret" : null,
+        "state" : null,
+        "useExperimentalParser" : null,
+        "currentProjectSnapshots" : [ {
+          "label" : "word_count",
+          "value" : "word_count",
+          "id" : "8/.prophecy/metadata/sqlmodels/word_count",
+          "name" : "word_count"
+        } ],
+        "gitSshUrl" : null,
+        "indirectSelection" : null,
+        "partialParse" : null,
+        "runRun" : true,
+        "vars" : null,
+        "runSnapshots" : false,
+        "noPrint" : null,
+        "quiet" : null,
+        "projectId" : "8",
+        "runMode" : "project",
+        "runOnlyModel" : false,
+        "favorState" : null,
+        "failFast" : null,
+        "noStaticParser" : null,
+        "loadingModels" : false,
+        "runTest" : true,
+        "select" : null,
+        "recordTimingInfo" : null,
+        "fullRefresh" : null,
+        "noCacheSelectedOnly" : null,
+        "noFavorState" : null,
+        "snapshot" : null,
+        "isProphecyManaged" : false,
+        "profile" : null,
+        "noVersionCheck" : null,
+        "noWriteJson" : false,
+        "printerWidth" : null,
+        "sqlFabricId" : "3",
+        "gitEntityValue" : "dev",
+        "logFormat" : null,
+        "runModelWithChildren" : false,
+        "dbtProfileSecret" : null,
+        "target" : null,
+        "exclude" : null,
+        "runDeps" : false,
+        "loadingSnapshots" : false,
+        "noAnonymousUsageStats" : null,
+        "selector" : null,
+        "targetPath" : null,
+        "threads" : null,
+        "warnError" : null,
+        "currentProjectModels" : [ {
+          "label" : "word_count",
+          "value" : "word_count",
+          "id" : "8/.prophecy/metadata/sqlmodels/word_count",
+          "name" : "word_count"
+        } ],
+        "profilesDir" : null,
+        "taskId" : null,
+        "logPath" : null,
+        "storeFailures" : null
+      },
+      "connections" : [ ],
+      "processes" : { }
+    },
     "0s8dYtFv7SifMzdPFMyno$$LHPn_iqm5TGkpSMOrcC4g" : {
       "id" : "0s8dYtFv7SifMzdPFMyno$$LHPn_iqm5TGkpSMOrcC4g",
       "component" : "Python",
       "metadata" : {
         "label" : "tablueExport",
         "slug" : "tablueExport",
-        "x" : -680,
-        "y" : -320
+        "x" : 800,
+        "y" : 20
       },
       "ports" : {
         "inputs" : [ {
@@ -73,7 +199,101 @@
       },
       "connections" : [ ],
       "processes" : { }
+    },
+    "ZIOots9CEsI5LaVIa8AYB" : {
+      "id" : "ZIOots9CEsI5LaVIa8AYB",
+      "component" : "SFTPToS3Operator",
+      "metadata" : {
+        "label" : "TransferSFTPFileToS3",
+        "slug" : "TransferSFTPFileToS3",
+        "x" : 220,
+        "y" : 20
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "5v0RpjEGui2-Nq0YgJ0AE",
+          "slug" : ""
+        } ],
+        "outputs" : [ {
+          "id" : "4Zot_KcU7OzXD2Mix8pUj",
+          "slug" : ""
+        } ]
+      },
+      "settings" : { },
+      "properties" : {
+        "s3_bucket" : "{{ params.S3_BUCKET }}",
+        "sftp_path" : "{{ params.SFTP_FILE_LOCATION }}",
+        "s3_key" : "{{ params.S3_FULL_KEY_PATH }}",
+        "sftp_conn_id" : "sftp_prophecy",
+        "aws_conn_id" : "aws_default",
+        "taskId" : null
+      },
+      "connections" : [ ],
+      "processes" : { }
+    },
+    "PE9mAruZjqIYlSy8nNEF0" : {
+      "id" : "PE9mAruZjqIYlSy8nNEF0",
+      "component" : "CopyFromExternalStageToSnowflakeOperator",
+      "metadata" : {
+        "label" : "LoadFileToSnowflake",
+        "slug" : "LoadFileToSnowflake",
+        "x" : 420,
+        "y" : 20
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "M0MlqJvcE6RTuknMpLt_h",
+          "slug" : "TransferSFTPFileToS3"
+        } ],
+        "outputs" : [ {
+          "id" : "abcflxOjAgHsswzBtpa5T",
+          "slug" : ""
+        } ]
+      },
+      "settings" : { },
+      "properties" : {
+        "s3_bucket" : null,
+        "snowflake_database" : "ASHISH",
+        "s3_key" : "{{ params.S3_KEY_PATH }}",
+        "snowflake_conn_id" : "snowflake_ashish",
+        "file_key" : "{{ params.S3_KEY_PATH }}",
+        "s3_key_file_format" : "(type = 'CSV', field_delimiter='\\t', record_delimiter='\\n')",
+        "file_format" : "(type = 'CSV', field_delimiter='\\t', record_delimiter='\\n')",
+        "snowflake_stage" : "ASHISH_S3_STAGE",
+        "snowflake_warehouse" : "COMPUTE_WH",
+        "copy_options_on_error" : "CONTINUE",
+        "snowflake_schema" : "PUBLIC",
+        "aws_conn_id" : null,
+        "snowflake_table" : "README",
+        "taskId" : null
+      },
+      "connections" : [ ],
+      "processes" : { }
     }
   },
-  "connections" : [ ]
+  "connections" : [ {
+    "id" : "EBVmRjeKn_68agASnxfoP",
+    "source" : "io_BDfYiD_TmOWRPyfTqd",
+    "target" : "ZIOots9CEsI5LaVIa8AYB",
+    "sourcePort" : "qFW-7H4U6WqBPvgtxYq35",
+    "targetPort" : "5v0RpjEGui2-Nq0YgJ0AE"
+  }, {
+    "id" : "Bj2b9VQknWo_UjNlKTCMR",
+    "source" : "ZIOots9CEsI5LaVIa8AYB",
+    "target" : "PE9mAruZjqIYlSy8nNEF0",
+    "sourcePort" : "4Zot_KcU7OzXD2Mix8pUj",
+    "targetPort" : "M0MlqJvcE6RTuknMpLt_h"
+  }, {
+    "id" : "4iU0m0gF4-dbfa_ysXks7$$b71t2k6_nKvABOrCe_2ng",
+    "source" : "PE9mAruZjqIYlSy8nNEF0",
+    "target" : "K_nxr0o5A6q8ozjcnzAuK$$CkYtJLK71NCBkk3hw2Dav",
+    "sourcePort" : "abcflxOjAgHsswzBtpa5T",
+    "targetPort" : "8gurbvC4wQoQSrKYrm7GK$$1kMgQVfx7gdrCSMgKX43a"
+  }, {
+    "id" : "Oxm6UaEzLN-n9v8NnsFJt$$QsOJQG8TcPafO53wqaFNM",
+    "source" : "K_nxr0o5A6q8ozjcnzAuK$$CkYtJLK71NCBkk3hw2Dav",
+    "target" : "0s8dYtFv7SifMzdPFMyno$$LHPn_iqm5TGkpSMOrcC4g",
+    "sourcePort" : "DHXV04t-JgIGw64-Moesd$$hFjQeeSUFtT4vs4wC5b1X",
+    "targetPort" : "-dT0nw-NrWFGoOAXYq5th$$Q1qg92a1-OSHQCWDQ2Y4K"
+  } ]
 }
