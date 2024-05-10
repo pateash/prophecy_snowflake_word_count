@@ -1,0 +1,77 @@
+{
+  "metainfo" : {
+    "type" : "Composer",
+    "fabricId" : "2",
+    "jobId" : "jobs/tabluea_export_test",
+    "name" : "tabluea_export_test",
+    "dagName" : "ashishk3s_ashish_prophecy_snowflake_word_count_tabluea_export_test",
+    "schedule" : "0/5 * * * *",
+    "enabled" : false,
+    "alerting" : {
+      "emails" : "",
+      "onStart" : false,
+      "onSuccess" : false,
+      "onFailure" : false
+    },
+    "maxConcurrentRuns" : 1,
+    "processDefaultSettings" : {
+      "ignore_first_depends_on_past" : true,
+      "do_xcom_push" : true
+    },
+    "availableFabrics" : [ {
+      "id" : "2",
+      "name" : "Airflow-Composer"
+    } ],
+    "maxActiveRuns" : 1,
+    "catchup" : false,
+    "scheduleTimeZone" : "UTC",
+    "dagParams" : {
+      "instances" : {
+        "default" : { }
+      },
+      "params" : { },
+      "selected" : "default"
+    },
+    "airflowFunctions" : [ ],
+    "dynamicPipelineStatus" : {
+      "databricks" : false,
+      "dataproc" : false,
+      "emr" : false,
+      "onprem" : false
+    }
+  },
+  "processes" : {
+    "-SFDV0OfALsUWVbiW-MSp$$rmOarqfvy7Fl2c2FwJ_tE" : {
+      "id" : "-SFDV0OfALsUWVbiW-MSp$$rmOarqfvy7Fl2c2FwJ_tE",
+      "component" : "TableauExtractOperator",
+      "metadata" : {
+        "label" : "TableauExtractOperator_1",
+        "slug" : "TableauExtractOperator_1",
+        "x" : -300,
+        "y" : -280
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "PELnIfzlszC0toJA8c4dP$$kVjQYEHcat7qqUj83ahCf",
+          "slug" : ""
+        } ],
+        "outputs" : [ {
+          "id" : "zcGKpkVQ2xdhuhgdF_3DZ$$mEPtfe8xFzgxILNMDMHr6",
+          "slug" : ""
+        } ]
+      },
+      "settings" : { },
+      "properties" : {
+        "tableau_project_name" : "Samples",
+        "snowflake_conn_id" : "snowflake_ashish",
+        "hyper_name" : "WORD_COUNT",
+        "tableau_conn_id" : "tableau_ashish",
+        "snowflake_table" : "WORD_COUNT",
+        "taskId" : null
+      },
+      "connections" : [ ],
+      "processes" : { }
+    }
+  },
+  "connections" : [ ]
+}

@@ -32,6 +32,29 @@ jobs:
     enabled: null
     createdAt: '2024-05-07 15:24:15'
     author: ashish@prophecy.io
+  jobs/tabluea_export_test:
+    name: tabluea_export_test
+    description: ''
+    fabricUID: 2
+    scheduler:
+      Composer: {}
+    cloudProvider: null
+    jobSize: null
+    scheduleCron: 0/5 * * * *
+    timeout: null
+    alerting:
+      emails: ''
+      onStart: false
+      onSuccess: false
+      onFailure: false
+    pipelines: []
+    jobClusterMode:
+      clusterMode:
+        Single: {}
+      clusterId: null
+    enabled: null
+    createdAt: '2024-05-09 09:55:16'
+    author: ashish@prophecy.io
 gemContainer:
   languageVersion: ''
   gemLibsVersion: ''

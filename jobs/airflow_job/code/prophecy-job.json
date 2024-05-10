@@ -41,6 +41,39 @@
     }
   },
   "processes" : {
+    "omLYbRs1IYZiewkjUJSZM" : {
+      "id" : "omLYbRs1IYZiewkjUJSZM",
+      "component" : "Python",
+      "metadata" : {
+        "label" : "tablueExport",
+        "slug" : "tablueExport",
+        "x" : 840,
+        "y" : -160
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "Uf-tokysCKDomC5JYllLq",
+          "slug" : ""
+        } ],
+        "outputs" : [ {
+          "id" : "L_AMJ0c8gmZaOVLAMR-fb",
+          "slug" : ""
+        } ]
+      },
+      "settings" : {
+        "retries" : 1
+      },
+      "properties" : {
+        "templatesExts" : null,
+        "code" : "def test_tableau():\n    from pathlib import Path\n    import tableauserverclient as TSC\n    from tableauhyperapi import HyperProcess, Telemetry, \\\n        Connection, CreateMode, \\\n        NOT_NULLABLE, NULLABLE, SqlType, TableDefinition, \\\n        Inserter, \\\n        escape_name, escape_string_literal, \\\n        TableName, \\\n        HyperException\n    from airflow.providers.tableau.hooks.tableau import TableauHook\n\n    # Configure for TSC to publish\n    # Note: Do not store creds/tokens in plaintext, please use env vars :)\n\n    # from gem properties\n    tableau_connection_id='tableau_ashish'\n    hyper_name = 'customer.hyper'\n\n# from connection\n    site_name = 'ashish0b1f0348d6'\n    server_address = 'https://prod-apnortheast-a.online.tableau.com/'\n    project_name = 'Samples'\n    token_name = 'ashish_token'\n    token_value = 'bWMM/NrETwS5a0Pr/s8j8Q==:TiI2FBiJndRHpHcqpZs8ZMxLmy9ki8hM'\n    # For more on tokens, head here:\n    # https://help.tableau.com/current/server/en-us/security_personal_access_tokens.htm\n\n    path_to_database = Path(hyper_name)\n\n    # The table is called \"Extract\" and will be created in the \"Extract\" schema\n    # and contains four columns.\n    extract_table = TableDefinition(\n        table_name=TableName(\"Extract\", \"Extract\"),\n        columns=[\n            TableDefinition.Column(name='Customer ID', type=SqlType.text(), nullability=NOT_NULLABLE),\n            TableDefinition.Column(name='Customer Name', type=SqlType.text(), nullability=NOT_NULLABLE),\n            TableDefinition.Column(name='Loyalty Reward Points', type=SqlType.big_int(), nullability=NOT_NULLABLE),\n            TableDefinition.Column(name='Segment', type=SqlType.text(), nullability=NOT_NULLABLE)\n        ]\n    )\n\n    def insert_data():\n        \"\"\"\n        An example demonstrating a simple single-table Hyper file including table creation and data insertion with different types\n        This code is lifted from the below example:\n        https://github.com/tableau/hyper-api-samples/blob/main/Tableau-Supported/Python/insert_data_into_single_table.py\n        \"\"\"\n        print(\"Creating single table for publishing.\")\n\n        # Starts the Hyper Process with telemetry enabled to send data to Tableau.\n        # To opt out, simply set telemetry=Telemetry.DO_NOT_SEND_USAGE_DATA_TO_TABLEAU.\n        with HyperProcess(telemetry=Telemetry.SEND_USAGE_DATA_TO_TABLEAU) as hyper:\n            # Creates new Hyper file \"customer.hyper\".\n            # Replaces file with CreateMode.CREATE_AND_REPLACE if it already exists.\n            with Connection(endpoint=hyper.endpoint,\n                            database=path_to_database,\n                            create_mode=CreateMode.CREATE_AND_REPLACE) as connection:\n                connection.catalog.create_schema(schema=extract_table.table_name.schema_name)\n                connection.catalog.create_table(table_definition=extract_table)\n\n                # The rows to insert into the \"Extract\".\"Extract\" table.\n                data_to_insert = [\n                    [\"DK-13375\", \"Dennis Kane\", 685, \"Consumer\"],\n                    [\"EB-13705\", \"Ed Braxton\", 815, \"Corporate\"]\n                ]\n\n                with Inserter(connection, extract_table) as inserter:\n                    inserter.add_rows(rows=data_to_insert)\n                    inserter.execute()\n\n                # The table names in the \"Extract\" schema (the default schema).\n                table_names = connection.catalog.get_table_names(\"Extract\")\n                print(f\"Tables available in {path_to_database} are: {table_names}\")\n\n                # Number of rows in the \"Extract\".\"Extract\" table.\n                # `execute_scalar_query` is for executing a query that returns exactly one row with one column.\n                row_count = connection.execute_scalar_query(query=f\"SELECT COUNT(*) FROM {extract_table.table_name}\")\n                print(f\"The number of rows in table {extract_table.table_name} is {row_count}.\")\n\n            print(\"The connection to the Hyper file has been closed.\")\n        print(\"The Hyper process has been shut down.\")\n\n    def publish_hyper():\n        \"\"\"\n        Shows how to leverage the Tableau Server Client (TSC) to sign in and publish an extract directly to Tableau Online/Server\n        \"\"\"\n\n        # Sign in to server\n        # tableau_auth = TSC.PersonalAccessTokenAuth('token', '3pHW1FGfREqgrkktd6y0MA==:Aqnk7VGoWtWSOXQIOrrrDx8iSFu4ihEP', site_id=site_name)\n        # server = TSC.Server(server_address, use_server_version=False)\n        with TableauHook(site_id=site_name, tableau_conn_id=tableau_connection_id) as hook:\n            print(f\"Signing into {site_name} at {server_address}\")\n            # Define publish mode - Overwrite, Append, or CreateNew\n            publish_mode = TSC.Server.PublishMode.Overwrite\n            p = hook.get_all('projects')\n            print(p)\n            # Get project_id from project_name\n            for project in p:\n                if project.name == project_name:\n                    project_id = project.id\n\n            # Create the datasource object with the project_id\n            datasource = TSC.DatasourceItem(project_id=project_id, name='customer2')\n\n            print(f\"Publishing {hyper_name} to {project_name}...\")\n            # Publish datasource\n\n            datasource = hook.server.datasources.publish(datasource, path_to_database, publish_mode)\n            print(\"Datasource published. Datasource ID: {0}\".format(datasource.id))\n\n    insert_data()\n    publish_hyper()\n",
+        "opArgs" : null,
+        "templatesDict" : null,
+        "taskId" : null,
+        "opKwargs" : null
+      },
+      "connections" : [ ],
+      "processes" : { }
+    },
     "io_BDfYiD_TmOWRPyfTqd" : {
       "id" : "io_BDfYiD_TmOWRPyfTqd",
       "component" : "SFTPSensor",
@@ -78,8 +111,8 @@
       "metadata" : {
         "label" : "SnowflakeModel",
         "slug" : "SnowflakeModel",
-        "x" : 600,
-        "y" : 0
+        "x" : 620,
+        "y" : -180
       },
       "ports" : {
         "inputs" : [ {
@@ -163,39 +196,6 @@
         "taskId" : null,
         "logPath" : null,
         "storeFailures" : null
-      },
-      "connections" : [ ],
-      "processes" : { }
-    },
-    "0s8dYtFv7SifMzdPFMyno$$LHPn_iqm5TGkpSMOrcC4g" : {
-      "id" : "0s8dYtFv7SifMzdPFMyno$$LHPn_iqm5TGkpSMOrcC4g",
-      "component" : "Python",
-      "metadata" : {
-        "label" : "tablueExport",
-        "slug" : "tablueExport",
-        "x" : 800,
-        "y" : 20
-      },
-      "ports" : {
-        "inputs" : [ {
-          "id" : "-dT0nw-NrWFGoOAXYq5th$$Q1qg92a1-OSHQCWDQ2Y4K",
-          "slug" : ""
-        } ],
-        "outputs" : [ {
-          "id" : "UPo-sA4R_wWF13BDGmT0m$$gznutrbH8Wq8Eoy2k3xN_",
-          "slug" : ""
-        } ]
-      },
-      "settings" : {
-        "retries" : 1
-      },
-      "properties" : {
-        "templatesExts" : null,
-        "code" : "def test_tableau():\n    from pathlib import Path\n    import tableauserverclient as TSC\n    from tableauhyperapi import HyperProcess, Telemetry, \\\n        Connection, CreateMode, \\\n        NOT_NULLABLE, NULLABLE, SqlType, TableDefinition, \\\n        Inserter, \\\n        escape_name, escape_string_literal, \\\n        TableName, \\\n        HyperException\n    from airflow.providers.tableau.hooks.tableau import TableauHook\n\n    # Configure for TSC to publish\n    # Note: Do not store creds/tokens in plaintext, please use env vars :)\n\n    # from gem properties\n    tableau_connection_id='tableau_ashish'\n    hyper_name = 'customer.hyper'\n\n# from connection\n    site_name = 'ashish0b1f0348d6'\n    server_address = 'https://prod-apnortheast-a.online.tableau.com/'\n    project_name = 'Samples'\n    token_name = 'ashish_token'\n    token_value = 'bWMM/NrETwS5a0Pr/s8j8Q==:TiI2FBiJndRHpHcqpZs8ZMxLmy9ki8hM'\n    # For more on tokens, head here:\n    # https://help.tableau.com/current/server/en-us/security_personal_access_tokens.htm\n\n    path_to_database = Path(hyper_name)\n\n    # The table is called \"Extract\" and will be created in the \"Extract\" schema\n    # and contains four columns.\n    extract_table = TableDefinition(\n        table_name=TableName(\"Extract\", \"Extract\"),\n        columns=[\n            TableDefinition.Column(name='Customer ID', type=SqlType.text(), nullability=NOT_NULLABLE),\n            TableDefinition.Column(name='Customer Name', type=SqlType.text(), nullability=NOT_NULLABLE),\n            TableDefinition.Column(name='Loyalty Reward Points', type=SqlType.big_int(), nullability=NOT_NULLABLE),\n            TableDefinition.Column(name='Segment', type=SqlType.text(), nullability=NOT_NULLABLE)\n        ]\n    )\n\n    def insert_data():\n        \"\"\"\n        An example demonstrating a simple single-table Hyper file including table creation and data insertion with different types\n        This code is lifted from the below example:\n        https://github.com/tableau/hyper-api-samples/blob/main/Tableau-Supported/Python/insert_data_into_single_table.py\n        \"\"\"\n        print(\"Creating single table for publishing.\")\n\n        # Starts the Hyper Process with telemetry enabled to send data to Tableau.\n        # To opt out, simply set telemetry=Telemetry.DO_NOT_SEND_USAGE_DATA_TO_TABLEAU.\n        with HyperProcess(telemetry=Telemetry.SEND_USAGE_DATA_TO_TABLEAU) as hyper:\n            # Creates new Hyper file \"customer.hyper\".\n            # Replaces file with CreateMode.CREATE_AND_REPLACE if it already exists.\n            with Connection(endpoint=hyper.endpoint,\n                            database=path_to_database,\n                            create_mode=CreateMode.CREATE_AND_REPLACE) as connection:\n                connection.catalog.create_schema(schema=extract_table.table_name.schema_name)\n                connection.catalog.create_table(table_definition=extract_table)\n\n                # The rows to insert into the \"Extract\".\"Extract\" table.\n                data_to_insert = [\n                    [\"DK-13375\", \"Dennis Kane\", 685, \"Consumer\"],\n                    [\"EB-13705\", \"Ed Braxton\", 815, \"Corporate\"]\n                ]\n\n                with Inserter(connection, extract_table) as inserter:\n                    inserter.add_rows(rows=data_to_insert)\n                    inserter.execute()\n\n                # The table names in the \"Extract\" schema (the default schema).\n                table_names = connection.catalog.get_table_names(\"Extract\")\n                print(f\"Tables available in {path_to_database} are: {table_names}\")\n\n                # Number of rows in the \"Extract\".\"Extract\" table.\n                # `execute_scalar_query` is for executing a query that returns exactly one row with one column.\n                row_count = connection.execute_scalar_query(query=f\"SELECT COUNT(*) FROM {extract_table.table_name}\")\n                print(f\"The number of rows in table {extract_table.table_name} is {row_count}.\")\n\n            print(\"The connection to the Hyper file has been closed.\")\n        print(\"The Hyper process has been shut down.\")\n\n    def publish_hyper():\n        \"\"\"\n        Shows how to leverage the Tableau Server Client (TSC) to sign in and publish an extract directly to Tableau Online/Server\n        \"\"\"\n\n        # Sign in to server\n        # tableau_auth = TSC.PersonalAccessTokenAuth('token', '3pHW1FGfREqgrkktd6y0MA==:Aqnk7VGoWtWSOXQIOrrrDx8iSFu4ihEP', site_id=site_name)\n        # server = TSC.Server(server_address, use_server_version=False)\n        with TableauHook(site_id=site_name, tableau_conn_id=tableau_connection_id) as hook:\n            print(f\"Signing into {site_name} at {server_address}\")\n            # Define publish mode - Overwrite, Append, or CreateNew\n            publish_mode = TSC.Server.PublishMode.Overwrite\n            p = hook.get_all('projects')\n            print(p)\n            # Get project_id from project_name\n            for project in p:\n                if project.name == project_name:\n                    project_id = project.id\n\n            # Create the datasource object with the project_id\n            datasource = TSC.DatasourceItem(project_id=project_id, name='customer2')\n\n            print(f\"Publishing {hyper_name} to {project_name}...\")\n            # Publish datasource\n\n            datasource = hook.server.datasources.publish(datasource, path_to_database, publish_mode)\n            print(\"Datasource published. Datasource ID: {0}\".format(datasource.id))\n\n    insert_data()\n    publish_hyper()\n",
-        "opArgs" : null,
-        "templatesDict" : null,
-        "taskId" : null,
-        "opKwargs" : null
       },
       "connections" : [ ],
       "processes" : { }
@@ -290,10 +290,10 @@
     "sourcePort" : "abcflxOjAgHsswzBtpa5T",
     "targetPort" : "8gurbvC4wQoQSrKYrm7GK$$1kMgQVfx7gdrCSMgKX43a"
   }, {
-    "id" : "Oxm6UaEzLN-n9v8NnsFJt$$QsOJQG8TcPafO53wqaFNM",
+    "id" : "om54jC8Ph2WO7FlsmTBuL",
     "source" : "K_nxr0o5A6q8ozjcnzAuK$$CkYtJLK71NCBkk3hw2Dav",
-    "target" : "0s8dYtFv7SifMzdPFMyno$$LHPn_iqm5TGkpSMOrcC4g",
+    "target" : "omLYbRs1IYZiewkjUJSZM",
     "sourcePort" : "DHXV04t-JgIGw64-Moesd$$hFjQeeSUFtT4vs4wC5b1X",
-    "targetPort" : "-dT0nw-NrWFGoOAXYq5th$$Q1qg92a1-OSHQCWDQ2Y4K"
+    "targetPort" : "Uf-tokysCKDomC5JYllLq"
   } ]
 }
