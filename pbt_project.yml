@@ -69,6 +69,29 @@ functions:
   airflowFunctions: {}
 subgraphs: {}
 sqlModels:
+  .prophecy/metadata/sqlmodels/customers_by_country:
+    name: customers_by_country
+    schema:
+      providerType: Snowflake
+      fields:
+      - name: COUNTRY
+        dataType:
+          type: String
+      - name: CUSTOMERS
+        dataType:
+          type: Number
+    description: null
+    author: ashish@prophecy.io
+    files:
+    - models/customers_by_country.sql
+    - .prophecy/ide/models/customers_by_country.json
+    sqlDependencies:
+      models: []
+      datasets: []
+      seeds: []
+      sources: []
+      snapshots: []
+    createdAt: '2024-05-13 08:54:55'
   .prophecy/metadata/sqlmodels/word_count:
     name: word_count
     schema:
@@ -118,6 +141,28 @@ sqlSources:
       description: null
       author: ashish@prophecy.io
       createdAt: '2024-05-07 15:23:30'
+    - name: CUSTOMER_DATA
+      schema:
+        providerType: snowflake
+        fields:
+        - name: ID
+          dataType:
+            type: Number
+        - name: NAME
+          dataType:
+            type: String
+        - name: COMPANY
+          dataType:
+            type: String
+        - name: EMAIL
+          dataType:
+            type: String
+        - name: COUNTRY
+          dataType:
+            type: String
+      description: null
+      author: ashish@prophecy.io
+      createdAt: '2024-05-13 08:50:01'
 sqlUnreferencedSources: {}
 sqlPipeline:
   name: sqlPipeline

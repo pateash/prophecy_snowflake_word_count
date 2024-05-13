@@ -11,5 +11,5 @@ def LoadFileToSnowflake():
         snowflake_conn_id = "snowflake_ashish",
         table = "CUSTOMER_DATA",
         stage = "ASHISH_S3_STAGE",
-        copy_options = "ON_ERROR = 'CONTINUE'"
+        copy_options = "ON_ERROR = 'SKIP_FILE'"
     )

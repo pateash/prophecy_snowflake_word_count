@@ -47,8 +47,8 @@
       "metadata" : {
         "label" : "SnowflakeModel",
         "slug" : "SnowflakeModel",
-        "x" : -60,
-        "y" : -320
+        "x" : -20,
+        "y" : -340
       },
       "ports" : {
         "inputs" : [ {
@@ -173,8 +173,8 @@
       "metadata" : {
         "label" : "LoadFileToSnowflake",
         "slug" : "LoadFileToSnowflake",
-        "x" : -300,
-        "y" : -300
+        "x" : -260,
+        "y" : -340
       },
       "ports" : {
         "inputs" : [ {
@@ -197,7 +197,7 @@
         "file_format" : "(type = 'CSV')",
         "snowflake_stage" : "ASHISH_S3_STAGE",
         "snowflake_warehouse" : "COMPUTE_WH",
-        "copy_options_on_error" : "CONTINUE",
+        "copy_options_on_error" : "SKIP_FILE",
         "snowflake_schema" : "PUBLIC",
         "aws_conn_id" : null,
         "snowflake_table" : "CUSTOMER_DATA",
@@ -210,8 +210,8 @@
       "id" : "8d8-FYZwDUdLgYB8hIV97",
       "component" : "SFTPSensor",
       "metadata" : {
-        "label" : "ReadCustomerData",
-        "slug" : "ReadCustomerData",
+        "label" : "CheckCustomerData",
+        "slug" : "CheckCustomerData",
         "x" : -700,
         "y" : -320
       },

@@ -202,39 +202,14 @@
           "TEST" : {
             "providerType" : "Snowflake",
             "fields" : [ {
-              "name" : "ID",
-              "dataType" : {
-                "type" : "Number"
-              }
-            }, {
-              "name" : "DATA",
-              "dataType" : {
-                "type" : "Variant"
-              }
-            }, {
-              "name" : "KIND",
+              "name" : "LINE",
               "dataType" : {
                 "type" : "String"
               }
             }, {
-              "name" : "BOOK_DATA",
+              "name" : "WORDS_COUNT",
               "dataType" : {
-                "type" : "Variant"
-              }
-            }, {
-              "name" : "FOOD_MENU",
-              "dataType" : {
-                "type" : "Variant"
-              }
-            }, {
-              "name" : "SONGS_DATA",
-              "dataType" : {
-                "type" : "Variant"
-              }
-            }, {
-              "name" : "MAPS_DATA",
-              "dataType" : {
-                "type" : "Variant"
+                "type" : "Number"
               }
             } ]
           },
@@ -309,6 +284,54 @@
               }
             }, {
               "name" : "LAST_NAME",
+              "dataType" : {
+                "type" : "String"
+              }
+            } ]
+          },
+          "WORD_COUNT" : {
+            "providerType" : "Snowflake",
+            "fields" : [ {
+              "name" : "LINE",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "WORDS",
+              "dataType" : {
+                "type" : "Array"
+              }
+            }, {
+              "name" : "WORDS_COUNT",
+              "dataType" : {
+                "type" : "Number"
+              }
+            } ]
+          },
+          "CUSTOMER_DATA" : {
+            "providerType" : "Snowflake",
+            "fields" : [ {
+              "name" : "ID",
+              "dataType" : {
+                "type" : "Number"
+              }
+            }, {
+              "name" : "NAME",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "COMPANY",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "EMAIL",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "COUNTRY",
               "dataType" : {
                 "type" : "String"
               }
@@ -656,11 +679,19 @@
       "children" : [ ]
     }, {
       "type" : "Database",
+      "name" : "RAJ",
+      "children" : [ ]
+    }, {
+      "type" : "Database",
       "name" : "RAJAT",
       "children" : [ ]
     }, {
       "type" : "Database",
       "name" : "RJ",
+      "children" : [ ]
+    }, {
+      "type" : "Database",
+      "name" : "SHASHANK",
       "children" : [ ]
     }, {
       "type" : "Database",
@@ -673,6 +704,10 @@
     }, {
       "type" : "Database",
       "name" : "TESTING",
+      "children" : [ ]
+    }, {
+      "type" : "Database",
+      "name" : "UT_DB_DONOT_USE",
       "children" : [ ]
     }, {
       "type" : "Database",
@@ -697,6 +732,10 @@
     "prophecyProjectDependencies" : { }
   },
   "entitiesToSync" : [ {
+    "name" : "customers_by_country",
+    "type" : "Model",
+    "syncedOnce" : false
+  }, {
     "name" : "word_count",
     "type" : "Model",
     "syncedOnce" : false

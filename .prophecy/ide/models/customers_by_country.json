@@ -1,0 +1,227 @@
+{
+  "id" : "customers_by_country",
+  "metainfo" : {
+    "label" : "customers_by_country",
+    "autoLayout" : false,
+    "staleState" : "none",
+    "sourceSuggestions" : {
+      "sources" : [ ]
+    },
+    "graphConfig" : {
+      "entityConfig" : {
+        "materialized" : "table",
+        "type" : "ModelConfig"
+      }
+    },
+    "version" : 3
+  },
+  "processes" : {
+    "customers_by_country##mJ1K0XCa" : {
+      "id" : "customers_by_country##mJ1K0XCa",
+      "component" : "TargetModel",
+      "metadata" : {
+        "label" : "customers_by_country",
+        "x" : 220,
+        "y" : -20,
+        "phase" : 0,
+        "macroDependencies" : [ ]
+      },
+      "properties" : {
+        "customQueryDisabled" : true,
+        "customQuery" : false,
+        "incrementalEditorDisabled" : true,
+        "query" : "SELECT * \n\nFROM SQLStatement_1\n",
+        "incrementalKey" : false,
+        "incremental" : {
+          "expression" : "true"
+        }
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "woREzmOs",
+          "schema" : {
+            "providerType" : "Snowflake",
+            "fields" : [ {
+              "name" : "COUNTRY",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "CUSTOMERS",
+              "dataType" : {
+                "type" : "Number"
+              }
+            } ]
+          },
+          "slug" : "SQLStatement_1"
+        } ],
+        "outputs" : [ {
+          "id" : "UsO6xFVT",
+          "schema" : {
+            "providerType" : "Snowflake",
+            "fields" : [ {
+              "name" : "COUNTRY",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "CUSTOMERS",
+              "dataType" : {
+                "type" : "Number"
+              }
+            } ]
+          },
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      }
+    },
+    "VJRgUYb9Yu8PbESDrrMVk$$J-V8_69BdS7677-XkLFGX" : {
+      "id" : "VJRgUYb9Yu8PbESDrrMVk$$J-V8_69BdS7677-XkLFGX",
+      "component" : "Source",
+      "metadata" : {
+        "label" : "CUSTOMER_DATA",
+        "slug" : "CUSTOMER_DATA",
+        "x" : -340,
+        "y" : -20,
+        "phase" : 0
+      },
+      "properties" : {
+        "table" : {
+          "name" : "CUSTOMER_DATA",
+          "sourceType" : "Source",
+          "sourceName" : "ASHISH.PUBLIC",
+          "alias" : ""
+        }
+      },
+      "ports" : {
+        "inputs" : [ ],
+        "outputs" : [ {
+          "id" : "c3p9l7HYVCJGp5ZnKn7IY$$sj5wQGLQWL-mgjNPyQF3G",
+          "schema" : {
+            "providerType" : "snowflake",
+            "fields" : [ {
+              "name" : "ID",
+              "dataType" : {
+                "type" : "Number"
+              }
+            }, {
+              "name" : "NAME",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "COMPANY",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "EMAIL",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "COUNTRY",
+              "dataType" : {
+                "type" : "String"
+              }
+            } ]
+          },
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      }
+    },
+    "MhXWehEs1L3e46m2TsDf6$$2cBiaHNwsImAhiOONTZ3A" : {
+      "id" : "MhXWehEs1L3e46m2TsDf6$$2cBiaHNwsImAhiOONTZ3A",
+      "component" : "SQLStatement",
+      "metadata" : {
+        "label" : "SQLStatement_1",
+        "slug" : "SQLStatement_1",
+        "x" : -40,
+        "y" : -20,
+        "phase" : 0,
+        "macroDependencies" : [ ]
+      },
+      "properties" : {
+        "fileTabs" : [ {
+          "path" : "out",
+          "id" : "out",
+          "language" : "sql",
+          "content" : "select country, count(*) customers from CUSTOMER_DATA group by country"
+        } ]
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "azAO9WXcXaHBe7AUu2GRY$$Cu9UqfE91AK0gdcR1VlXW",
+          "schema" : {
+            "providerType" : "snowflake",
+            "fields" : [ {
+              "name" : "ID",
+              "dataType" : {
+                "type" : "Number"
+              }
+            }, {
+              "name" : "NAME",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "COMPANY",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "EMAIL",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "COUNTRY",
+              "dataType" : {
+                "type" : "String"
+              }
+            } ]
+          },
+          "slug" : "CUSTOMER_DATA"
+        } ],
+        "outputs" : [ {
+          "id" : "KD_urgXD9nOZxPjffiWq-$$dNnw291MP3GbbDAMOGqws",
+          "schema" : {
+            "providerType" : "Snowflake",
+            "fields" : [ {
+              "name" : "COUNTRY",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "CUSTOMERS",
+              "dataType" : {
+                "type" : "Number"
+              }
+            } ]
+          },
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      }
+    }
+  },
+  "connections" : [ {
+    "id" : "2-caY_1S60f2jAL2RSLia",
+    "source" : "VJRgUYb9Yu8PbESDrrMVk$$J-V8_69BdS7677-XkLFGX",
+    "sourcePort" : "c3p9l7HYVCJGp5ZnKn7IY$$sj5wQGLQWL-mgjNPyQF3G",
+    "target" : "MhXWehEs1L3e46m2TsDf6$$2cBiaHNwsImAhiOONTZ3A",
+    "targetPort" : "azAO9WXcXaHBe7AUu2GRY$$Cu9UqfE91AK0gdcR1VlXW"
+  }, {
+    "id" : "4gJOC-SSaKVuXky3qV_6p",
+    "source" : "MhXWehEs1L3e46m2TsDf6$$2cBiaHNwsImAhiOONTZ3A",
+    "sourcePort" : "KD_urgXD9nOZxPjffiWq-$$dNnw291MP3GbbDAMOGqws",
+    "target" : "customers_by_country##mJ1K0XCa",
+    "targetPort" : "woREzmOs"
+  } ],
+  "component" : "Model"
+}
