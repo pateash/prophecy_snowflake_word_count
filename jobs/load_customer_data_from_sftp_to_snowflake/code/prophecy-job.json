@@ -76,8 +76,8 @@
       "id" : "kQo1VZW9Fd_AYxxLQIsBM",
       "component" : "Model",
       "metadata" : {
-        "label" : "dbtRun",
-        "slug" : "dbtRun",
+        "label" : "RunModel",
+        "slug" : "RunModel",
         "x" : -40,
         "y" : -500
       },
@@ -101,7 +101,7 @@
         "runSeed" : false,
         "gitEntity" : "branch",
         "noPartialParse" : null,
-        "model" : "word_count",
+        "model" : "customers_by_country",
         "warnErrorOptions" : null,
         "gitTokenSecret" : null,
         "state" : null,

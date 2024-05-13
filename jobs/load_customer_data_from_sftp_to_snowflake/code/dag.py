@@ -12,8 +12,8 @@ from ashishk3s_ashish_prophecy_snowflake_word_count_load_customer_data_from_sftp
     CustomerByCountry,
     CustomerData,
     LoadFileToSnowflake,
-    TransferSFTPFileToS3,
-    dbtRun
+    RunModel,
+    TransferSFTPFileToS3
 )
 PROPHECY_RELEASE_TAG = "__PROJECT_ID_PLACEHOLDER__/__PROJECT_RELEASE_VERSION_PLACEHOLDER__"
 
@@ -29,9 +29,9 @@ with DAG(
     TransferSFTPFileToS3_op = TransferSFTPFileToS3()
     LoadFileToSnowflake_op = LoadFileToSnowflake()
     CustomerData_op = CustomerData()
-    dbtRun_op = dbtRun()
+    RunModel_op = RunModel()
     CustomerByCountry_op = CustomerByCountry()
     TransferSFTPFileToS3_op >> LoadFileToSnowflake_op
     CheckCustomerData_op >> TransferSFTPFileToS3_op
-    dbtRun_op >> CustomerByCountry_op
-    LoadFileToSnowflake_op >> [CustomerData_op, dbtRun_op]
+    RunModel_op >> CustomerByCountry_op
+    LoadFileToSnowflake_op >> [CustomerData_op, RunModel_op]

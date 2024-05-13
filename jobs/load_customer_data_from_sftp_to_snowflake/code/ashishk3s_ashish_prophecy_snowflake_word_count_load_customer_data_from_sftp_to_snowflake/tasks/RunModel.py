@@ -1,6 +1,6 @@
 from ashishk3s_ashish_prophecy_snowflake_word_count_load_customer_data_from_sftp_to_snowflake.utils import *
 
-def dbtRun():
+def RunModel():
     from datetime import timedelta
     from airflow.operators.bash import BashOperator
     envs = {}
@@ -12,11 +12,11 @@ def dbtRun():
     if "run_profile_snowflake":
         dbt_props_cmd = " --profile run_profile_snowflake"
 
-    if "word_count":
-        dbt_props_cmd = dbt_props_cmd + " -m " + "word_count"
+    if "customers_by_country":
+        dbt_props_cmd = dbt_props_cmd + " -m " + "customers_by_country"
 
     return BashOperator(
-        task_id = "dbtRun",
+        task_id = "RunModel",
         bash_command = " && ".join(
           ["{} && cd $tmpDir/{}".format(
              (
