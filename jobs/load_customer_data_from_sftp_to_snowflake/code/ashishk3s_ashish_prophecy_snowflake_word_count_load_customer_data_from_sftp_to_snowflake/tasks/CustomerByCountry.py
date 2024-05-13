@@ -1,6 +1,6 @@
 from ashishk3s_ashish_prophecy_snowflake_word_count_load_customer_data_from_sftp_to_snowflake.utils import *
 
-def TableauExtractOperator_1():
+def CustomerByCountry():
     from typing import Optional, List, Dict
     from dataclasses import dataclass, field
     from abc import ABC
@@ -16,12 +16,12 @@ def TableauExtractOperator_1():
         hyper_name: Optional[str] = None
 
     props = TableauExtractProperties(  #skiptraversal
-        taskId = "TableauExtractOperator_1", 
+        taskId = "CustomerByCountry", 
         snowflake_conn_id = "snowflake_CICD_253", 
-        snowflake_table = "WORD_COUNT", 
+        snowflake_table = "CUSTOMERS_BY_COUNTRY", 
         tableau_conn_id = "tableau_ashish", 
         tableau_project_name = "Samples", 
-        hyper_name = "WORD_COUNT"
+        hyper_name = "CUSTOMERS_BY_COUNTRY"
     )
     settings = {}
     from airflow.operators.python import PythonOperator

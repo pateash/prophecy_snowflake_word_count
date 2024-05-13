@@ -41,14 +41,45 @@
     }
   },
   "processes" : {
+    "2Bj4iM9dwUX3gHOB__Lvt" : {
+      "id" : "2Bj4iM9dwUX3gHOB__Lvt",
+      "component" : "TableauExtractOperator",
+      "metadata" : {
+        "label" : "CustomerData",
+        "slug" : "CustomerData",
+        "x" : 100,
+        "y" : -160
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "SxIltJr8EIJ_6MzlDHfxd",
+          "slug" : ""
+        } ],
+        "outputs" : [ {
+          "id" : "mqzILEhc9ZMdZMdh8ecmq",
+          "slug" : ""
+        } ]
+      },
+      "settings" : { },
+      "properties" : {
+        "tableau_project_name" : "Samples",
+        "snowflake_conn_id" : "snowflake_CICD_253",
+        "hyper_name" : "CUSTOMER_DATA",
+        "tableau_conn_id" : "tableau_ashish",
+        "snowflake_table" : "CUSTOMER_DATA",
+        "taskId" : null
+      },
+      "connections" : [ ],
+      "processes" : { }
+    },
     "kQo1VZW9Fd_AYxxLQIsBM" : {
       "id" : "kQo1VZW9Fd_AYxxLQIsBM",
       "component" : "Model",
       "metadata" : {
         "label" : "SnowflakeModel",
         "slug" : "SnowflakeModel",
-        "x" : -80,
-        "y" : -240
+        "x" : -60,
+        "y" : -480
       },
       "ports" : {
         "inputs" : [ {
@@ -123,11 +154,6 @@
         "threads" : null,
         "warnError" : null,
         "currentProjectModels" : [ {
-          "label" : "customers_by_country",
-          "value" : "customers_by_country",
-          "id" : "8/.prophecy/metadata/sqlmodels/customers_by_country",
-          "name" : "customers_by_country"
-        }, {
           "label" : "word_count",
           "value" : "word_count",
           "id" : "8/.prophecy/metadata/sqlmodels/word_count",
@@ -178,8 +204,8 @@
       "metadata" : {
         "label" : "LoadFileToSnowflake",
         "slug" : "LoadFileToSnowflake",
-        "x" : -260,
-        "y" : -340
+        "x" : -320,
+        "y" : -320
       },
       "ports" : {
         "inputs" : [ {
@@ -248,10 +274,10 @@
       "id" : "3kMn9NqBOjJMlUzYnhB9x$$JqEyYQgMu_rPWm7INUVCZ",
       "component" : "TableauExtractOperator",
       "metadata" : {
-        "label" : "TableauExtractOperator_1",
-        "slug" : "TableauExtractOperator_1",
-        "x" : 180,
-        "y" : -320
+        "label" : "CustomerByCountry",
+        "slug" : "CustomerByCountry",
+        "x" : 220,
+        "y" : -480
       },
       "ports" : {
         "inputs" : [ {
@@ -267,9 +293,9 @@
       "properties" : {
         "tableau_project_name" : "Samples",
         "snowflake_conn_id" : "snowflake_CICD_253",
-        "hyper_name" : "WORD_COUNT",
+        "hyper_name" : "CUSTOMERS_BY_COUNTRY",
         "tableau_conn_id" : "tableau_ashish",
-        "snowflake_table" : "WORD_COUNT",
+        "snowflake_table" : "CUSTOMERS_BY_COUNTRY",
         "taskId" : null
       },
       "connections" : [ ],
@@ -289,16 +315,22 @@
     "sourcePort" : "WRaYyEkK45y1CaK-IqsCd",
     "targetPort" : "zfw9EEWuvpvTqSr2c0C6o"
   }, {
-    "id" : "yI6uZ0lErFXHYh1-ziH-a",
+    "id" : "jVSKWHe4dw2zcL3iOrcd6",
+    "source" : "kQo1VZW9Fd_AYxxLQIsBM",
+    "target" : "3kMn9NqBOjJMlUzYnhB9x$$JqEyYQgMu_rPWm7INUVCZ",
+    "sourcePort" : "8hufbBEe7-mCSdRGWrhGU",
+    "targetPort" : "jYpJw5-F6ye6WQjbYlkZV$$QxVfCG3nxlZwXl7grJmH0"
+  }, {
+    "id" : "ysJfOFQLANd_ERkw8iUIH$$1PoByR5ggM1EypDcBh9bs",
     "source" : "qn3e43K4CRNlbWG9W7tmg",
     "target" : "kQo1VZW9Fd_AYxxLQIsBM",
     "sourcePort" : "vcJwL_iizeno_V80sH_9d",
     "targetPort" : "CM13o1qf5SMopCCDks5BE"
   }, {
-    "id" : "KNGjv1fxPZOiJDVOCS_Bs$$EVuIEHUSZRdZxituzM46q",
-    "source" : "kQo1VZW9Fd_AYxxLQIsBM",
-    "target" : "3kMn9NqBOjJMlUzYnhB9x$$JqEyYQgMu_rPWm7INUVCZ",
-    "sourcePort" : "8hufbBEe7-mCSdRGWrhGU",
-    "targetPort" : "jYpJw5-F6ye6WQjbYlkZV$$QxVfCG3nxlZwXl7grJmH0"
+    "id" : "FW7eGZpfw2pfGP0EiNOmO",
+    "source" : "qn3e43K4CRNlbWG9W7tmg",
+    "target" : "2Bj4iM9dwUX3gHOB__Lvt",
+    "sourcePort" : "vcJwL_iizeno_V80sH_9d",
+    "targetPort" : "SxIltJr8EIJ_6MzlDHfxd"
   } ]
 }

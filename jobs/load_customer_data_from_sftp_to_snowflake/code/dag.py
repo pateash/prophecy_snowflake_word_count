@@ -9,9 +9,10 @@ from airflow.decorators import task
 sys.path.insert(0, os.path.abspath(os.path.dirname(__file__)))
 from ashishk3s_ashish_prophecy_snowflake_word_count_load_customer_data_from_sftp_to_snowflake.tasks import (
     CheckCustomerData,
+    CustomerByCountry,
+    CustomerData,
     LoadFileToSnowflake,
     SnowflakeModel,
-    TableauExtractOperator_1,
     TransferSFTPFileToS3
 )
 PROPHECY_RELEASE_TAG = "__PROJECT_ID_PLACEHOLDER__/__PROJECT_RELEASE_VERSION_PLACEHOLDER__"
@@ -27,9 +28,10 @@ with DAG(
     CheckCustomerData_op = CheckCustomerData()
     TransferSFTPFileToS3_op = TransferSFTPFileToS3()
     LoadFileToSnowflake_op = LoadFileToSnowflake()
+    CustomerData_op = CustomerData()
     SnowflakeModel_op = SnowflakeModel()
-    TableauExtractOperator_1_op = TableauExtractOperator_1()
+    CustomerByCountry_op = CustomerByCountry()
     TransferSFTPFileToS3_op >> LoadFileToSnowflake_op
     CheckCustomerData_op >> TransferSFTPFileToS3_op
-    LoadFileToSnowflake_op >> SnowflakeModel_op
-    SnowflakeModel_op >> TableauExtractOperator_1_op
+    SnowflakeModel_op >> CustomerByCountry_op
+    LoadFileToSnowflake_op >> [CustomerData_op, SnowflakeModel_op]
