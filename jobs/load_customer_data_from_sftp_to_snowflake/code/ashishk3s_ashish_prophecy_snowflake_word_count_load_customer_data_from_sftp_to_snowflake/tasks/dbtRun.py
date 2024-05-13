@@ -1,6 +1,6 @@
 from ashishk3s_ashish_prophecy_snowflake_word_count_load_customer_data_from_sftp_to_snowflake.utils import *
 
-def SnowflakeModel():
+def dbtRun():
     from datetime import timedelta
     from airflow.operators.bash import BashOperator
     envs = {}
@@ -13,17 +13,17 @@ def SnowflakeModel():
         dbt_props_cmd = " --profile run_profile_snowflake"
 
     if "word_count":
-        dbt_props_cmd = dbt_props_cmd + " -m " + "word_count+"
+        dbt_props_cmd = dbt_props_cmd + " -m " + "word_count"
 
     return BashOperator(
-        task_id = "SnowflakeModel",
+        task_id = "dbtRun",
         bash_command = " && ".join(
           ["{} && cd $tmpDir/{}".format(
              (
                "set -euxo pipefail && tmpDir=`mktemp -d` && git clone "
                + "{} --branch {} --single-branch $tmpDir".format(
                  "https://github.com/pateash/prophecy_snowflake_word_count",
-                 "main"
+                 "dev"
                )
              ),
              ""

@@ -47,7 +47,7 @@
       "metadata" : {
         "label" : "CustomerData",
         "slug" : "CustomerData",
-        "x" : 100,
+        "x" : 80,
         "y" : -160
       },
       "ports" : {
@@ -76,10 +76,10 @@
       "id" : "kQo1VZW9Fd_AYxxLQIsBM",
       "component" : "Model",
       "metadata" : {
-        "label" : "SnowflakeModel",
-        "slug" : "SnowflakeModel",
-        "x" : -60,
-        "y" : -480
+        "label" : "dbtRun",
+        "slug" : "dbtRun",
+        "x" : -40,
+        "y" : -500
       },
       "ports" : {
         "inputs" : [ {
@@ -140,9 +140,9 @@
         "noWriteJson" : false,
         "printerWidth" : null,
         "sqlFabricId" : "4",
-        "gitEntityValue" : "main",
+        "gitEntityValue" : "dev",
         "logFormat" : null,
-        "runModelWithChildren" : true,
+        "runModelWithChildren" : false,
         "dbtProfileSecret" : null,
         "target" : null,
         "exclude" : null,
@@ -154,6 +154,11 @@
         "threads" : null,
         "warnError" : null,
         "currentProjectModels" : [ {
+          "label" : "customers_by_country",
+          "value" : "customers_by_country",
+          "id" : "8/.prophecy/metadata/sqlmodels/customers_by_country",
+          "name" : "customers_by_country"
+        }, {
           "label" : "word_count",
           "value" : "word_count",
           "id" : "8/.prophecy/metadata/sqlmodels/word_count",
@@ -276,8 +281,8 @@
       "metadata" : {
         "label" : "CustomerByCountry",
         "slug" : "CustomerByCountry",
-        "x" : 220,
-        "y" : -480
+        "x" : 240,
+        "y" : -500
       },
       "ports" : {
         "inputs" : [ {
