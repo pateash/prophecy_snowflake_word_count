@@ -47,8 +47,8 @@
       "metadata" : {
         "label" : "SnowflakeModel",
         "slug" : "SnowflakeModel",
-        "x" : -20,
-        "y" : -160
+        "x" : -60,
+        "y" : -320
       },
       "ports" : {
         "inputs" : [ {
@@ -70,7 +70,7 @@
         "runSeed" : false,
         "gitEntity" : "branch",
         "noPartialParse" : null,
-        "model" : null,
+        "model" : "word_count",
         "warnErrorOptions" : null,
         "gitTokenSecret" : null,
         "state" : null,
@@ -90,7 +90,7 @@
         "noPrint" : null,
         "quiet" : null,
         "projectId" : "8",
-        "runMode" : "project",
+        "runMode" : "model",
         "runOnlyModel" : false,
         "favorState" : null,
         "failFast" : null,
@@ -142,8 +142,8 @@
       "metadata" : {
         "label" : "TransferSFTPFileToS3",
         "slug" : "TransferSFTPFileToS3",
-        "x" : -420,
-        "y" : -160
+        "x" : -500,
+        "y" : -320
       },
       "ports" : {
         "inputs" : [ {
@@ -157,10 +157,10 @@
       },
       "settings" : { },
       "properties" : {
-        "s3_bucket" : "{{ params.S3_BUCKET }}",
-        "sftp_path" : "{{ params.SFTP_FILE_LOCATION }}",
-        "s3_key" : "{{ params.S3_FULL_KEY_PATH }}",
-        "sftp_conn_id" : "sftp_prophecy",
+        "s3_bucket" : "ashishpatel-prophecy-test",
+        "sftp_path" : "/sftp_user/ashish/customer/customer_data.csv",
+        "s3_key" : "airflow/customer_data.csv",
+        "sftp_conn_id" : "sftp_ashish",
         "aws_conn_id" : "aws_default",
         "taskId" : null
       },
@@ -173,8 +173,8 @@
       "metadata" : {
         "label" : "LoadFileToSnowflake",
         "slug" : "LoadFileToSnowflake",
-        "x" : -220,
-        "y" : -160
+        "x" : -300,
+        "y" : -300
       },
       "ports" : {
         "inputs" : [ {
@@ -192,49 +192,16 @@
         "snowflake_database" : "ASHISH",
         "s3_key" : "{{ params.S3_KEY_PATH }}",
         "snowflake_conn_id" : "snowflake_ashish",
-        "file_key" : "{{ params.S3_KEY_PATH }}",
+        "file_key" : "airflow/customer_data.csv",
         "s3_key_file_format" : "(type = 'CSV', field_delimiter='\\t', record_delimiter='\\n')",
-        "file_format" : "(type = 'CSV', field_delimiter='\\t', record_delimiter='\\n')",
+        "file_format" : "(type = 'CSV')",
         "snowflake_stage" : "ASHISH_S3_STAGE",
         "snowflake_warehouse" : "COMPUTE_WH",
         "copy_options_on_error" : "CONTINUE",
         "snowflake_schema" : "PUBLIC",
         "aws_conn_id" : null,
-        "snowflake_table" : "README",
+        "snowflake_table" : "CUSTOMER_DATA",
         "taskId" : null
-      },
-      "connections" : [ ],
-      "processes" : { }
-    },
-    "WCJGXtf1So42aOTiGEOzQ" : {
-      "id" : "WCJGXtf1So42aOTiGEOzQ",
-      "component" : "Python",
-      "metadata" : {
-        "label" : "tablueExport",
-        "slug" : "tablueExport",
-        "x" : 180,
-        "y" : -160
-      },
-      "ports" : {
-        "inputs" : [ {
-          "id" : "se4LdQc8uA-OKbSIqRfkz",
-          "slug" : ""
-        } ],
-        "outputs" : [ {
-          "id" : "Fg3Mz3SuIObfye_LQAX96",
-          "slug" : ""
-        } ]
-      },
-      "settings" : {
-        "retries" : 1
-      },
-      "properties" : {
-        "templatesExts" : null,
-        "code" : "def test_tableau():\n    from pathlib import Path\n    import tableauserverclient as TSC\n    from tableauhyperapi import HyperProcess, Telemetry, \\\n        Connection, CreateMode, \\\n        NOT_NULLABLE, NULLABLE, SqlType, TableDefinition, \\\n        Inserter, \\\n        escape_name, escape_string_literal, \\\n        TableName, \\\n        HyperException\n    from airflow.providers.tableau.hooks.tableau import TableauHook\n\n    # Configure for TSC to publish\n    # Note: Do not store creds/tokens in plaintext, please use env vars :)\n\n    # from gem properties\n    tableau_connection_id='tableau_ashish'\n    hyper_name = 'customer.hyper'\n\n# from connection\n    site_name = 'ashish0b1f0348d6'\n    server_address = 'https://prod-apnortheast-a.online.tableau.com/'\n    project_name = 'Samples'\n    token_name = 'ashish_token'\n    token_value = 'bWMM/NrETwS5a0Pr/s8j8Q==:TiI2FBiJndRHpHcqpZs8ZMxLmy9ki8hM'\n    # For more on tokens, head here:\n    # https://help.tableau.com/current/server/en-us/security_personal_access_tokens.htm\n\n    path_to_database = Path(hyper_name)\n\n    # The table is called \"Extract\" and will be created in the \"Extract\" schema\n    # and contains four columns.\n    extract_table = TableDefinition(\n        table_name=TableName(\"Extract\", \"Extract\"),\n        columns=[\n            TableDefinition.Column(name='Customer ID', type=SqlType.text(), nullability=NOT_NULLABLE),\n            TableDefinition.Column(name='Customer Name', type=SqlType.text(), nullability=NOT_NULLABLE),\n            TableDefinition.Column(name='Loyalty Reward Points', type=SqlType.big_int(), nullability=NOT_NULLABLE),\n            TableDefinition.Column(name='Segment', type=SqlType.text(), nullability=NOT_NULLABLE)\n        ]\n    )\n\n    def insert_data():\n        \"\"\"\n        An example demonstrating a simple single-table Hyper file including table creation and data insertion with different types\n        This code is lifted from the below example:\n        https://github.com/tableau/hyper-api-samples/blob/main/Tableau-Supported/Python/insert_data_into_single_table.py\n        \"\"\"\n        print(\"Creating single table for publishing.\")\n\n        # Starts the Hyper Process with telemetry enabled to send data to Tableau.\n        # To opt out, simply set telemetry=Telemetry.DO_NOT_SEND_USAGE_DATA_TO_TABLEAU.\n        with HyperProcess(telemetry=Telemetry.SEND_USAGE_DATA_TO_TABLEAU) as hyper:\n            # Creates new Hyper file \"customer.hyper\".\n            # Replaces file with CreateMode.CREATE_AND_REPLACE if it already exists.\n            with Connection(endpoint=hyper.endpoint,\n                            database=path_to_database,\n                            create_mode=CreateMode.CREATE_AND_REPLACE) as connection:\n                connection.catalog.create_schema(schema=extract_table.table_name.schema_name)\n                connection.catalog.create_table(table_definition=extract_table)\n\n                # The rows to insert into the \"Extract\".\"Extract\" table.\n                data_to_insert = [\n                    [\"DK-13375\", \"Dennis Kane\", 685, \"Consumer\"],\n                    [\"EB-13705\", \"Ed Braxton\", 815, \"Corporate\"]\n                ]\n\n                with Inserter(connection, extract_table) as inserter:\n                    inserter.add_rows(rows=data_to_insert)\n                    inserter.execute()\n\n                # The table names in the \"Extract\" schema (the default schema).\n                table_names = connection.catalog.get_table_names(\"Extract\")\n                print(f\"Tables available in {path_to_database} are: {table_names}\")\n\n                # Number of rows in the \"Extract\".\"Extract\" table.\n                # `execute_scalar_query` is for executing a query that returns exactly one row with one column.\n                row_count = connection.execute_scalar_query(query=f\"SELECT COUNT(*) FROM {extract_table.table_name}\")\n                print(f\"The number of rows in table {extract_table.table_name} is {row_count}.\")\n\n            print(\"The connection to the Hyper file has been closed.\")\n        print(\"The Hyper process has been shut down.\")\n\n    def publish_hyper():\n        \"\"\"\n        Shows how to leverage the Tableau Server Client (TSC) to sign in and publish an extract directly to Tableau Online/Server\n        \"\"\"\n\n        # Sign in to server\n        # tableau_auth = TSC.PersonalAccessTokenAuth('token', '3pHW1FGfREqgrkktd6y0MA==:Aqnk7VGoWtWSOXQIOrrrDx8iSFu4ihEP', site_id=site_name)\n        # server = TSC.Server(server_address, use_server_version=False)\n        with TableauHook(site_id=site_name, tableau_conn_id=tableau_connection_id) as hook:\n            print(f\"Signing into {site_name} at {server_address}\")\n            # Define publish mode - Overwrite, Append, or CreateNew\n            publish_mode = TSC.Server.PublishMode.Overwrite\n            p = hook.get_all('projects')\n            print(p)\n            # Get project_id from project_name\n            for project in p:\n                if project.name == project_name:\n                    project_id = project.id\n\n            # Create the datasource object with the project_id\n            datasource = TSC.DatasourceItem(project_id=project_id, name='customer2')\n\n            print(f\"Publishing {hyper_name} to {project_name}...\")\n            # Publish datasource\n\n            datasource = hook.server.datasources.publish(datasource, path_to_database, publish_mode)\n            print(\"Datasource published. Datasource ID: {0}\".format(datasource.id))\n\n    insert_data()\n    publish_hyper()\n",
-        "opArgs" : null,
-        "templatesDict" : null,
-        "taskId" : null,
-        "opKwargs" : null
       },
       "connections" : [ ],
       "processes" : { }
@@ -245,8 +212,8 @@
       "metadata" : {
         "label" : "ReadCustomerData",
         "slug" : "ReadCustomerData",
-        "x" : -620,
-        "y" : -160
+        "x" : -700,
+        "y" : -320
       },
       "ports" : {
         "inputs" : [ {
@@ -260,13 +227,44 @@
       },
       "settings" : { },
       "properties" : {
-        "file_pattern" : "customer_data_*.csv",
+        "file_pattern" : "customer_data.csv",
         "pokeInterval" : 60,
         "sftpConnectionId" : "sftp_ashish",
-        "use_file_pattern" : true,
-        "file_path" : "/sftp_user/ashish/customer",
-        "showAdvanceProperties" : false,
+        "use_file_pattern" : false,
+        "file_path" : "/sftp_user/ashish/customer/customer_data.csv",
+        "showAdvanceProperties" : true,
         "timeout" : 600,
+        "taskId" : null
+      },
+      "connections" : [ ],
+      "processes" : { }
+    },
+    "3kMn9NqBOjJMlUzYnhB9x$$JqEyYQgMu_rPWm7INUVCZ" : {
+      "id" : "3kMn9NqBOjJMlUzYnhB9x$$JqEyYQgMu_rPWm7INUVCZ",
+      "component" : "TableauExtractOperator",
+      "metadata" : {
+        "label" : "TableauExtractOperator_1",
+        "slug" : "TableauExtractOperator_1",
+        "x" : 180,
+        "y" : -320
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "jYpJw5-F6ye6WQjbYlkZV$$QxVfCG3nxlZwXl7grJmH0",
+          "slug" : ""
+        } ],
+        "outputs" : [ {
+          "id" : "8CtMVTeyim4VDTDMHrk_A$$tJOB1SD3BfwFO_YBZuPdR",
+          "slug" : ""
+        } ]
+      },
+      "settings" : { },
+      "properties" : {
+        "tableau_project_name" : "Samples",
+        "snowflake_conn_id" : "snowflake_ashish",
+        "hyper_name" : "WORD_COUNT",
+        "tableau_conn_id" : "tableau_default",
+        "snowflake_table" : "WORD_COUNT",
         "taskId" : null
       },
       "connections" : [ ],
@@ -280,12 +278,6 @@
     "sourcePort" : "R_SykFR8thH9DZdjGUPgd",
     "targetPort" : "Lwz8X8zCJ0VEj-kdcFo_s"
   }, {
-    "id" : "i0w81gsdM1BRj3FLTqyyP",
-    "source" : "kQo1VZW9Fd_AYxxLQIsBM",
-    "target" : "WCJGXtf1So42aOTiGEOzQ",
-    "sourcePort" : "8hufbBEe7-mCSdRGWrhGU",
-    "targetPort" : "se4LdQc8uA-OKbSIqRfkz"
-  }, {
     "id" : "HaS-rXQONHqDlttVmXtQJ",
     "source" : "8d8-FYZwDUdLgYB8hIV97",
     "target" : "L6ZtSyjSNBbHnsQiaqsp7",
@@ -297,5 +289,11 @@
     "target" : "kQo1VZW9Fd_AYxxLQIsBM",
     "sourcePort" : "vcJwL_iizeno_V80sH_9d",
     "targetPort" : "CM13o1qf5SMopCCDks5BE"
+  }, {
+    "id" : "KNGjv1fxPZOiJDVOCS_Bs$$EVuIEHUSZRdZxituzM46q",
+    "source" : "kQo1VZW9Fd_AYxxLQIsBM",
+    "target" : "3kMn9NqBOjJMlUzYnhB9x$$JqEyYQgMu_rPWm7INUVCZ",
+    "sourcePort" : "8hufbBEe7-mCSdRGWrhGU",
+    "targetPort" : "jYpJw5-F6ye6WQjbYlkZV$$QxVfCG3nxlZwXl7grJmH0"
   } ]
 }
