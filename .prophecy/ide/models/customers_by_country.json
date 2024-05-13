@@ -22,13 +22,13 @@
       "metadata" : {
         "label" : "OrderByCustomers",
         "slug" : "OrderByCustomers",
-        "x" : 180,
+        "x" : 200,
         "y" : -20,
         "phase" : 0,
         "macroDependencies" : [ ]
       },
       "properties" : {
-        "columnsSelector" : [ ],
+        "columnsSelector" : [ "VZuqmgPFEw2MDKtGJPGR5$$SFb_fcYDmJaTEQC0vIcYj##CUSTOMERS" ],
         "orders" : [ {
           "expression" : {
             "expression" : "CUSTOMERS"
