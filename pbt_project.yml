@@ -27,13 +27,13 @@ jobs:
     pipelines: []
     jobClusterMode:
       clusterMode:
-        Single: {}
+        Multi: {}
       clusterId: null
-    enabled: null
+    enabled: false
     createdAt: '2024-05-07 15:24:15'
     author: ashish@prophecy.io
-  jobs/tabluea_export_test:
-    name: tabluea_export_test
+  jobs/load_customer_data_from_sftp_to_snowflake:
+    name: load_customer_data_from_sftp_to_snowflake
     description: ''
     fabricUID: 2
     scheduler:
@@ -53,7 +53,7 @@ jobs:
         Single: {}
       clusterId: null
     enabled: null
-    createdAt: '2024-05-09 09:55:16'
+    createdAt: '2024-05-10 12:47:55'
     author: ashish@prophecy.io
 gemContainer:
   languageVersion: ''
