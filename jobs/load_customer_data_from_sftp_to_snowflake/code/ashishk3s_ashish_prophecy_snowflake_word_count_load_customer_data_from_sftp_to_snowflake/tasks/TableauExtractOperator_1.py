@@ -17,9 +17,9 @@ def TableauExtractOperator_1():
 
     props = TableauExtractProperties(  #skiptraversal
         taskId = "TableauExtractOperator_1", 
-        snowflake_conn_id = "snowflake_ashish", 
+        snowflake_conn_id = "snowflake_CICD_253", 
         snowflake_table = "WORD_COUNT", 
-        tableau_conn_id = "tableau_default", 
+        tableau_conn_id = "tableau_ashish", 
         tableau_project_name = "Samples", 
         hyper_name = "WORD_COUNT"
     )

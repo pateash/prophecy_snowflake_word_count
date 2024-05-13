@@ -1,17 +1,12 @@
 ---
 version: 2
 sources:
-- name: "ASHISH.PUBLIC"
-  database: "ASHISH"
-  schema: "PUBLIC"
+- name: "QA_DATABASE.QA_SCHEMA"
+  database: "QA_DATABASE"
+  schema: "QA_SCHEMA"
   config:
     enabled: true
   tables:
-  - name: "README"
-    columns:
-    - name: "LINE"
-      dataType:
-        type: "String"
   - name: "CUSTOMER_DATA"
     columns:
     - name: "ID"
@@ -27,5 +22,16 @@ sources:
       dataType:
         type: "String"
     - name: "COUNTRY"
+      dataType:
+        type: "String"
+- name: "ASHISH.PUBLIC"
+  database: "ASHISH"
+  schema: "PUBLIC"
+  config:
+    enabled: true
+  tables:
+  - name: "README"
+    columns:
+    - name: "LINE"
       dataType:
         type: "String"

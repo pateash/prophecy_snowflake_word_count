@@ -87,44 +87,6 @@
         "autoUpdateOnRun" : false
       }
     },
-    "H1ZQXK697cH_a_sm2amZV$$KdpExmU_6ObhRIp9_Lb6Y" : {
-      "id" : "H1ZQXK697cH_a_sm2amZV$$KdpExmU_6ObhRIp9_Lb6Y",
-      "component" : "Source",
-      "metadata" : {
-        "label" : "README",
-        "slug" : "README",
-        "x" : -660,
-        "y" : -40,
-        "phase" : 0
-      },
-      "properties" : {
-        "table" : {
-          "name" : "README",
-          "sourceType" : "Source",
-          "sourceName" : "ASHISH.PUBLIC",
-          "alias" : "",
-          "additionalProperties" : null
-        }
-      },
-      "ports" : {
-        "inputs" : [ ],
-        "outputs" : [ {
-          "id" : "YiGMYGVIstdfXTck9h4Gu$$B9FaPT-eXNFh6jhyG9bP3",
-          "schema" : {
-            "providerType" : "snowflake",
-            "fields" : [ {
-              "name" : "LINE",
-              "dataType" : {
-                "type" : "String"
-              }
-            } ]
-          },
-          "slug" : "out"
-        } ],
-        "isCustomOutputSchema" : false,
-        "autoUpdateOnRun" : false
-      }
-    },
     "dHYpFC_TdFUdL7t5hJAw8$$KI93fYCSFSjFChhehXPi5" : {
       "id" : "dHYpFC_TdFUdL7t5hJAw8$$KI93fYCSFSjFChhehXPi5",
       "component" : "Reformat",
@@ -137,7 +99,7 @@
         "macroDependencies" : [ ]
       },
       "properties" : {
-        "columnsSelector" : [ "jrDYbrmmCQUXWGdY50zrD$$PWCGpPdJVF7wcRZxj_kpb##LINE", "jrDYbrmmCQUXWGdY50zrD$$PWCGpPdJVF7wcRZxj_kpb##WORDS" ],
+        "columnsSelector" : [ ],
         "expressions" : [ {
           "expression" : {
             "expression" : "LINE"
@@ -213,7 +175,7 @@
         "macroDependencies" : [ ]
       },
       "properties" : {
-        "columnsSelector" : [ "yFqZc4nzdX1PzFj2W4-xG$$FN1j9sC8HDLTUc-b-CZLW##LINE", "yFqZc4nzdX1PzFj2W4-xG$$FN1j9sC8HDLTUc-b-CZLW##line" ],
+        "columnsSelector" : [ ],
         "expressions" : [ {
           "expression" : {
             "expression" : "LINE"
@@ -261,6 +223,44 @@
         "isCustomOutputSchema" : false,
         "autoUpdateOnRun" : false
       }
+    },
+    "IaJCKjYT5jXuYgl7Bu7FP" : {
+      "id" : "IaJCKjYT5jXuYgl7Bu7FP",
+      "component" : "Source",
+      "metadata" : {
+        "label" : "README",
+        "slug" : "README",
+        "x" : -600,
+        "y" : -40,
+        "phase" : 0
+      },
+      "properties" : {
+        "table" : {
+          "name" : "README",
+          "sourceType" : "Source",
+          "sourceName" : "ASHISH.PUBLIC",
+          "alias" : "",
+          "additionalProperties" : null
+        }
+      },
+      "ports" : {
+        "inputs" : [ ],
+        "outputs" : [ {
+          "id" : "F-tiNTddOEp4ttfNDLavq",
+          "schema" : {
+            "providerType" : "snowflake",
+            "fields" : [ {
+              "name" : "LINE",
+              "dataType" : {
+                "type" : "String"
+              }
+            } ]
+          },
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      }
     }
   },
   "connections" : [ {
@@ -270,17 +270,17 @@
     "target" : "dHYpFC_TdFUdL7t5hJAw8$$KI93fYCSFSjFChhehXPi5",
     "targetPort" : "jrDYbrmmCQUXWGdY50zrD$$PWCGpPdJVF7wcRZxj_kpb"
   }, {
-    "id" : "BIPvOeFDeRbhIjA6PgLgB",
-    "source" : "H1ZQXK697cH_a_sm2amZV$$KdpExmU_6ObhRIp9_Lb6Y",
-    "sourcePort" : "YiGMYGVIstdfXTck9h4Gu$$B9FaPT-eXNFh6jhyG9bP3",
-    "target" : "U3C3eoMa_HzopJqm9zNhu$$fPi-uAnlXLb50-u4ya8A4",
-    "targetPort" : "yFqZc4nzdX1PzFj2W4-xG$$FN1j9sC8HDLTUc-b-CZLW"
-  }, {
     "id" : "5mpqXvKGyY-ilqk6QNp2s",
     "source" : "dHYpFC_TdFUdL7t5hJAw8$$KI93fYCSFSjFChhehXPi5",
     "sourcePort" : "lYEGXCXyeMKXRpeJucIDc$$j9LE6zejwl4HjGHtFORMK",
     "target" : "word_count##yxeARLTx",
     "targetPort" : "ZpavHyhW"
+  }, {
+    "id" : "HraSNs1AoPgM6MZbbOl7W",
+    "source" : "IaJCKjYT5jXuYgl7Bu7FP",
+    "sourcePort" : "F-tiNTddOEp4ttfNDLavq",
+    "target" : "U3C3eoMa_HzopJqm9zNhu$$fPi-uAnlXLb50-u4ya8A4",
+    "targetPort" : "yFqZc4nzdX1PzFj2W4-xG$$FN1j9sC8HDLTUc-b-CZLW"
   } ],
   "component" : "Model"
 }

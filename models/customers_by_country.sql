@@ -8,22 +8,32 @@ WITH CUSTOMER_DATA AS (
 
   SELECT * 
   
-  FROM {{ source('ASHISH.PUBLIC', 'CUSTOMER_DATA') }}
+  FROM {{ source('QA_DATABASE.QA_SCHEMA', 'CUSTOMER_DATA') }}
 
 ),
 
-SQLStatement_1 AS (
+groupByCountry AS (
 
   SELECT 
-    country,
-    count(*) AS customers
+    any_value(COUNTRY) AS COUNTRY,
+    count(ID) AS customers
   
-  FROM CUSTOMER_DATA
+  FROM CUSTOMER_DATA AS in0
   
-  GROUP BY country
+  GROUP BY COUNTRY
+
+),
+
+OrderByCustomers AS (
+
+  SELECT * 
+  
+  FROM groupByCountry AS in0
+  
+  ORDER BY CUSTOMERS DESC NULLS LAST
 
 )
 
 SELECT *
 
-FROM SQLStatement_1
+FROM OrderByCustomers

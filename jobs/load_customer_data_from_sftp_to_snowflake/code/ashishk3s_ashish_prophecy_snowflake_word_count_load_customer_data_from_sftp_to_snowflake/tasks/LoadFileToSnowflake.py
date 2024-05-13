@@ -8,8 +8,8 @@ def LoadFileToSnowflake():
         task_id = "LoadFileToSnowflake",
         files = ["airflow/customer_data.csv"],  # TODO: make the key a list as well
         file_format = "(type = 'CSV')",
-        snowflake_conn_id = "snowflake_ashish",
+        snowflake_conn_id = "snowflake_CICD_253",
         table = "CUSTOMER_DATA",
-        stage = "ASHISH_S3_STAGE",
-        copy_options = "ON_ERROR = 'SKIP_FILE'"
+        stage = "QA_S3_STAGE",
+        copy_options = "ON_ERROR = 'CONTINUE'"
     )

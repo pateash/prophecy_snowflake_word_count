@@ -129,7 +129,7 @@ sqlSources:
     author: ashish@prophecy.io
     files:
     - prophecy-sources/sources.yml
-    createdAt: '2024-05-07 15:23:30'
+    createdAt: '2024-05-13 09:53:15'
     tables:
     - name: README
       schema:
@@ -140,7 +140,15 @@ sqlSources:
             type: String
       description: null
       author: ashish@prophecy.io
-      createdAt: '2024-05-07 15:23:30'
+      createdAt: '2024-05-13 09:53:15'
+  .prophecy/metadata/sqlsources/QA_DATABASE_QA_SCHEMA:
+    name: QA_DATABASE.QA_SCHEMA
+    description: null
+    author: ashish@prophecy.io
+    files:
+    - prophecy-sources/sources.yml
+    createdAt: '2024-05-13 09:44:39'
+    tables:
     - name: CUSTOMER_DATA
       schema:
         providerType: snowflake
@@ -162,7 +170,7 @@ sqlSources:
             type: String
       description: null
       author: ashish@prophecy.io
-      createdAt: '2024-05-13 08:50:01'
+      createdAt: '2024-05-13 09:44:39'
 sqlUnreferencedSources: {}
 sqlPipeline:
   name: sqlPipeline
