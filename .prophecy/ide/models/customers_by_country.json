@@ -28,7 +28,7 @@
         "macroDependencies" : [ ]
       },
       "properties" : {
-        "columnsSelector" : [ "VZuqmgPFEw2MDKtGJPGR5$$SFb_fcYDmJaTEQC0vIcYj##CUSTOMERS" ],
+        "columnsSelector" : [ ],
         "orders" : [ {
           "expression" : {
             "expression" : "CUSTOMERS"
@@ -139,64 +139,6 @@
         "autoUpdateOnRun" : false
       }
     },
-    "OhHBXS-2IMyckGO5ORD2I" : {
-      "id" : "OhHBXS-2IMyckGO5ORD2I",
-      "component" : "Source",
-      "metadata" : {
-        "label" : "CUSTOMER_DATA",
-        "slug" : "CUSTOMER_DATA",
-        "x" : -280,
-        "y" : -20,
-        "phase" : 0
-      },
-      "properties" : {
-        "table" : {
-          "name" : "CUSTOMER_DATA",
-          "sourceType" : "Source",
-          "sourceName" : "QA_DATABASE.QA_SCHEMA",
-          "alias" : "",
-          "additionalProperties" : null
-        }
-      },
-      "ports" : {
-        "inputs" : [ ],
-        "outputs" : [ {
-          "id" : "4iEqEiCO5NjYXPk_UyffY",
-          "schema" : {
-            "providerType" : "snowflake",
-            "fields" : [ {
-              "name" : "ID",
-              "dataType" : {
-                "type" : "Number"
-              }
-            }, {
-              "name" : "NAME",
-              "dataType" : {
-                "type" : "String"
-              }
-            }, {
-              "name" : "COMPANY",
-              "dataType" : {
-                "type" : "String"
-              }
-            }, {
-              "name" : "EMAIL",
-              "dataType" : {
-                "type" : "String"
-              }
-            }, {
-              "name" : "COUNTRY",
-              "dataType" : {
-                "type" : "String"
-              }
-            } ]
-          },
-          "slug" : "out"
-        } ],
-        "isCustomOutputSchema" : false,
-        "autoUpdateOnRun" : false
-      }
-    },
     "1z5YDTf0_a1KyX8DBWcLv$$mLvTvC_F28QgTPgaA5htw" : {
       "id" : "1z5YDTf0_a1KyX8DBWcLv$$mLvTvC_F28QgTPgaA5htw",
       "component" : "Aggregate",
@@ -225,7 +167,7 @@
           "expression" : ""
         },
         "activeTab" : "aggregate",
-        "columnsSelector" : [ "C1w78e7x6CJctKavBJBBU$$U4mf-WLtTNJxp_2JhnnL-##COUNTRY", "C1w78e7x6CJctKavBJBBU$$U4mf-WLtTNJxp_2JhnnL-##ID" ],
+        "columnsSelector" : [ ],
         "groupBy" : [ {
           "expression" : {
             "expression" : "COUNTRY"
@@ -287,6 +229,64 @@
         "isCustomOutputSchema" : false,
         "autoUpdateOnRun" : false
       }
+    },
+    "uzkxmPmHKoJ718Xv2IkwL" : {
+      "id" : "uzkxmPmHKoJ718Xv2IkwL",
+      "component" : "Source",
+      "metadata" : {
+        "label" : "CUSTOMER_DATA",
+        "slug" : "CUSTOMER_DATA",
+        "x" : -280,
+        "y" : -20,
+        "phase" : 0
+      },
+      "properties" : {
+        "table" : {
+          "name" : "CUSTOMER_DATA",
+          "sourceType" : "Source",
+          "sourceName" : "QA_DATABASE.QA_SCHEMA",
+          "alias" : "",
+          "additionalProperties" : null
+        }
+      },
+      "ports" : {
+        "inputs" : [ ],
+        "outputs" : [ {
+          "id" : "KAL4wXcEkucqRG0tjlUH2",
+          "schema" : {
+            "providerType" : "snowflake",
+            "fields" : [ {
+              "name" : "ID",
+              "dataType" : {
+                "type" : "Number"
+              }
+            }, {
+              "name" : "NAME",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "COMPANY",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "EMAIL",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "COUNTRY",
+              "dataType" : {
+                "type" : "String"
+              }
+            } ]
+          },
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      }
     }
   },
   "connections" : [ {
@@ -296,17 +296,17 @@
     "target" : "customers_by_country##mJ1K0XCa",
     "targetPort" : "woREzmOs"
   }, {
-    "id" : "vyzllk6Bf9YMzZGqbNR2M",
-    "source" : "OhHBXS-2IMyckGO5ORD2I",
-    "sourcePort" : "4iEqEiCO5NjYXPk_UyffY",
-    "target" : "1z5YDTf0_a1KyX8DBWcLv$$mLvTvC_F28QgTPgaA5htw",
-    "targetPort" : "C1w78e7x6CJctKavBJBBU$$U4mf-WLtTNJxp_2JhnnL-"
-  }, {
     "id" : "dnr-UpsJ8hDi-IY_PYai3",
     "source" : "1z5YDTf0_a1KyX8DBWcLv$$mLvTvC_F28QgTPgaA5htw",
     "sourcePort" : "WyXi_mEjXrlOsyU3vh_hm$$KjHzHbTtTbkTFHchbvyM8",
     "target" : "kZFx7MnHvoRZafS5Rz5Nj$$iXFvULEJ_zEv1BJRlzX7Z",
     "targetPort" : "VZuqmgPFEw2MDKtGJPGR5$$SFb_fcYDmJaTEQC0vIcYj"
+  }, {
+    "id" : "unFCzV8KYjKQdI1I41klS",
+    "source" : "uzkxmPmHKoJ718Xv2IkwL",
+    "sourcePort" : "KAL4wXcEkucqRG0tjlUH2",
+    "target" : "1z5YDTf0_a1KyX8DBWcLv$$mLvTvC_F28QgTPgaA5htw",
+    "targetPort" : "C1w78e7x6CJctKavBJBBU$$U4mf-WLtTNJxp_2JhnnL-"
   } ],
   "component" : "Model"
 }

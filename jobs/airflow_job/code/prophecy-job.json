@@ -41,37 +41,6 @@
     }
   },
   "processes" : {
-    "ZIOots9CEsI5LaVIa8AYB" : {
-      "id" : "ZIOots9CEsI5LaVIa8AYB",
-      "component" : "SFTPToS3Operator",
-      "metadata" : {
-        "label" : "TransferSFTPFileToS3",
-        "slug" : "TransferSFTPFileToS3",
-        "x" : 220,
-        "y" : 20
-      },
-      "ports" : {
-        "inputs" : [ {
-          "id" : "5v0RpjEGui2-Nq0YgJ0AE",
-          "slug" : ""
-        } ],
-        "outputs" : [ {
-          "id" : "4Zot_KcU7OzXD2Mix8pUj",
-          "slug" : ""
-        } ]
-      },
-      "settings" : { },
-      "properties" : {
-        "s3_bucket" : "ashishpatel-prophecy-test",
-        "sftp_path" : "/sftp_user/ashish/customer",
-        "s3_key" : "airflow/",
-        "sftp_conn_id" : "sftp_ashish",
-        "aws_conn_id" : "aws_default",
-        "taskId" : null
-      },
-      "connections" : [ ],
-      "processes" : { }
-    },
     "PE9mAruZjqIYlSy8nNEF0" : {
       "id" : "PE9mAruZjqIYlSy8nNEF0",
       "component" : "CopyFromExternalStageToSnowflakeOperator",
@@ -145,17 +114,5 @@
       "processes" : { }
     }
   },
-  "connections" : [ {
-    "id" : "Bj2b9VQknWo_UjNlKTCMR",
-    "source" : "ZIOots9CEsI5LaVIa8AYB",
-    "target" : "PE9mAruZjqIYlSy8nNEF0",
-    "sourcePort" : "4Zot_KcU7OzXD2Mix8pUj",
-    "targetPort" : "M0MlqJvcE6RTuknMpLt_h"
-  }, {
-    "id" : "BKG9G32UTP60r-UVvIPj7",
-    "source" : "YRSk9DqGf2SrWSVdrITe4$$w2yT03kxqpkNX8TWzECiG",
-    "target" : "ZIOots9CEsI5LaVIa8AYB",
-    "sourcePort" : "TIcFj2zmaW6t8gwKW8UWA$$6AIflo5jc2pRjis-aNGVq",
-    "targetPort" : "5v0RpjEGui2-Nq0YgJ0AE"
-  } ]
+  "connections" : [ ]
 }

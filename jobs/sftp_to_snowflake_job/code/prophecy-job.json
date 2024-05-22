@@ -2,10 +2,10 @@
   "metainfo" : {
     "type" : "Composer",
     "fabricId" : "2",
-    "jobId" : "jobs/load_customer_data_from_sftp_to_snowflake",
-    "name" : "load_customer_data_from_sftp_to_snowflake",
-    "dagName" : "ashishk3s_ashish_prophecy_snowflake_word_count_load_customer_data_from_sftp_to_snowflake",
-    "schedule" : "0/5 * * * *",
+    "jobId" : "jobs/sftp_to_snowflake_job",
+    "name" : "sftp_to_snowflake_job",
+    "dagName" : "ashishk3s_ashish_prophecy_snowflake_word_count_sftp_to_snowflake_job",
+    "schedule" : "0 0 * * *",
     "enabled" : false,
     "alerting" : {
       "emails" : "",
@@ -41,22 +41,22 @@
     }
   },
   "processes" : {
-    "2Bj4iM9dwUX3gHOB__Lvt" : {
-      "id" : "2Bj4iM9dwUX3gHOB__Lvt",
+    "fFrUVSwzgCs66tsYueRT5" : {
+      "id" : "fFrUVSwzgCs66tsYueRT5",
       "component" : "TableauExtractOperator",
       "metadata" : {
-        "label" : "CustomerData",
-        "slug" : "CustomerData",
-        "x" : 100,
-        "y" : -200
+        "label" : "CustomerByCountry",
+        "slug" : "CustomerByCountry",
+        "x" : 620,
+        "y" : 20
       },
       "ports" : {
         "inputs" : [ {
-          "id" : "SxIltJr8EIJ_6MzlDHfxd",
+          "id" : "5eclvaZOcpFDNknkTMDIt",
           "slug" : ""
         } ],
         "outputs" : [ {
-          "id" : "mqzILEhc9ZMdZMdh8ecmq",
+          "id" : "etN7iYtU274BYaEbiI3ee",
           "slug" : ""
         } ]
       },
@@ -64,30 +64,30 @@
       "properties" : {
         "tableau_project_name" : "Samples",
         "snowflake_conn_id" : "snowflake_CICD_253",
-        "hyper_name" : "CUSTOMER_DATA",
+        "hyper_name" : "CUSTOMERS_BY_COUNTRY",
         "tableau_conn_id" : "tableau_ashish",
-        "snowflake_table" : "CUSTOMER_DATA",
+        "snowflake_table" : "CUSTOMERS_BY_COUNTRY",
         "taskId" : null
       },
       "connections" : [ ],
       "processes" : { }
     },
-    "kQo1VZW9Fd_AYxxLQIsBM" : {
-      "id" : "kQo1VZW9Fd_AYxxLQIsBM",
+    "_OF_JkcCn5NpIb_dEEpOL" : {
+      "id" : "_OF_JkcCn5NpIb_dEEpOL",
       "component" : "Model",
       "metadata" : {
         "label" : "RunModel",
         "slug" : "RunModel",
-        "x" : 0,
-        "y" : -540
+        "x" : 420,
+        "y" : 20
       },
       "ports" : {
         "inputs" : [ {
-          "id" : "CM13o1qf5SMopCCDks5BE",
+          "id" : "JsWK4BjlqEHG5YP__9egE",
           "slug" : ""
         } ],
         "outputs" : [ {
-          "id" : "8hufbBEe7-mCSdRGWrhGU",
+          "id" : "q4oyvKQ3HXveo20n1nLZv",
           "slug" : ""
         } ]
       },
@@ -172,98 +172,95 @@
       "connections" : [ ],
       "processes" : { }
     },
-    "L6ZtSyjSNBbHnsQiaqsp7" : {
-      "id" : "L6ZtSyjSNBbHnsQiaqsp7",
-      "component" : "SFTPToS3Operator",
+    "N4mULvhbNxu05jYkkvsDA$$uohJ1zmjUfJdxajxmn6cr" : {
+      "id" : "N4mULvhbNxu05jYkkvsDA$$uohJ1zmjUfJdxajxmn6cr",
+      "component" : "SFTPToSnowflakeOperator",
       "metadata" : {
-        "label" : "TransferSFTPFileToS3",
-        "slug" : "TransferSFTPFileToS3",
-        "x" : -520,
-        "y" : -420
+        "label" : "SFTPToSnowflakeOperator_1",
+        "slug" : "SFTPToSnowflakeOperator_1",
+        "x" : 220,
+        "y" : 120
       },
       "ports" : {
         "inputs" : [ {
-          "id" : "zfw9EEWuvpvTqSr2c0C6o",
-          "slug" : ""
+          "id" : "m6L76z1WNjQGA_PwfjFV4$$jBmEgw7cYoOFlPhROH4l5",
+          "slug" : "CheckCustomerData"
         } ],
         "outputs" : [ {
-          "id" : "R_SykFR8thH9DZdjGUPgd",
+          "id" : "l-gVSlyaZdstMgmFktQAJ$$Ph1BHauKZnxBQB0D492Pf",
           "slug" : ""
         } ]
       },
       "settings" : { },
       "properties" : {
-        "s3_bucket" : "ashishpatel-prophecy-test",
-        "sftp_path" : "/sftp_user/ashish/customer/customer_data.csv",
-        "s3_key" : "airflow/customer_data.csv",
+        "sftp_operation" : "put",
+        "snowflake_conn_id" : "snowflake_CICD_253",
+        "file_format" : "CSV",
+        "write_mode" : "APPEND",
         "sftp_conn_id" : "sftp_ashish",
-        "aws_conn_id" : "aws_default",
+        "sftp_file_path" : "/sftp_user/ashish/customer/customer_data.csv",
+        "csv_field_delimiter" : ",",
+        "snowflake_table" : "CUSTOMER_DATA",
+        "csv_header_settings" : "PARSE_HEADER",
         "taskId" : null
       },
       "connections" : [ ],
       "processes" : { }
     },
-    "qn3e43K4CRNlbWG9W7tmg" : {
-      "id" : "qn3e43K4CRNlbWG9W7tmg",
-      "component" : "CopyFromExternalStageToSnowflakeOperator",
+    "dCtYM6Paiu3hke9hIxACw" : {
+      "id" : "dCtYM6Paiu3hke9hIxACw",
+      "component" : "TableauExtractOperator",
       "metadata" : {
-        "label" : "LoadFileToSnowflake",
-        "slug" : "LoadFileToSnowflake",
-        "x" : -300,
-        "y" : -480
+        "label" : "CustomerData",
+        "slug" : "CustomerData",
+        "x" : 420,
+        "y" : 220
       },
       "ports" : {
         "inputs" : [ {
-          "id" : "Lwz8X8zCJ0VEj-kdcFo_s",
-          "slug" : "TransferSFTPFileToS3"
+          "id" : "3gzVJowtzbZeTyOqoRjGM",
+          "slug" : ""
         } ],
         "outputs" : [ {
-          "id" : "vcJwL_iizeno_V80sH_9d",
+          "id" : "vHXFWnjU22l62ahwi73SC",
           "slug" : ""
         } ]
       },
       "settings" : { },
       "properties" : {
-        "s3_bucket" : null,
-        "snowflake_database" : "ASHISH",
-        "s3_key" : "{{ params.S3_KEY_PATH }}",
+        "tableau_project_name" : "Samples",
         "snowflake_conn_id" : "snowflake_CICD_253",
-        "file_key" : "airflow/customer_data.csv",
-        "s3_key_file_format" : "(type = 'CSV', field_delimiter='\\t', record_delimiter='\\n')",
-        "file_format" : "(type = 'CSV')",
-        "snowflake_stage" : "QA_S3_STAGE",
-        "snowflake_warehouse" : "COMPUTE_WH",
-        "copy_options_on_error" : "CONTINUE",
-        "snowflake_schema" : "PUBLIC",
-        "aws_conn_id" : null,
+        "hyper_name" : "CUSTOMER_DATA",
+        "tableau_conn_id" : "tableau_ashish",
         "snowflake_table" : "CUSTOMER_DATA",
         "taskId" : null
       },
       "connections" : [ ],
       "processes" : { }
     },
-    "8d8-FYZwDUdLgYB8hIV97" : {
-      "id" : "8d8-FYZwDUdLgYB8hIV97",
+    "4-2cp46u_PL4Yuhah_Si_" : {
+      "id" : "4-2cp46u_PL4Yuhah_Si_",
       "component" : "SFTPSensor",
       "metadata" : {
         "label" : "CheckCustomerData",
         "slug" : "CheckCustomerData",
-        "x" : -740,
-        "y" : -400
+        "x" : 20,
+        "y" : 120
       },
       "ports" : {
         "inputs" : [ {
-          "id" : "dt5OC4mc2gSyDIwd_n-Tq",
+          "id" : "IfvXV-X_On5PaAaqhiyFY",
           "slug" : ""
         } ],
         "outputs" : [ {
-          "id" : "WRaYyEkK45y1CaK-IqsCd",
+          "id" : "VF9hwZUX423CZD8ywni8D",
           "slug" : ""
         } ]
       },
       "settings" : { },
       "properties" : {
-        "file_pattern" : "customer_data.csv",
+        "Properties" : "sensor_properties",
+        "file_pattern" : "*.csv",
         "pokeInterval" : 60,
         "sftpConnectionId" : "sftp_ashish",
         "use_file_pattern" : false,
@@ -274,68 +271,31 @@
       },
       "connections" : [ ],
       "processes" : { }
-    },
-    "3kMn9NqBOjJMlUzYnhB9x$$JqEyYQgMu_rPWm7INUVCZ" : {
-      "id" : "3kMn9NqBOjJMlUzYnhB9x$$JqEyYQgMu_rPWm7INUVCZ",
-      "component" : "TableauExtractOperator",
-      "metadata" : {
-        "label" : "CustomerByCountry",
-        "slug" : "CustomerByCountry",
-        "x" : 240,
-        "y" : -500
-      },
-      "ports" : {
-        "inputs" : [ {
-          "id" : "jYpJw5-F6ye6WQjbYlkZV$$QxVfCG3nxlZwXl7grJmH0",
-          "slug" : ""
-        } ],
-        "outputs" : [ {
-          "id" : "8CtMVTeyim4VDTDMHrk_A$$tJOB1SD3BfwFO_YBZuPdR",
-          "slug" : ""
-        } ]
-      },
-      "settings" : { },
-      "properties" : {
-        "tableau_project_name" : "Samples",
-        "snowflake_conn_id" : "snowflake_CICD_253",
-        "hyper_name" : "CUSTOMERS_BY_COUNTRY",
-        "tableau_conn_id" : "tableau_ashish",
-        "snowflake_table" : "CUSTOMERS_BY_COUNTRY",
-        "taskId" : null
-      },
-      "connections" : [ ],
-      "processes" : { }
     }
   },
   "connections" : [ {
-    "id" : "FRHbKiio47fwj8Ai2j7v9",
-    "source" : "L6ZtSyjSNBbHnsQiaqsp7",
-    "target" : "qn3e43K4CRNlbWG9W7tmg",
-    "sourcePort" : "R_SykFR8thH9DZdjGUPgd",
-    "targetPort" : "Lwz8X8zCJ0VEj-kdcFo_s"
+    "id" : "sFWYot1ajyjxjeo95xqQT$$803u8B_TtwHLGglQaLxK4",
+    "source" : "4-2cp46u_PL4Yuhah_Si_",
+    "target" : "N4mULvhbNxu05jYkkvsDA$$uohJ1zmjUfJdxajxmn6cr",
+    "sourcePort" : "VF9hwZUX423CZD8ywni8D",
+    "targetPort" : "m6L76z1WNjQGA_PwfjFV4$$jBmEgw7cYoOFlPhROH4l5"
   }, {
-    "id" : "HaS-rXQONHqDlttVmXtQJ",
-    "source" : "8d8-FYZwDUdLgYB8hIV97",
-    "target" : "L6ZtSyjSNBbHnsQiaqsp7",
-    "sourcePort" : "WRaYyEkK45y1CaK-IqsCd",
-    "targetPort" : "zfw9EEWuvpvTqSr2c0C6o"
+    "id" : "0Zim7L17d6_rNLUwovO8N",
+    "source" : "_OF_JkcCn5NpIb_dEEpOL",
+    "target" : "fFrUVSwzgCs66tsYueRT5",
+    "sourcePort" : "q4oyvKQ3HXveo20n1nLZv",
+    "targetPort" : "5eclvaZOcpFDNknkTMDIt"
   }, {
-    "id" : "jVSKWHe4dw2zcL3iOrcd6",
-    "source" : "kQo1VZW9Fd_AYxxLQIsBM",
-    "target" : "3kMn9NqBOjJMlUzYnhB9x$$JqEyYQgMu_rPWm7INUVCZ",
-    "sourcePort" : "8hufbBEe7-mCSdRGWrhGU",
-    "targetPort" : "jYpJw5-F6ye6WQjbYlkZV$$QxVfCG3nxlZwXl7grJmH0"
+    "id" : "pAmkT4yS8oUsR6hFB8aGI",
+    "source" : "N4mULvhbNxu05jYkkvsDA$$uohJ1zmjUfJdxajxmn6cr",
+    "target" : "_OF_JkcCn5NpIb_dEEpOL",
+    "sourcePort" : "l-gVSlyaZdstMgmFktQAJ$$Ph1BHauKZnxBQB0D492Pf",
+    "targetPort" : "JsWK4BjlqEHG5YP__9egE"
   }, {
-    "id" : "ysJfOFQLANd_ERkw8iUIH$$1PoByR5ggM1EypDcBh9bs",
-    "source" : "qn3e43K4CRNlbWG9W7tmg",
-    "target" : "kQo1VZW9Fd_AYxxLQIsBM",
-    "sourcePort" : "vcJwL_iizeno_V80sH_9d",
-    "targetPort" : "CM13o1qf5SMopCCDks5BE"
-  }, {
-    "id" : "FW7eGZpfw2pfGP0EiNOmO",
-    "source" : "qn3e43K4CRNlbWG9W7tmg",
-    "target" : "2Bj4iM9dwUX3gHOB__Lvt",
-    "sourcePort" : "vcJwL_iizeno_V80sH_9d",
-    "targetPort" : "SxIltJr8EIJ_6MzlDHfxd"
+    "id" : "PaweS98Br_Z44c42gpP7R",
+    "source" : "N4mULvhbNxu05jYkkvsDA$$uohJ1zmjUfJdxajxmn6cr",
+    "target" : "dCtYM6Paiu3hke9hIxACw",
+    "sourcePort" : "l-gVSlyaZdstMgmFktQAJ$$Ph1BHauKZnxBQB0D492Pf",
+    "targetPort" : "3gzVJowtzbZeTyOqoRjGM"
   } ]
 }
