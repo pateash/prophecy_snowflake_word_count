@@ -5,7 +5,7 @@ def CheckCustomerData():
 
     return SFTPSensor(
         task_id = "CheckCustomerData",
-        path = "/sftp_user/ashish/customer/customer_data.csv",
+        path = "{{ params.SFTP_FILE_PATH }}",
         sftp_conn_id = "sftp_ashish",
         poke_interval = 60,
         timeout = 600,

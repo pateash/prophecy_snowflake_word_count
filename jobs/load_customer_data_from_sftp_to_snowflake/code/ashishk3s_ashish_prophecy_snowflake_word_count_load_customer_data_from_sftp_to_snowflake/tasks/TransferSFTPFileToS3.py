@@ -11,4 +11,5 @@ def TransferSFTPFileToS3():
         s3_bucket = "ashishpatel-prophecy-test",
         s3_conn_id = "aws_default",
         use_temp_file = True,
+        do_xcom_push = True
     )

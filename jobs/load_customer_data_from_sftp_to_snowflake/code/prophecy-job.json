@@ -64,9 +64,11 @@
       "properties" : {
         "tableau_project_name" : "Samples",
         "snowflake_conn_id" : "snowflake_CICD_253",
+        "source_type" : "SNOWFLAKE",
         "hyper_name" : "CUSTOMER_DATA",
         "tableau_conn_id" : "tableau_ashish",
         "snowflake_table" : "CUSTOMER_DATA",
+        "tableau_extract_name" : "customer_2",
         "taskId" : null
       },
       "connections" : [ ],
@@ -191,7 +193,9 @@
           "slug" : ""
         } ]
       },
-      "settings" : { },
+      "settings" : {
+        "do_xcom_push" : true
+      },
       "properties" : {
         "s3_bucket" : "ashishpatel-prophecy-test",
         "sftp_path" : "/sftp_user/ashish/customer/customer_data.csv",
@@ -298,9 +302,11 @@
       "properties" : {
         "tableau_project_name" : "Samples",
         "snowflake_conn_id" : "snowflake_CICD_253",
+        "source_type" : "SNOWFLAKE",
         "hyper_name" : "CUSTOMERS_BY_COUNTRY",
         "tableau_conn_id" : "tableau_ashish",
         "snowflake_table" : "CUSTOMERS_BY_COUNTRY",
+        "tableau_extract_name" : "customer_country2",
         "taskId" : null
       },
       "connections" : [ ],

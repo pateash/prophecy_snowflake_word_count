@@ -9,10 +9,10 @@ def SFTPToSnowflakeOperator_1():
     @dataclass(frozen = True)
     class SFTPToSnowflakeProperties():
         taskId: Optional[str] = None
-        snowflake_conn_id: Optional[str] = "snowflake_default"
+        snowflake_conn_id: Optional[str] = None
         snowflake_table: Optional[str] = None
         write_mode: str = "OVERWRITE"
-        sftp_conn_id: Optional[str] = "sftp_default"
+        sftp_conn_id: Optional[str] = None
         sftp_file_path: Optional[str] = None
         sftp_operation: str = "put"
         file_format: str = "CSV"
@@ -23,10 +23,10 @@ def SFTPToSnowflakeOperator_1():
     props = SFTPToSnowflakeProperties(  #skiptraversal
         taskId = "SFTPToSnowflakeOperator_1", 
         snowflake_conn_id = "snowflake_CICD_253", 
-        snowflake_table = "CUSTOMER_DATA", 
+        snowflake_table = "{{ params.CUSTOMER_TABLE }}", 
         write_mode = "APPEND", 
         sftp_conn_id = "sftp_ashish", 
-        sftp_file_path = "/sftp_user/ashish/customer/customer_data.csv", 
+        sftp_file_path = "{{ params.SFTP_FILE_PATH }}", 
         sftp_operation = "put", 
         file_format = "CSV", 
         csv_field_delimiter = ",", 

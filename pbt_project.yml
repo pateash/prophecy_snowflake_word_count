@@ -73,9 +73,9 @@ jobs:
     pipelines: []
     jobClusterMode:
       clusterMode:
-        Single: {}
+        Multi: {}
       clusterId: null
-    enabled: null
+    enabled: false
     createdAt: '2024-05-20 09:45:03'
     author: ashish@prophecy.io
 gemContainer:
@@ -90,6 +90,7 @@ functions:
   udafs: {}
   expressions: {}
   airflowFunctions: {}
+  businessRules: {}
 subgraphs: {}
 sqlModels:
   .prophecy/metadata/sqlmodels/customers_by_country:

@@ -1,13 +1,15 @@
 from ashishk3s_ashish_prophecy_snowflake_word_count_sftp_to_snowflake_job.utils import *
 
 def RunModel():
-    from datetime import timedelta
     from airflow.operators.bash import BashOperator
-    envs = {}
+    import os
+    import zipfile
+    import tempfile
+    envs = {"DBT_DATABRICKS_INVOCATION_ENV" : "prophecy"}
     dbt_props_cmd = ""
 
     if "/home/airflow/gcs/data":
-        envs = {"DBT_PROFILES_DIR" : "/home/airflow/gcs/data"}
+        envs = {"DBT_DATABRICKS_INVOCATION_ENV" : "prophecy", "DBT_PROFILES_DIR" : "/home/airflow/gcs/data"}
 
     if "run_profile_snowflake":
         dbt_props_cmd = " --profile run_profile_snowflake"
@@ -21,9 +23,9 @@ def RunModel():
           ["{} && cd $tmpDir/{}".format(
              (
                "set -euxo pipefail && tmpDir=`mktemp -d` && git clone "
-               + "{} --branch {} --single-branch $tmpDir".format(
+               + "--depth 1 {} --branch {} $tmpDir".format(
                  "https://github.com/pateash/prophecy_snowflake_word_count",
-                 "dev"
+                 "__PROJECT_FULL_RELEASE_TAG_PLACEHOLDER__"
                )
              ),
              ""

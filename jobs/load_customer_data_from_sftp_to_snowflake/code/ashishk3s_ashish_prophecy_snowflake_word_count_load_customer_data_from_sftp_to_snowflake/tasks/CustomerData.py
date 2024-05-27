@@ -9,19 +9,21 @@ def CustomerData():
     @dataclass(frozen = True)
     class TableauExtractProperties():
         taskId: Optional[str] = None
+        source_type: str = "SNOWFLAKE"
         snowflake_conn_id: Optional[str] = "snowflake_default"
         snowflake_table: Optional[str] = None
         tableau_conn_id: Optional[str] = "tableau_default"
         tableau_project_name: Optional[str] = None
-        hyper_name: Optional[str] = None
+        tableau_extract_name: Optional[str] = None
 
     props = TableauExtractProperties(  #skiptraversal
         taskId = "CustomerData", 
+        source_type = "SNOWFLAKE", 
         snowflake_conn_id = "snowflake_CICD_253", 
         snowflake_table = "CUSTOMER_DATA", 
         tableau_conn_id = "tableau_ashish", 
         tableau_project_name = "Samples", 
-        hyper_name = "CUSTOMER_DATA"
+        tableau_extract_name = "customer_2"
     )
     settings = {}
     from airflow.operators.python import PythonOperator
@@ -32,12 +34,11 @@ def CustomerData():
     import tableauserverclient as TSC
     tableau_conn_id = props.tableau_conn_id
     project_name = props.tableau_project_name
-    hyper_path = f"{props.hyper_name}.hyper"
-    table_name = 'Extract' # TODO: this can be handled internally
+    hyper_path = f"{props.tableau_extract_name}.hyper"
+    table_name = 'Extract' # this can be handled internally
     # snowflake
     snowflake_conn_id = props.snowflake_conn_id
     # Snowflake connection using Airflow Snowflake Hook
-    # sql_query = f"SELECT * FROM {self.props.snowflake_schema}.{self.props.snowflake_table}"
     sql_query = f"SELECT * FROM {props.snowflake_table}"
 
     def export_tableau_hyperfile():
