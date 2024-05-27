@@ -2,7 +2,7 @@ from ashishk3s_ashish_prophecy_snowflake_word_count_load_customer_data_from_sftp
 
 def LoadFileToSnowflake():
     # S3ToSnowflakeOperator is deprecated in provider 5.0.0
-    from airflow.providers.snowflake.transfers.copy_into_snowflake import CopyFromExternalStageToSnowflakeOperator
+    from airflow.providers.snowflake.transfers.copy_into_snowflake import (CopyFromExternalStageToSnowflakeOperator)
 
     return CopyFromExternalStageToSnowflakeOperator(
         task_id = "LoadFileToSnowflake",

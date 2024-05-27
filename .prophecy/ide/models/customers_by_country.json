@@ -230,13 +230,13 @@
         "autoUpdateOnRun" : false
       }
     },
-    "uzkxmPmHKoJ718Xv2IkwL" : {
-      "id" : "uzkxmPmHKoJ718Xv2IkwL",
+    "57Uerb1dHtyvxaRcok4-E" : {
+      "id" : "57Uerb1dHtyvxaRcok4-E",
       "component" : "Source",
       "metadata" : {
         "label" : "CUSTOMER_DATA",
         "slug" : "CUSTOMER_DATA",
-        "x" : -280,
+        "x" : -300,
         "y" : -20,
         "phase" : 0
       },
@@ -252,7 +252,7 @@
       "ports" : {
         "inputs" : [ ],
         "outputs" : [ {
-          "id" : "KAL4wXcEkucqRG0tjlUH2",
+          "id" : "vxgunAFJ7j7T0rPnOcoZV",
           "schema" : {
             "providerType" : "snowflake",
             "fields" : [ {
@@ -302,9 +302,9 @@
     "target" : "kZFx7MnHvoRZafS5Rz5Nj$$iXFvULEJ_zEv1BJRlzX7Z",
     "targetPort" : "VZuqmgPFEw2MDKtGJPGR5$$SFb_fcYDmJaTEQC0vIcYj"
   }, {
-    "id" : "unFCzV8KYjKQdI1I41klS",
-    "source" : "uzkxmPmHKoJ718Xv2IkwL",
-    "sourcePort" : "KAL4wXcEkucqRG0tjlUH2",
+    "id" : "NKJA8mCwH2zH1eaX2mHzm",
+    "source" : "57Uerb1dHtyvxaRcok4-E",
+    "sourcePort" : "vxgunAFJ7j7T0rPnOcoZV",
     "target" : "1z5YDTf0_a1KyX8DBWcLv$$mLvTvC_F28QgTPgaA5htw",
     "targetPort" : "C1w78e7x6CJctKavBJBBU$$U4mf-WLtTNJxp_2JhnnL-"
   } ],

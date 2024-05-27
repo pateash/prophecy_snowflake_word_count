@@ -1,0 +1,160 @@
+{
+  "metainfo" : {
+    "type" : "Composer",
+    "fabricId" : "2",
+    "jobId" : "jobs/test",
+    "name" : "test",
+    "dagName" : "ashishk3s_ashish_prophecy_snowflake_word_count_test",
+    "schedule" : "0 0 * * *",
+    "enabled" : false,
+    "alerting" : {
+      "emails" : "",
+      "onStart" : false,
+      "onSuccess" : false,
+      "onFailure" : false
+    },
+    "maxConcurrentRuns" : 1,
+    "processDefaultSettings" : {
+      "ignore_first_depends_on_past" : true,
+      "do_xcom_push" : true
+    },
+    "availableFabrics" : [ {
+      "id" : "2",
+      "name" : "Airflow-Composer"
+    } ],
+    "maxActiveRuns" : 1,
+    "catchup" : false,
+    "scheduleTimeZone" : "UTC",
+    "dagParams" : {
+      "instances" : {
+        "default" : { }
+      },
+      "params" : { },
+      "selected" : "default"
+    },
+    "airflowFunctions" : [ ],
+    "dynamicPipelineStatus" : {
+      "databricks" : false,
+      "dataproc" : false,
+      "emr" : false,
+      "onprem" : false
+    }
+  },
+  "processes" : {
+    "pve0hnaTslOTO8Y5pQbvO" : {
+      "id" : "pve0hnaTslOTO8Y5pQbvO",
+      "component" : "SFTPToSnowflakeOperator",
+      "metadata" : {
+        "label" : "SFTPToSnowflakeOperator_1",
+        "slug" : "SFTPToSnowflakeOperator_1",
+        "x" : -420,
+        "y" : -340
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "P56sDkGKaUEXOXqVOVAnk",
+          "slug" : "CheckCustomerData"
+        } ],
+        "outputs" : [ {
+          "id" : "0eVWat2U0x7m2jc_OugHM",
+          "slug" : ""
+        } ]
+      },
+      "settings" : { },
+      "properties" : {
+        "sftp_operation" : "put",
+        "snowflake_conn_id" : "snowflake_CICD_253",
+        "sftpConnectionId" : "sftp_ashish",
+        "file_format" : "CSV",
+        "write_mode" : "APPEND",
+        "sftp_conn_id" : "sftp_ashish",
+        "sftp_file_path" : "{{ params.SFTP_FILE_PATH }}",
+        "csv_field_delimiter" : ",",
+        "snowflake_table" : "CUSTOMER_DATA",
+        "csv_header_settings" : "PARSE_HEADER",
+        "taskId" : null
+      },
+      "connections" : [ ],
+      "processes" : { }
+    },
+    "ZLZh9RILqsSJSnpD8if_e" : {
+      "id" : "ZLZh9RILqsSJSnpD8if_e",
+      "component" : "SFTPSensor",
+      "metadata" : {
+        "label" : "CheckCustomerData",
+        "slug" : "CheckCustomerData",
+        "x" : -660,
+        "y" : -360
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "fOOo80Oy809jHbrhutM7j",
+          "slug" : ""
+        } ],
+        "outputs" : [ {
+          "id" : "41iqaDrt9yCLuuy7FJIhm",
+          "slug" : ""
+        } ]
+      },
+      "settings" : { },
+      "properties" : {
+        "file_pattern" : "customer_data.csv",
+        "pokeInterval" : 60,
+        "sftpConnectionId" : "sftp_ashish",
+        "use_file_pattern" : false,
+        "file_path" : "{{ params.SFTP_FILE_PATH }}",
+        "showAdvanceProperties" : true,
+        "timeout" : 600,
+        "taskId" : null
+      },
+      "connections" : [ ],
+      "processes" : { }
+    },
+    "AzNmYL0V0dLvPtM0754yQ" : {
+      "id" : "AzNmYL0V0dLvPtM0754yQ",
+      "component" : "TableauExtractOperator",
+      "metadata" : {
+        "label" : "CustomerData",
+        "slug" : "CustomerData",
+        "x" : -160,
+        "y" : -320
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "wGtfQm2lYZl9wB7KMIUUT",
+          "slug" : ""
+        } ],
+        "outputs" : [ {
+          "id" : "pAMGfYgVhLzkDy7-OqeWc",
+          "slug" : ""
+        } ]
+      },
+      "settings" : { },
+      "properties" : {
+        "tableau_project_name" : "Customers",
+        "snowflake_conn_id" : "snowflake_CICD_253",
+        "source_type" : "SNOWFLAKE",
+        "hyper_name" : "CUSTOMER_DATA",
+        "tableau_conn_id" : "tableau_ashish",
+        "snowflake_table" : "CUSTOMER_DATA",
+        "tableau_extract_name" : "CustomerDataExtract",
+        "taskId" : null
+      },
+      "connections" : [ ],
+      "processes" : { }
+    }
+  },
+  "connections" : [ {
+    "id" : "N8KfVrZBmZoxSBADnl3BM",
+    "source" : "pve0hnaTslOTO8Y5pQbvO",
+    "target" : "AzNmYL0V0dLvPtM0754yQ",
+    "sourcePort" : "0eVWat2U0x7m2jc_OugHM",
+    "targetPort" : "wGtfQm2lYZl9wB7KMIUUT"
+  }, {
+    "id" : "ZnnwFO2EUapFFUE259kw0",
+    "source" : "ZLZh9RILqsSJSnpD8if_e",
+    "target" : "pve0hnaTslOTO8Y5pQbvO",
+    "sourcePort" : "41iqaDrt9yCLuuy7FJIhm",
+    "targetPort" : "P56sDkGKaUEXOXqVOVAnk"
+  } ]
+}

@@ -78,6 +78,29 @@ jobs:
     enabled: false
     createdAt: '2024-05-20 09:45:03'
     author: ashish@prophecy.io
+  jobs/test:
+    name: test
+    description: ''
+    fabricUID: 2
+    scheduler:
+      Composer: {}
+    cloudProvider: null
+    jobSize: null
+    scheduleCron: 0 0 * * *
+    timeout: null
+    alerting:
+      emails: ''
+      onStart: false
+      onSuccess: false
+      onFailure: false
+    pipelines: []
+    jobClusterMode:
+      clusterMode:
+        Single: {}
+      clusterId: null
+    enabled: null
+    createdAt: '2024-05-27 13:26:54'
+    author: ashish@prophecy.io
 gemContainer:
   languageVersion: ''
   gemLibsVersion: ''

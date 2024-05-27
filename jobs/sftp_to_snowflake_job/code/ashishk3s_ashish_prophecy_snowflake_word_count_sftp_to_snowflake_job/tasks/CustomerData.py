@@ -20,9 +20,9 @@ def CustomerData():
         taskId = "CustomerData", 
         source_type = "SNOWFLAKE", 
         snowflake_conn_id = "snowflake_CICD_253", 
-        snowflake_table = "{{ params.CUSTOMER_TABLE }}", 
+        snowflake_table = "CUSTOMER_DATA", 
         tableau_conn_id = "tableau_ashish", 
-        tableau_project_name = "{{ params.TABLEAU_PROJECT_NAME }}", 
+        tableau_project_name = "Customers", 
         tableau_extract_name = "CustomerDataExtract"
     )
     settings = {}

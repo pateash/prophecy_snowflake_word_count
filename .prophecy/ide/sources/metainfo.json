@@ -25,574 +25,7 @@
     }, {
       "type" : "Database",
       "name" : "ASHISH",
-      "children" : [ {
-        "type" : "Schema",
-        "name" : "INFORMATION_SCHEMA",
-        "children" : [ ]
-      }, {
-        "type" : "Schema",
-        "name" : "PUBLIC",
-        "tables" : {
-          "DEMONSTRATION5" : {
-            "providerType" : "Snowflake",
-            "fields" : [ {
-              "name" : "ID",
-              "dataType" : {
-                "type" : "Number"
-              }
-            }, {
-              "name" : "ARRAY1",
-              "dataType" : {
-                "type" : "Array"
-              }
-            }, {
-              "name" : "VARIANT1",
-              "dataType" : {
-                "type" : "Variant"
-              }
-            }, {
-              "name" : "OBJECT1",
-              "dataType" : {
-                "type" : "Object"
-              }
-            }, {
-              "name" : "NUM",
-              "dataType" : {
-                "type" : "Number"
-              }
-            }, {
-              "name" : "DEC",
-              "dataType" : {
-                "type" : "Number"
-              }
-            }, {
-              "name" : "G",
-              "dataType" : {
-                "type" : "Geography"
-              }
-            }, {
-              "name" : "TS",
-              "dataType" : {
-                "type" : "Timestamp"
-              }
-            }, {
-              "name" : "NTS",
-              "dataType" : {
-                "type" : "Timestamp"
-              }
-            }, {
-              "name" : "LTS",
-              "dataType" : {
-                "type" : "Timestamp"
-              }
-            } ]
-          },
-          "RAW_ORDERS" : {
-            "providerType" : "Snowflake",
-            "fields" : [ {
-              "name" : "ID",
-              "dataType" : {
-                "type" : "Number"
-              }
-            }, {
-              "name" : "USER_ID",
-              "dataType" : {
-                "type" : "Number"
-              }
-            }, {
-              "name" : "ORDER_DATE",
-              "dataType" : {
-                "type" : "Date"
-              }
-            }, {
-              "name" : "STATUS",
-              "dataType" : {
-                "type" : "String"
-              }
-            } ]
-          },
-          "MY_SECOND_DBT_MODEL" : {
-            "providerType" : "Snowflake",
-            "fields" : [ {
-              "name" : "ID",
-              "dataType" : {
-                "type" : "Number"
-              }
-            } ]
-          },
-          "CUSTOMERS" : {
-            "providerType" : "Snowflake",
-            "fields" : [ {
-              "name" : "ID",
-              "dataType" : {
-                "type" : "Number"
-              }
-            }, {
-              "name" : "ORDER_COUNT",
-              "dataType" : {
-                "type" : "Number"
-              }
-            } ]
-          },
-          "README" : {
-            "providerType" : "Snowflake",
-            "fields" : [ {
-              "name" : "LINE",
-              "dataType" : {
-                "type" : "String"
-              }
-            } ]
-          },
-          "STG_CUSTOMERS" : {
-            "providerType" : "Snowflake",
-            "fields" : [ {
-              "name" : "CUSTOMER_ID",
-              "dataType" : {
-                "type" : "Number"
-              }
-            }, {
-              "name" : "FIRST_NAME",
-              "dataType" : {
-                "type" : "String"
-              }
-            }, {
-              "name" : "LAST_NAME",
-              "dataType" : {
-                "type" : "String"
-              }
-            } ]
-          },
-          "JSON" : {
-            "providerType" : "Snowflake",
-            "fields" : [ {
-              "name" : "ID",
-              "dataType" : {
-                "type" : "Number"
-              }
-            }, {
-              "name" : "JSON",
-              "dataType" : {
-                "type" : "String"
-              }
-            } ]
-          },
-          "TESTMODEL" : {
-            "providerType" : "Snowflake",
-            "fields" : [ {
-              "name" : "KEY1",
-              "dataType" : {
-                "type" : "Variant"
-              }
-            }, {
-              "name" : "KEY2",
-              "dataType" : {
-                "type" : "Variant"
-              }
-            } ]
-          },
-          "MY_FIRST_DBT_MODEL" : {
-            "providerType" : "Snowflake",
-            "fields" : [ {
-              "name" : "ID",
-              "dataType" : {
-                "type" : "Number"
-              }
-            } ]
-          },
-          "TEST" : {
-            "providerType" : "Snowflake",
-            "fields" : [ {
-              "name" : "LINE",
-              "dataType" : {
-                "type" : "String"
-              }
-            }, {
-              "name" : "WORDS_COUNT",
-              "dataType" : {
-                "type" : "Number"
-              }
-            } ]
-          },
-          "T1" : {
-            "providerType" : "Snowflake",
-            "fields" : [ {
-              "name" : "ID",
-              "dataType" : {
-                "type" : "Number"
-              }
-            }, {
-              "name" : "C1",
-              "dataType" : {
-                "type" : "String"
-              }
-            } ]
-          },
-          "CUSTOMER_REPORTS" : {
-            "providerType" : "Snowflake",
-            "fields" : [ {
-              "name" : "AMOUNT",
-              "dataType" : {
-                "type" : "Number"
-              }
-            }, {
-              "name" : "CUSTOMER_ID",
-              "dataType" : {
-                "type" : "Number"
-              }
-            }, {
-              "name" : "ORDER_DATE",
-              "dataType" : {
-                "type" : "Date"
-              }
-            } ]
-          },
-          "STG_ORDERS" : {
-            "providerType" : "Snowflake",
-            "fields" : [ {
-              "name" : "ORDER_ID",
-              "dataType" : {
-                "type" : "Number"
-              }
-            }, {
-              "name" : "CUSTOMER_ID",
-              "dataType" : {
-                "type" : "Number"
-              }
-            }, {
-              "name" : "ORDER_DATE",
-              "dataType" : {
-                "type" : "Date"
-              }
-            }, {
-              "name" : "STATUS",
-              "dataType" : {
-                "type" : "String"
-              }
-            } ]
-          },
-          "RAW_CUSTOMERS" : {
-            "providerType" : "Snowflake",
-            "fields" : [ {
-              "name" : "ID",
-              "dataType" : {
-                "type" : "Number"
-              }
-            }, {
-              "name" : "FIRST_NAME",
-              "dataType" : {
-                "type" : "String"
-              }
-            }, {
-              "name" : "LAST_NAME",
-              "dataType" : {
-                "type" : "String"
-              }
-            } ]
-          },
-          "WORD_COUNT" : {
-            "providerType" : "Snowflake",
-            "fields" : [ {
-              "name" : "LINE",
-              "dataType" : {
-                "type" : "String"
-              }
-            }, {
-              "name" : "WORDS",
-              "dataType" : {
-                "type" : "Array"
-              }
-            }, {
-              "name" : "WORDS_COUNT",
-              "dataType" : {
-                "type" : "Number"
-              }
-            } ]
-          },
-          "CUSTOMER_DATA" : {
-            "providerType" : "Snowflake",
-            "fields" : [ {
-              "name" : "ID",
-              "dataType" : {
-                "type" : "Number"
-              }
-            }, {
-              "name" : "NAME",
-              "dataType" : {
-                "type" : "String"
-              }
-            }, {
-              "name" : "COMPANY",
-              "dataType" : {
-                "type" : "String"
-              }
-            }, {
-              "name" : "EMAIL",
-              "dataType" : {
-                "type" : "String"
-              }
-            }, {
-              "name" : "COUNTRY",
-              "dataType" : {
-                "type" : "String"
-              }
-            } ]
-          },
-          "HELLOO" : {
-            "providerType" : "Snowflake",
-            "fields" : [ {
-              "name" : "ID",
-              "dataType" : {
-                "type" : "Number"
-              }
-            }, {
-              "name" : "FIRST_NAME",
-              "dataType" : {
-                "type" : "String"
-              }
-            }, {
-              "name" : "LAST_NAME",
-              "dataType" : {
-                "type" : "String"
-              }
-            } ]
-          },
-          "ORDERS" : {
-            "providerType" : "Snowflake",
-            "fields" : [ {
-              "name" : "ORDER_ID",
-              "dataType" : {
-                "type" : "Number"
-              }
-            }, {
-              "name" : "CUSTOMER_ID",
-              "dataType" : {
-                "type" : "Number"
-              }
-            }, {
-              "name" : "ORDER_DATE",
-              "dataType" : {
-                "type" : "Date"
-              }
-            }, {
-              "name" : "STATUS",
-              "dataType" : {
-                "type" : "String"
-              }
-            }, {
-              "name" : "CREDIT_CARD_AMOUNT",
-              "dataType" : {
-                "type" : "Number"
-              }
-            }, {
-              "name" : "COUPON_AMOUNT",
-              "dataType" : {
-                "type" : "Number"
-              }
-            }, {
-              "name" : "BANK_TRANSFER_AMOUNT",
-              "dataType" : {
-                "type" : "Number"
-              }
-            }, {
-              "name" : "GIFT_CARD_AMOUNT",
-              "dataType" : {
-                "type" : "Number"
-              }
-            }, {
-              "name" : "AMOUNT",
-              "dataType" : {
-                "type" : "Number"
-              }
-            } ]
-          },
-          "TEMP" : {
-            "providerType" : "Snowflake",
-            "fields" : [ {
-              "name" : "A",
-              "dataType" : {
-                "type" : "Number"
-              }
-            } ]
-          },
-          "STOCK_PRICE_HISTORY" : {
-            "providerType" : "Snowflake",
-            "fields" : [ {
-              "name" : "COMPANY",
-              "dataType" : {
-                "type" : "String"
-              }
-            }, {
-              "name" : "PRICE_DATE",
-              "dataType" : {
-                "type" : "Date"
-              }
-            }, {
-              "name" : "PRICE",
-              "dataType" : {
-                "type" : "Number"
-              }
-            } ]
-          },
-          "MACRO_TESTS" : {
-            "providerType" : "Snowflake",
-            "fields" : [ {
-              "name" : "FULL_NAME",
-              "dataType" : {
-                "type" : "String"
-              }
-            }, {
-              "name" : "TOTALAMOUNTCENTS",
-              "dataType" : {
-                "type" : "Number"
-              }
-            }, {
-              "name" : "MODIFIED_ON",
-              "dataType" : {
-                "type" : "Timestamp"
-              }
-            }, {
-              "name" : "MODIFIED_BY",
-              "dataType" : {
-                "type" : "String"
-              }
-            } ]
-          },
-          "RAW_PAYMENTS" : {
-            "providerType" : "Snowflake",
-            "fields" : [ {
-              "name" : "ID",
-              "dataType" : {
-                "type" : "Number"
-              }
-            }, {
-              "name" : "ORDER_ID",
-              "dataType" : {
-                "type" : "Number"
-              }
-            }, {
-              "name" : "PAYMENT_METHOD",
-              "dataType" : {
-                "type" : "String"
-              }
-            }, {
-              "name" : "AMOUNT",
-              "dataType" : {
-                "type" : "Number"
-              }
-            } ]
-          },
-          "CUSTOMER_REPORT" : {
-            "providerType" : "Snowflake",
-            "fields" : [ {
-              "name" : "AMOUNT",
-              "dataType" : {
-                "type" : "Number"
-              }
-            }, {
-              "name" : "LAST_ORDER_DATE",
-              "dataType" : {
-                "type" : "Date"
-              }
-            }, {
-              "name" : "CUSTOMER_ID",
-              "dataType" : {
-                "type" : "Number"
-              }
-            }, {
-              "name" : "FIRST_ORDER_DATE",
-              "dataType" : {
-                "type" : "Date"
-              }
-            } ]
-          },
-          "HELLO" : {
-            "providerType" : "Snowflake",
-            "fields" : [ {
-              "name" : "ID",
-              "dataType" : {
-                "type" : "Number"
-              }
-            }, {
-              "name" : "SD",
-              "dataType" : {
-                "type" : "String"
-              }
-            } ]
-          },
-          "STG_PAYMENTS" : {
-            "providerType" : "Snowflake",
-            "fields" : [ {
-              "name" : "PAYMENT_ID",
-              "dataType" : {
-                "type" : "Number"
-              }
-            }, {
-              "name" : "ORDER_ID",
-              "dataType" : {
-                "type" : "Number"
-              }
-            }, {
-              "name" : "PAYMENT_METHOD",
-              "dataType" : {
-                "type" : "String"
-              }
-            }, {
-              "name" : "AMOUNT",
-              "dataType" : {
-                "type" : "Number"
-              }
-            } ]
-          },
-          "DEMONSTRATION4" : {
-            "providerType" : "Snowflake",
-            "fields" : [ {
-              "name" : "ID",
-              "dataType" : {
-                "type" : "Number"
-              }
-            }, {
-              "name" : "ARRAY1",
-              "dataType" : {
-                "type" : "Array"
-              }
-            }, {
-              "name" : "VARIANT1",
-              "dataType" : {
-                "type" : "Variant"
-              }
-            }, {
-              "name" : "OBJECT1",
-              "dataType" : {
-                "type" : "Object"
-              }
-            }, {
-              "name" : "NUM",
-              "dataType" : {
-                "type" : "Number"
-              }
-            }, {
-              "name" : "DEC",
-              "dataType" : {
-                "type" : "Number"
-              }
-            }, {
-              "name" : "G",
-              "dataType" : {
-                "type" : "Geography"
-              }
-            }, {
-              "name" : "TS",
-              "dataType" : {
-                "type" : "Timestamp"
-              }
-            } ]
-          }
-        }
-      }, {
-        "type" : "Schema",
-        "name" : "SYNTAX_TEST",
-        "children" : [ ]
-      } ]
+      "children" : [ ]
     }, {
       "type" : "Database",
       "name" : "BLACKROCK",
@@ -683,6 +116,10 @@
       }, {
         "type" : "Schema",
         "name" : "INFORMATION_SCHEMA",
+        "children" : [ ]
+      }, {
+        "type" : "Schema",
+        "name" : "KAJARI",
         "children" : [ ]
       }, {
         "type" : "Schema",
@@ -1204,6 +641,15 @@
               }
             } ]
           },
+          "S1" : {
+            "providerType" : "Snowflake",
+            "fields" : [ {
+              "name" : "QW",
+              "dataType" : {
+                "type" : "Number"
+              }
+            } ]
+          },
           "TEST_UITESTING_MODELTEST1" : {
             "providerType" : "Snowflake",
             "fields" : [ {
@@ -1551,6 +997,40 @@
               }
             }, {
               "name" : "C_GEOGRAPHY",
+              "dataType" : {
+                "type" : "String"
+              }
+            } ]
+          },
+          "ENHANCEDEXPERIENCEMODEL2" : {
+            "providerType" : "Snowflake",
+            "fields" : [ {
+              "name" : "ID",
+              "dataType" : {
+                "type" : "Number"
+              }
+            }, {
+              "name" : "FIRST_NAME",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "LAST_NAME",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "VERSION",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "AGE",
+              "dataType" : {
+                "type" : "Number"
+              }
+            }, {
+              "name" : "CITY",
               "dataType" : {
                 "type" : "String"
               }
@@ -1976,6 +1456,35 @@
             } ]
           },
           "QA_TEST_SEED" : {
+            "providerType" : "Snowflake",
+            "fields" : [ {
+              "name" : "C_INT",
+              "dataType" : {
+                "type" : "Number"
+              }
+            }, {
+              "name" : "C_BIGNUMERIC",
+              "dataType" : {
+                "type" : "Number"
+              }
+            }, {
+              "name" : "C_STRING",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "C_FLOAT64",
+              "dataType" : {
+                "type" : "Float"
+              }
+            }, {
+              "name" : "C_BOOL",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            } ]
+          },
+          "TESTSEED_PARTIAL_1715822874325" : {
             "providerType" : "Snowflake",
             "fields" : [ {
               "name" : "C_INT",
@@ -3612,6 +3121,15 @@
               }
             } ]
           },
+          "SEED4" : {
+            "providerType" : "Snowflake",
+            "fields" : [ {
+              "name" : "DATA123",
+              "dataType" : {
+                "type" : "Number"
+              }
+            } ]
+          },
           "TESTSEED_PARTIAL_1714054500466" : {
             "providerType" : "Snowflake",
             "fields" : [ {
@@ -3718,6 +3236,15 @@
               }
             } ]
           },
+          "NEW2" : {
+            "providerType" : "Snowflake",
+            "fields" : [ {
+              "name" : "DATA123",
+              "dataType" : {
+                "type" : "Number"
+              }
+            } ]
+          },
           "TESTSEED_FULL_1708833750798" : {
             "providerType" : "Snowflake",
             "fields" : [ {
@@ -3802,6 +3329,85 @@
               "name" : "C_BOOL",
               "dataType" : {
                 "type" : "Boolean"
+              }
+            } ]
+          },
+          "ENHANCEDEXPERIENCEMODEL" : {
+            "providerType" : "Snowflake",
+            "fields" : [ {
+              "name" : "FIRST_NAME",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "LAST_NAME",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "FIRST_ORDER",
+              "dataType" : {
+                "type" : "Date"
+              }
+            }, {
+              "name" : "MOST_RECENT_ORDER",
+              "dataType" : {
+                "type" : "Date"
+              }
+            }, {
+              "name" : "NUMBER_OF_ORDERS",
+              "dataType" : {
+                "type" : "Number"
+              }
+            }, {
+              "name" : "CUSTOMER_LIFETIME_VALUE",
+              "dataType" : {
+                "type" : "Number"
+              }
+            }, {
+              "name" : "CUSTOMER_ID",
+              "dataType" : {
+                "type" : "Number"
+              }
+            }, {
+              "name" : "ORDER_DATE",
+              "dataType" : {
+                "type" : "Date"
+              }
+            }, {
+              "name" : "GIFT_CARD_AMOUNT",
+              "dataType" : {
+                "type" : "Number"
+              }
+            }, {
+              "name" : "AMOUNT",
+              "dataType" : {
+                "type" : "Number"
+              }
+            }, {
+              "name" : "ORDER_ID",
+              "dataType" : {
+                "type" : "Number"
+              }
+            }, {
+              "name" : "CREDIT_CARD_AMOUNT",
+              "dataType" : {
+                "type" : "Number"
+              }
+            }, {
+              "name" : "STATUS",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "BANK_TRANSFER_AMOUNT",
+              "dataType" : {
+                "type" : "Number"
+              }
+            }, {
+              "name" : "COUPON_AMOUNT",
+              "dataType" : {
+                "type" : "Number"
               }
             } ]
           },
@@ -3903,6 +3509,35 @@
               "name" : "MAGNITUDE_1",
               "dataType" : {
                 "type" : "Number"
+              }
+            } ]
+          },
+          "TESTSEED_PARTIAL_1715836466620" : {
+            "providerType" : "Snowflake",
+            "fields" : [ {
+              "name" : "C_INT",
+              "dataType" : {
+                "type" : "Number"
+              }
+            }, {
+              "name" : "C_BIGNUMERIC",
+              "dataType" : {
+                "type" : "Number"
+              }
+            }, {
+              "name" : "C_STRING",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "C_FLOAT64",
+              "dataType" : {
+                "type" : "Float"
+              }
+            }, {
+              "name" : "C_BOOL",
+              "dataType" : {
+                "type" : "Boolean"
               }
             } ]
           },
@@ -4270,9 +3905,9 @@
           "MO1" : {
             "providerType" : "Snowflake",
             "fields" : [ {
-              "name" : "CC1",
+              "name" : "C1",
               "dataType" : {
-                "type" : "String"
+                "type" : "Number"
               }
             } ]
           },
@@ -4561,6 +4196,15 @@
               "name" : "C_BOOL",
               "dataType" : {
                 "type" : "Boolean"
+              }
+            } ]
+          },
+          "M33" : {
+            "providerType" : "Snowflake",
+            "fields" : [ {
+              "name" : "COL1",
+              "dataType" : {
+                "type" : "String"
               }
             } ]
           },
@@ -5432,6 +5076,55 @@
               }
             } ]
           },
+          "TEST_COPY_AUTOMATIONABHI_MODEL" : {
+            "providerType" : "Snowflake",
+            "fields" : [ {
+              "name" : "COUNTRY_CODE",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "COUNTRY_LABEL",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "CODE_1",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "SERVICE_LABEL_1",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "C_MACRO2",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "SERIES_REFERENCE",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "STATUS_1",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "PERIOD_1",
+              "dataType" : {
+                "type" : "Float"
+              }
+            }, {
+              "name" : "MAGNITUDE_1",
+              "dataType" : {
+                "type" : "Number"
+              }
+            } ]
+          },
           "D1" : {
             "providerType" : "Snowflake",
             "fields" : [ {
@@ -5516,6 +5209,44 @@
               "name" : "CD_DEP_COLLEGE_COUNT",
               "dataType" : {
                 "type" : "Number"
+              }
+            } ]
+          },
+          "MOD123" : {
+            "providerType" : "Snowflake",
+            "fields" : [ {
+              "name" : "QW",
+              "dataType" : {
+                "type" : "Number"
+              }
+            } ]
+          },
+          "TEST_AUTOMATION_SNOWFLAKE_SQL_SDT_PROJECT_MODEL_SDT" : {
+            "providerType" : "Snowflake",
+            "fields" : [ {
+              "name" : "C_INT",
+              "dataType" : {
+                "type" : "Number"
+              }
+            }, {
+              "name" : "C_BIGNUMERIC",
+              "dataType" : {
+                "type" : "Number"
+              }
+            }, {
+              "name" : "C_STRING",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "C_FLOAT64",
+              "dataType" : {
+                "type" : "Float"
+              }
+            }, {
+              "name" : "C_BOOL",
+              "dataType" : {
+                "type" : "Boolean"
               }
             } ]
           },
@@ -6133,6 +5864,35 @@
               }
             } ]
           },
+          "TESTSEED_PARTIAL_1715826479945" : {
+            "providerType" : "Snowflake",
+            "fields" : [ {
+              "name" : "C_INT",
+              "dataType" : {
+                "type" : "Number"
+              }
+            }, {
+              "name" : "C_BIGNUMERIC",
+              "dataType" : {
+                "type" : "Number"
+              }
+            }, {
+              "name" : "C_STRING",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "C_FLOAT64",
+              "dataType" : {
+                "type" : "Float"
+              }
+            }, {
+              "name" : "C_BOOL",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            } ]
+          },
           "STORE_RETURNS" : {
             "providerType" : "Snowflake",
             "fields" : [ {
@@ -6329,6 +6089,15 @@
               }
             } ]
           },
+          "MN" : {
+            "providerType" : "Snowflake",
+            "fields" : [ {
+              "name" : "DATA123",
+              "dataType" : {
+                "type" : "Number"
+              }
+            } ]
+          },
           "JASVINDER_TEMP" : {
             "providerType" : "Snowflake",
             "fields" : [ {
@@ -6352,6 +6121,35 @@
               }
             }, {
               "name" : "C_BOOLEAN",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            } ]
+          },
+          "TESTSEED_FULL_1715813176994" : {
+            "providerType" : "Snowflake",
+            "fields" : [ {
+              "name" : "C_INT",
+              "dataType" : {
+                "type" : "Number"
+              }
+            }, {
+              "name" : "C_BIGNUMERIC",
+              "dataType" : {
+                "type" : "Number"
+              }
+            }, {
+              "name" : "C_STRING",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "C_FLOAT64",
+              "dataType" : {
+                "type" : "Float"
+              }
+            }, {
+              "name" : "C_BOOL",
               "dataType" : {
                 "type" : "Boolean"
               }
@@ -6813,6 +6611,105 @@
               }
             } ]
           },
+          "TEST_1_AUTOMATIONABHI_MODEL" : {
+            "providerType" : "Snowflake",
+            "fields" : [ {
+              "name" : "COUNTRY_CODE",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "COUNTRY_LABEL",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "CODE_1",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "SERVICE_LABEL_1",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "C_MACRO2",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "SERIES_REFERENCE",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "PERIOD_1",
+              "dataType" : {
+                "type" : "Float"
+              }
+            }, {
+              "name" : "DATA_VALUE",
+              "dataType" : {
+                "type" : "Float"
+              }
+            }, {
+              "name" : "SUPPRESSED_1",
+              "dataType" : {
+                "type" : "Number"
+              }
+            }, {
+              "name" : "STATUS_1",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "UNITS_1",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "MAGNITUDE_1",
+              "dataType" : {
+                "type" : "Number"
+              }
+            }, {
+              "name" : "SUBJECT_1",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "GROUP_1",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "SERIES_TITLE_1",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "SERIES_TITLE_2",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "SERIES_TITLE_3",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "SERIES_TITLE_4",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "SERIES_TITLE_5",
+              "dataType" : {
+                "type" : "Number"
+              }
+            } ]
+          },
           "WEB_SALES" : {
             "providerType" : "Snowflake",
             "fields" : [ {
@@ -6984,6 +6881,35 @@
               "name" : "WS_NET_PROFIT",
               "dataType" : {
                 "type" : "Number"
+              }
+            } ]
+          },
+          "TESTSEED_FULL_1716703980471" : {
+            "providerType" : "Snowflake",
+            "fields" : [ {
+              "name" : "C_INT",
+              "dataType" : {
+                "type" : "Number"
+              }
+            }, {
+              "name" : "C_BIGNUMERIC",
+              "dataType" : {
+                "type" : "Number"
+              }
+            }, {
+              "name" : "C_STRING",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "C_FLOAT64",
+              "dataType" : {
+                "type" : "Float"
+              }
+            }, {
+              "name" : "C_BOOL",
+              "dataType" : {
+                "type" : "Boolean"
               }
             } ]
           },
@@ -7569,6 +7495,15 @@
               }
             } ]
           },
+          "M44" : {
+            "providerType" : "Snowflake",
+            "fields" : [ {
+              "name" : "COL1",
+              "dataType" : {
+                "type" : "String"
+              }
+            } ]
+          },
           "TESTSEED_FULL_1696621082692" : {
             "providerType" : "Snowflake",
             "fields" : [ {
@@ -7814,6 +7749,15 @@
               }
             }, {
               "name" : "LAST_NAME",
+              "dataType" : {
+                "type" : "String"
+              }
+            } ]
+          },
+          "SEED1" : {
+            "providerType" : "Snowflake",
+            "fields" : [ {
+              "name" : "COL1",
               "dataType" : {
                 "type" : "String"
               }
@@ -8306,6 +8250,35 @@
               }
             } ]
           },
+          "TESTSEED_FULL_1716514444984" : {
+            "providerType" : "Snowflake",
+            "fields" : [ {
+              "name" : "C_INT",
+              "dataType" : {
+                "type" : "Number"
+              }
+            }, {
+              "name" : "C_BIGNUMERIC",
+              "dataType" : {
+                "type" : "Number"
+              }
+            }, {
+              "name" : "C_STRING",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "C_FLOAT64",
+              "dataType" : {
+                "type" : "Float"
+              }
+            }, {
+              "name" : "C_BOOL",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            } ]
+          },
           "HUNDRED_ROWS_TABLE" : {
             "providerType" : "Snowflake",
             "fields" : [ {
@@ -8370,6 +8343,35 @@
               "name" : "C_VARCHAR",
               "dataType" : {
                 "type" : "String"
+              }
+            } ]
+          },
+          "TESTSEED_FULL_1716706154097" : {
+            "providerType" : "Snowflake",
+            "fields" : [ {
+              "name" : "C_INT",
+              "dataType" : {
+                "type" : "Number"
+              }
+            }, {
+              "name" : "C_BIGNUMERIC",
+              "dataType" : {
+                "type" : "Number"
+              }
+            }, {
+              "name" : "C_STRING",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "C_FLOAT64",
+              "dataType" : {
+                "type" : "Float"
+              }
+            }, {
+              "name" : "C_BOOL",
+              "dataType" : {
+                "type" : "Boolean"
               }
             } ]
           },
@@ -8445,6 +8447,85 @@
               }
             } ]
           },
+          "NEWMODELFORENHANCEDEXPERIENCE" : {
+            "providerType" : "Snowflake",
+            "fields" : [ {
+              "name" : "CREDIT_CARD_AMOUNT",
+              "dataType" : {
+                "type" : "Number"
+              }
+            }, {
+              "name" : "BANK_TRANSFER_AMOUNT",
+              "dataType" : {
+                "type" : "Number"
+              }
+            }, {
+              "name" : "ORDER_DATE",
+              "dataType" : {
+                "type" : "Date"
+              }
+            }, {
+              "name" : "GIFT_CARD_AMOUNT",
+              "dataType" : {
+                "type" : "Number"
+              }
+            }, {
+              "name" : "AMOUNT",
+              "dataType" : {
+                "type" : "Number"
+              }
+            }, {
+              "name" : "NUMBER_OF_ORDERS",
+              "dataType" : {
+                "type" : "Number"
+              }
+            }, {
+              "name" : "MOST_RECENT_ORDER",
+              "dataType" : {
+                "type" : "Date"
+              }
+            }, {
+              "name" : "FIRST_NAME",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "STATUS",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "LAST_NAME",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "ORDER_ID",
+              "dataType" : {
+                "type" : "Number"
+              }
+            }, {
+              "name" : "CUSTOMER_ID",
+              "dataType" : {
+                "type" : "Number"
+              }
+            }, {
+              "name" : "COUPON_AMOUNT",
+              "dataType" : {
+                "type" : "Number"
+              }
+            }, {
+              "name" : "FIRST_ORDER",
+              "dataType" : {
+                "type" : "Date"
+              }
+            }, {
+              "name" : "CUSTOMER_LIFETIME_VALUE",
+              "dataType" : {
+                "type" : "Number"
+              }
+            } ]
+          },
           "RAW_CUSTOMERS" : {
             "providerType" : "Snowflake",
             "fields" : [ {
@@ -8490,6 +8571,170 @@
               "name" : "C_BOOL",
               "dataType" : {
                 "type" : "Boolean"
+              }
+            } ]
+          },
+          "SANITY_SIMPLE_MODEL_1" : {
+            "providerType" : "Snowflake",
+            "fields" : [ {
+              "name" : "C_NUM",
+              "dataType" : {
+                "type" : "Number"
+              }
+            }, {
+              "name" : "C_NUM10",
+              "dataType" : {
+                "type" : "Number"
+              }
+            }, {
+              "name" : "C_DEC",
+              "dataType" : {
+                "type" : "Number"
+              }
+            }, {
+              "name" : "C_NUMERIC",
+              "dataType" : {
+                "type" : "Number"
+              }
+            }, {
+              "name" : "C_INT",
+              "dataType" : {
+                "type" : "Number"
+              }
+            }, {
+              "name" : "C_INTEGER",
+              "dataType" : {
+                "type" : "Number"
+              }
+            }, {
+              "name" : "C_DOUBLE",
+              "dataType" : {
+                "type" : "Float"
+              }
+            }, {
+              "name" : "C_FLOAT",
+              "dataType" : {
+                "type" : "Float"
+              }
+            }, {
+              "name" : "C_COUBLE_PRECISION",
+              "dataType" : {
+                "type" : "Float"
+              }
+            }, {
+              "name" : "C_REAL",
+              "dataType" : {
+                "type" : "Float"
+              }
+            }, {
+              "name" : "C_VARCHAR",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "C_VARCHAR50",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "C_CHAR",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "C_CHAR10",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "C_STRING",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "C_STRING20",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "C_TEXT",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "C_TEXT30",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "C_BINARY",
+              "dataType" : {
+                "type" : "Binary"
+              }
+            }, {
+              "name" : "C_BINARY100",
+              "dataType" : {
+                "type" : "Binary"
+              }
+            }, {
+              "name" : "C_VARBINARY",
+              "dataType" : {
+                "type" : "Binary"
+              }
+            }, {
+              "name" : "C_BOOL",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "C_TIMESTAMP",
+              "dataType" : {
+                "type" : "Timestamp"
+              }
+            }, {
+              "name" : "C_DATE",
+              "dataType" : {
+                "type" : "Date"
+              }
+            }, {
+              "name" : "C_DATETIME",
+              "dataType" : {
+                "type" : "Timestamp"
+              }
+            }, {
+              "name" : "C_TIME",
+              "dataType" : {
+                "type" : "Time"
+              }
+            }, {
+              "name" : "C_TIMESTAMPLTZ",
+              "dataType" : {
+                "type" : "Timestamp"
+              }
+            }, {
+              "name" : "C_TIMESTAMP_NTZ",
+              "dataType" : {
+                "type" : "Timestamp"
+              }
+            }, {
+              "name" : "C_VARIANT",
+              "dataType" : {
+                "type" : "Variant"
+              }
+            }, {
+              "name" : "C_ARRAY",
+              "dataType" : {
+                "type" : "Array"
+              }
+            }, {
+              "name" : "C_OBJECT",
+              "dataType" : {
+                "type" : "Object"
+              }
+            }, {
+              "name" : "C_GEOGRAPHY",
+              "dataType" : {
+                "type" : "Geography"
               }
             } ]
           },
@@ -8703,27 +8948,27 @@
           "CUSTOMER_DATA" : {
             "providerType" : "Snowflake",
             "fields" : [ {
-              "name" : "ID",
+              "name" : "id",
               "dataType" : {
                 "type" : "Number"
               }
             }, {
-              "name" : "NAME",
+              "name" : "name",
               "dataType" : {
                 "type" : "String"
               }
             }, {
-              "name" : "COMPANY",
+              "name" : "company",
               "dataType" : {
                 "type" : "String"
               }
             }, {
-              "name" : "EMAIL",
+              "name" : "email",
               "dataType" : {
                 "type" : "String"
               }
             }, {
-              "name" : "COUNTRY",
+              "name" : "country",
               "dataType" : {
                 "type" : "String"
               }
@@ -9228,6 +9473,35 @@
               }
             } ]
           },
+          "TESTSEED_PARTIAL_1716806623914" : {
+            "providerType" : "Snowflake",
+            "fields" : [ {
+              "name" : "C_INT",
+              "dataType" : {
+                "type" : "Number"
+              }
+            }, {
+              "name" : "C_BIGNUMERIC",
+              "dataType" : {
+                "type" : "Number"
+              }
+            }, {
+              "name" : "C_STRING",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "C_FLOAT64",
+              "dataType" : {
+                "type" : "Float"
+              }
+            }, {
+              "name" : "C_BOOL",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            } ]
+          },
           "TESTSEEDSCHDRUN_AUTOMATION_SNOWFLAKE_PROJECT_AIRFLOWSCHEDULED" : {
             "providerType" : "Snowflake",
             "fields" : [ {
@@ -9381,6 +9655,35 @@
             } ]
           },
           "TESTSEED_FULL_1714725201090" : {
+            "providerType" : "Snowflake",
+            "fields" : [ {
+              "name" : "C_INT",
+              "dataType" : {
+                "type" : "Number"
+              }
+            }, {
+              "name" : "C_BIGNUMERIC",
+              "dataType" : {
+                "type" : "Number"
+              }
+            }, {
+              "name" : "C_STRING",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "C_FLOAT64",
+              "dataType" : {
+                "type" : "Float"
+              }
+            }, {
+              "name" : "C_BOOL",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            } ]
+          },
+          "TESTSEED_PARTIAL_1715813323805" : {
             "providerType" : "Snowflake",
             "fields" : [ {
               "name" : "C_INT",
@@ -9564,6 +9867,339 @@
               "name" : "UPDATED_AT",
               "dataType" : {
                 "type" : "Date"
+              }
+            }, {
+              "name" : "DBT_SCD_ID",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "DBT_UPDATED_AT",
+              "dataType" : {
+                "type" : "Date"
+              }
+            }, {
+              "name" : "DBT_VALID_FROM",
+              "dataType" : {
+                "type" : "Date"
+              }
+            }, {
+              "name" : "DBT_VALID_TO",
+              "dataType" : {
+                "type" : "Date"
+              }
+            } ]
+          },
+          "TEST_2_AUTOMATIONABHI_MODEL" : {
+            "providerType" : "Snowflake",
+            "fields" : [ {
+              "name" : "C_INTEGER",
+              "dataType" : {
+                "type" : "Number"
+              }
+            }, {
+              "name" : "C_BINARY100",
+              "dataType" : {
+                "type" : "Binary"
+              }
+            }, {
+              "name" : "C_NUM10",
+              "dataType" : {
+                "type" : "Number"
+              }
+            }, {
+              "name" : "C_CHAR",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "C_BINARY",
+              "dataType" : {
+                "type" : "Binary"
+              }
+            }, {
+              "name" : "C_DATE",
+              "dataType" : {
+                "type" : "Date"
+              }
+            }, {
+              "name" : "C_STRING",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "C_ARRAY",
+              "dataType" : {
+                "type" : "Array"
+              }
+            }, {
+              "name" : "C_CHAR10",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "C_REAL",
+              "dataType" : {
+                "type" : "Float"
+              }
+            }, {
+              "name" : "C_FLOAT",
+              "dataType" : {
+                "type" : "Float"
+              }
+            }, {
+              "name" : "C_INT",
+              "dataType" : {
+                "type" : "Number"
+              }
+            }, {
+              "name" : "C_OBJECT",
+              "dataType" : {
+                "type" : "Object"
+              }
+            }, {
+              "name" : "C_DEC",
+              "dataType" : {
+                "type" : "Number"
+              }
+            }, {
+              "name" : "C_VARCHAR50",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "C_VARBINARY",
+              "dataType" : {
+                "type" : "Binary"
+              }
+            }, {
+              "name" : "C_COUBLE_PRECISION",
+              "dataType" : {
+                "type" : "Float"
+              }
+            }, {
+              "name" : "C_DATETIME",
+              "dataType" : {
+                "type" : "Timestamp"
+              }
+            }, {
+              "name" : "C_TIMESTAMP",
+              "dataType" : {
+                "type" : "Timestamp"
+              }
+            }, {
+              "name" : "C_VARCHAR",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "C_DOUBLE",
+              "dataType" : {
+                "type" : "Float"
+              }
+            }, {
+              "name" : "C_NUMERIC",
+              "dataType" : {
+                "type" : "Number"
+              }
+            }, {
+              "name" : "C_TIME",
+              "dataType" : {
+                "type" : "Time"
+              }
+            }, {
+              "name" : "C_GEOGRAPHY",
+              "dataType" : {
+                "type" : "Geography"
+              }
+            }, {
+              "name" : "C_STRING20",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "C_BOOL",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "C_TEXT",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "C_NUM",
+              "dataType" : {
+                "type" : "Number"
+              }
+            }, {
+              "name" : "C_TEXT30",
+              "dataType" : {
+                "type" : "String"
+              }
+            } ]
+          },
+          "SNAPSHOT_SANITY_TEST_1" : {
+            "providerType" : "Snowflake",
+            "fields" : [ {
+              "name" : "C_NUM",
+              "dataType" : {
+                "type" : "Number"
+              }
+            }, {
+              "name" : "C_NUM10",
+              "dataType" : {
+                "type" : "Number"
+              }
+            }, {
+              "name" : "C_DEC",
+              "dataType" : {
+                "type" : "Number"
+              }
+            }, {
+              "name" : "C_NUMERIC",
+              "dataType" : {
+                "type" : "Number"
+              }
+            }, {
+              "name" : "C_INT",
+              "dataType" : {
+                "type" : "Number"
+              }
+            }, {
+              "name" : "C_INTEGER",
+              "dataType" : {
+                "type" : "Number"
+              }
+            }, {
+              "name" : "C_DOUBLE",
+              "dataType" : {
+                "type" : "Float"
+              }
+            }, {
+              "name" : "C_FLOAT",
+              "dataType" : {
+                "type" : "Float"
+              }
+            }, {
+              "name" : "C_COUBLE_PRECISION",
+              "dataType" : {
+                "type" : "Float"
+              }
+            }, {
+              "name" : "C_REAL",
+              "dataType" : {
+                "type" : "Float"
+              }
+            }, {
+              "name" : "C_VARCHAR",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "C_VARCHAR50",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "C_CHAR",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "C_CHAR10",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "C_STRING",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "C_STRING20",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "C_TEXT",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "C_TEXT30",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "C_BINARY",
+              "dataType" : {
+                "type" : "Binary"
+              }
+            }, {
+              "name" : "C_BINARY100",
+              "dataType" : {
+                "type" : "Binary"
+              }
+            }, {
+              "name" : "C_VARBINARY",
+              "dataType" : {
+                "type" : "Binary"
+              }
+            }, {
+              "name" : "C_BOOL",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "C_TIMESTAMP",
+              "dataType" : {
+                "type" : "Timestamp"
+              }
+            }, {
+              "name" : "C_DATE",
+              "dataType" : {
+                "type" : "Date"
+              }
+            }, {
+              "name" : "C_DATETIME",
+              "dataType" : {
+                "type" : "Timestamp"
+              }
+            }, {
+              "name" : "C_TIME",
+              "dataType" : {
+                "type" : "Time"
+              }
+            }, {
+              "name" : "C_TIMESTAMPLTZ",
+              "dataType" : {
+                "type" : "Timestamp"
+              }
+            }, {
+              "name" : "C_TIMESTAMP_NTZ",
+              "dataType" : {
+                "type" : "Timestamp"
+              }
+            }, {
+              "name" : "C_VARIANT",
+              "dataType" : {
+                "type" : "Variant"
+              }
+            }, {
+              "name" : "C_ARRAY",
+              "dataType" : {
+                "type" : "Array"
+              }
+            }, {
+              "name" : "C_OBJECT",
+              "dataType" : {
+                "type" : "Object"
+              }
+            }, {
+              "name" : "C_GEOGRAPHY",
+              "dataType" : {
+                "type" : "Geography"
               }
             }, {
               "name" : "DBT_SCD_ID",
@@ -9838,6 +10474,35 @@
               }
             } ]
           },
+          "TESTSEED_FULL_1716702518035" : {
+            "providerType" : "Snowflake",
+            "fields" : [ {
+              "name" : "C_INT",
+              "dataType" : {
+                "type" : "Number"
+              }
+            }, {
+              "name" : "C_BIGNUMERIC",
+              "dataType" : {
+                "type" : "Number"
+              }
+            }, {
+              "name" : "C_STRING",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "C_FLOAT64",
+              "dataType" : {
+                "type" : "Float"
+              }
+            }, {
+              "name" : "C_BOOL",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            } ]
+          },
           "TESTSEED_FULL_1697833932327" : {
             "providerType" : "Snowflake",
             "fields" : [ {
@@ -9893,6 +10558,175 @@
               "name" : "MGR TITLE",
               "dataType" : {
                 "type" : "String"
+              }
+            } ]
+          },
+          "SNAPSHOT_PARENT_MAIN" : {
+            "providerType" : "Snowflake",
+            "fields" : [ {
+              "name" : "C_NUM",
+              "dataType" : {
+                "type" : "Number"
+              }
+            }, {
+              "name" : "C_NUM10",
+              "dataType" : {
+                "type" : "Number"
+              }
+            }, {
+              "name" : "C_DEC",
+              "dataType" : {
+                "type" : "Number"
+              }
+            }, {
+              "name" : "C_NUMERIC",
+              "dataType" : {
+                "type" : "Number"
+              }
+            }, {
+              "name" : "C_INT",
+              "dataType" : {
+                "type" : "Number"
+              }
+            }, {
+              "name" : "C_INTEGER",
+              "dataType" : {
+                "type" : "Number"
+              }
+            }, {
+              "name" : "C_DOUBLE",
+              "dataType" : {
+                "type" : "Float"
+              }
+            }, {
+              "name" : "C_FLOAT",
+              "dataType" : {
+                "type" : "Float"
+              }
+            }, {
+              "name" : "C_COUBLE_PRECISION",
+              "dataType" : {
+                "type" : "Float"
+              }
+            }, {
+              "name" : "C_REAL",
+              "dataType" : {
+                "type" : "Float"
+              }
+            }, {
+              "name" : "C_VARCHAR",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "C_VARCHAR50",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "C_CHAR",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "C_CHAR10",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "C_STRING",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "C_STRING20",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "C_TEXT",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "C_TEXT30",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "C_BINARY",
+              "dataType" : {
+                "type" : "Binary"
+              }
+            }, {
+              "name" : "C_BINARY100",
+              "dataType" : {
+                "type" : "Binary"
+              }
+            }, {
+              "name" : "C_VARBINARY",
+              "dataType" : {
+                "type" : "Binary"
+              }
+            }, {
+              "name" : "C_BOOL",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "C_TIMESTAMP",
+              "dataType" : {
+                "type" : "Timestamp"
+              }
+            }, {
+              "name" : "C_DATE",
+              "dataType" : {
+                "type" : "Date"
+              }
+            }, {
+              "name" : "C_DATETIME",
+              "dataType" : {
+                "type" : "Timestamp"
+              }
+            }, {
+              "name" : "C_TIME",
+              "dataType" : {
+                "type" : "Time"
+              }
+            }, {
+              "name" : "C_ARRAY",
+              "dataType" : {
+                "type" : "Array"
+              }
+            }, {
+              "name" : "C_OBJECT",
+              "dataType" : {
+                "type" : "Object"
+              }
+            }, {
+              "name" : "C_GEOGRAPHY",
+              "dataType" : {
+                "type" : "Geography"
+              }
+            }, {
+              "name" : "DBT_SCD_ID",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "DBT_UPDATED_AT",
+              "dataType" : {
+                "type" : "Date"
+              }
+            }, {
+              "name" : "DBT_VALID_FROM",
+              "dataType" : {
+                "type" : "Date"
+              }
+            }, {
+              "name" : "DBT_VALID_TO",
+              "dataType" : {
+                "type" : "Date"
               }
             } ]
           },
@@ -9979,6 +10813,35 @@
             } ]
           },
           "TESTSEED_FULL_1714569325510" : {
+            "providerType" : "Snowflake",
+            "fields" : [ {
+              "name" : "C_INT",
+              "dataType" : {
+                "type" : "Number"
+              }
+            }, {
+              "name" : "C_BIGNUMERIC",
+              "dataType" : {
+                "type" : "Number"
+              }
+            }, {
+              "name" : "C_STRING",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "C_FLOAT64",
+              "dataType" : {
+                "type" : "Float"
+              }
+            }, {
+              "name" : "C_BOOL",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            } ]
+          },
+          "TESTSEED_FULL_1716702248058" : {
             "providerType" : "Snowflake",
             "fields" : [ {
               "name" : "C_INT",
@@ -10244,6 +11107,35 @@
               "name" : "C_GEOGRAPHY",
               "dataType" : {
                 "type" : "Geography"
+              }
+            } ]
+          },
+          "TESTSEED_FULL_1716515127527" : {
+            "providerType" : "Snowflake",
+            "fields" : [ {
+              "name" : "C_INT",
+              "dataType" : {
+                "type" : "Number"
+              }
+            }, {
+              "name" : "C_BIGNUMERIC",
+              "dataType" : {
+                "type" : "Number"
+              }
+            }, {
+              "name" : "C_STRING",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "C_FLOAT64",
+              "dataType" : {
+                "type" : "Float"
+              }
+            }, {
+              "name" : "C_BOOL",
+              "dataType" : {
+                "type" : "Boolean"
               }
             } ]
           },
@@ -11429,6 +12321,73 @@
               }
             } ]
           },
+          "TESTSEED_FULL_1716704298264" : {
+            "providerType" : "Snowflake",
+            "fields" : [ {
+              "name" : "C_INT",
+              "dataType" : {
+                "type" : "Number"
+              }
+            }, {
+              "name" : "C_BIGNUMERIC",
+              "dataType" : {
+                "type" : "Number"
+              }
+            }, {
+              "name" : "C_STRING",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "C_FLOAT64",
+              "dataType" : {
+                "type" : "Float"
+              }
+            }, {
+              "name" : "C_BOOL",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            } ]
+          },
+          "S11" : {
+            "providerType" : "Snowflake",
+            "fields" : [ {
+              "name" : "C1",
+              "dataType" : {
+                "type" : "Number"
+              }
+            } ]
+          },
+          "TESTSEED_FULL_1716703060794" : {
+            "providerType" : "Snowflake",
+            "fields" : [ {
+              "name" : "C_INT",
+              "dataType" : {
+                "type" : "Number"
+              }
+            }, {
+              "name" : "C_BIGNUMERIC",
+              "dataType" : {
+                "type" : "Number"
+              }
+            }, {
+              "name" : "C_STRING",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "C_FLOAT64",
+              "dataType" : {
+                "type" : "Float"
+              }
+            }, {
+              "name" : "C_BOOL",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            } ]
+          },
           "ENV_UITESTING_EXPRESSIONS" : {
             "providerType" : "Snowflake",
             "fields" : [ {
@@ -11782,6 +12741,35 @@
               "name" : "SS_NET_PROFIT",
               "dataType" : {
                 "type" : "Number"
+              }
+            } ]
+          },
+          "QA_TEST_SEED_SDT" : {
+            "providerType" : "Snowflake",
+            "fields" : [ {
+              "name" : "C_INT",
+              "dataType" : {
+                "type" : "Number"
+              }
+            }, {
+              "name" : "C_BIGNUMERIC",
+              "dataType" : {
+                "type" : "Number"
+              }
+            }, {
+              "name" : "C_STRING",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "C_FLOAT64",
+              "dataType" : {
+                "type" : "Float"
+              }
+            }, {
+              "name" : "C_BOOL",
+              "dataType" : {
+                "type" : "Boolean"
               }
             } ]
           },
@@ -12324,6 +13312,35 @@
               }
             } ]
           },
+          "TESTSEED_FULL_1716514785456" : {
+            "providerType" : "Snowflake",
+            "fields" : [ {
+              "name" : "C_INT",
+              "dataType" : {
+                "type" : "Number"
+              }
+            }, {
+              "name" : "C_BIGNUMERIC",
+              "dataType" : {
+                "type" : "Number"
+              }
+            }, {
+              "name" : "C_STRING",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "C_FLOAT64",
+              "dataType" : {
+                "type" : "Float"
+              }
+            }, {
+              "name" : "C_BOOL",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            } ]
+          },
           "PIVOT_SEED" : {
             "providerType" : "Snowflake",
             "fields" : [ {
@@ -12555,6 +13572,35 @@
               }
             } ]
           },
+          "TESTSEED_FULL_1716705714930" : {
+            "providerType" : "Snowflake",
+            "fields" : [ {
+              "name" : "C_INT",
+              "dataType" : {
+                "type" : "Number"
+              }
+            }, {
+              "name" : "C_BIGNUMERIC",
+              "dataType" : {
+                "type" : "Number"
+              }
+            }, {
+              "name" : "C_STRING",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "C_FLOAT64",
+              "dataType" : {
+                "type" : "Float"
+              }
+            }, {
+              "name" : "C_BOOL",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            } ]
+          },
           "TEST_TABLE2" : {
             "providerType" : "Snowflake",
             "fields" : [ {
@@ -12755,6 +13801,35 @@
               "name" : "AMOUNT",
               "dataType" : {
                 "type" : "Number"
+              }
+            } ]
+          },
+          "TESTSEED_FULL_1716705079067" : {
+            "providerType" : "Snowflake",
+            "fields" : [ {
+              "name" : "C_INT",
+              "dataType" : {
+                "type" : "Number"
+              }
+            }, {
+              "name" : "C_BIGNUMERIC",
+              "dataType" : {
+                "type" : "Number"
+              }
+            }, {
+              "name" : "C_STRING",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "C_FLOAT64",
+              "dataType" : {
+                "type" : "Float"
+              }
+            }, {
+              "name" : "C_BOOL",
+              "dataType" : {
+                "type" : "Boolean"
               }
             } ]
           },
@@ -13742,6 +14817,10 @@
       } ]
     }, {
       "type" : "Database",
+      "name" : "QA_UPLOAD_TABLES",
+      "children" : [ ]
+    }, {
+      "type" : "Database",
       "name" : "RAJ",
       "children" : [ ]
     }, {
@@ -13802,6 +14881,11 @@
     "name" : "word_count",
     "type" : "Model",
     "syncedOnce" : false
+  }, {
+    "name" : "CUSTOMER_DATA",
+    "type" : "Source",
+    "sourceName" : "QA_DATABASE.QA_SCHEMA",
+    "syncedOnce" : true
   } ],
   "frontEndLanguage" : "sql"
 }

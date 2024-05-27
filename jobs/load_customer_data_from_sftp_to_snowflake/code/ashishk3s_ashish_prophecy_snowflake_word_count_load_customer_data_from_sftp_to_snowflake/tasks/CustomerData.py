@@ -10,9 +10,9 @@ def CustomerData():
     class TableauExtractProperties():
         taskId: Optional[str] = None
         source_type: str = "SNOWFLAKE"
-        snowflake_conn_id: Optional[str] = "snowflake_default"
+        snowflake_conn_id: Optional[str] = None
         snowflake_table: Optional[str] = None
-        tableau_conn_id: Optional[str] = "tableau_default"
+        tableau_conn_id: Optional[str] = None
         tableau_project_name: Optional[str] = None
         tableau_extract_name: Optional[str] = None
 

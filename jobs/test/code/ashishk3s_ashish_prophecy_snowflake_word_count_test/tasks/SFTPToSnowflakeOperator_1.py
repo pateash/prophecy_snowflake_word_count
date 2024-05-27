@@ -1,4 +1,4 @@
-from ashishk3s_ashish_prophecy_snowflake_word_count_sftp_to_snowflake_job.utils import *
+from ashishk3s_ashish_prophecy_snowflake_word_count_test.utils import *
 
 def SFTPToSnowflakeOperator_1():
     from typing import Optional, List, Dict
@@ -26,7 +26,7 @@ def SFTPToSnowflakeOperator_1():
         snowflake_table = "CUSTOMER_DATA", 
         write_mode = "APPEND", 
         sftp_conn_id = "sftp_ashish", 
-        sftp_file_path = "/sftp_user/ashish/customer/customer_data.csv", 
+        sftp_file_path = "{{ params.SFTP_FILE_PATH }}", 
         sftp_operation = "put", 
         file_format = "CSV", 
         csv_field_delimiter = ",", 
@@ -91,7 +91,7 @@ def SFTPToSnowflakeOperator_1():
             "truncate_table": f"""TRUNCATE TABLE IF EXISTS {table_name}""",
             "create_table": f"""CREATE TABLE IF NOT EXISTS {table_name}
                                   USING TEMPLATE (
-                                    SELECT ARRAY_AGG(OBJECT_CONSTRUCT('COLUMN_NAME',UPPER(COLUMN_NAME), 'TYPE',TYPE, 'NULLABLE', NULLABLE, 'EXPRESSION',EXPRESSION))
+                                    SELECT ARRAY_AGG(OBJECT_CONSTRUCT('COLUMN_NAME',COLUMN_NAME, 'TYPE',TYPE, 'NULLABLE', NULLABLE, 'EXPRESSION',EXPRESSION))
                                     FROM TABLE(
                                       INFER_SCHEMA(
                                         LOCATION=>'{snowflake_file_path}',
