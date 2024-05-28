@@ -1,6 +1,6 @@
-from ashishk3s_ashish_prophecy_snowflake_word_count_test.utils import *
+from ashishk3s_ashish_prophecy_snowflake_word_count_sftp_to_snowflake_job.utils import *
 
-def SFTPToSnowflakeOperator_1():
+def SFTPToSnowflake_1():
     from typing import Optional, List, Dict
     from dataclasses import dataclass, field
     from abc import ABC
@@ -21,12 +21,12 @@ def SFTPToSnowflakeOperator_1():
         csv_header_settings: str = "DEFAULT"
 
     props = SFTPToSnowflakeProperties(  #skiptraversal
-        taskId = "SFTPToSnowflakeOperator_1", 
+        taskId = "SFTPToSnowflake_1", 
         snowflake_conn_id = "snowflake_CICD_253", 
         snowflake_table = "CUSTOMER_DATA", 
         write_mode = "APPEND", 
         sftp_conn_id = "sftp_ashish", 
-        sftp_file_path = "{{ params.SFTP_FILE_PATH }}", 
+        sftp_file_path = "/sftp_user/ashish/customer/customer_data.csv", 
         sftp_operation = "put", 
         file_format = "CSV", 
         csv_field_delimiter = ",", 
@@ -91,7 +91,7 @@ def SFTPToSnowflakeOperator_1():
             "truncate_table": f"""TRUNCATE TABLE IF EXISTS {table_name}""",
             "create_table": f"""CREATE TABLE IF NOT EXISTS {table_name}
                                   USING TEMPLATE (
-                                    SELECT ARRAY_AGG(OBJECT_CONSTRUCT('COLUMN_NAME',COLUMN_NAME, 'TYPE',TYPE, 'NULLABLE', NULLABLE, 'EXPRESSION',EXPRESSION))
+                                    SELECT ARRAY_AGG(OBJECT_CONSTRUCT('COLUMN_NAME',UPPER(COLUMN_NAME), 'TYPE',TYPE, 'NULLABLE', NULLABLE, 'EXPRESSION',EXPRESSION))
                                     FROM TABLE(
                                       INFER_SCHEMA(
                                         LOCATION=>'{snowflake_file_path}',
@@ -124,8 +124,8 @@ def SFTPToSnowflakeOperator_1():
 
             # copy data from stage to table
             run_query(cur, queries["copy_data_to_table"])
-            # show data
-            run_query(cur, queries["get_data"])
+        # show data
+        # run_query(cur, queries["get_data"])
         except Exception as e:
             print("Exception occurred: ", e)
             raise e

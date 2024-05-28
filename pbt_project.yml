@@ -78,8 +78,8 @@ jobs:
     enabled: false
     createdAt: '2024-05-20 09:45:03'
     author: ashish@prophecy.io
-  jobs/test:
-    name: test
+  jobs/databricks_tabluea_extract:
+    name: databricks_tabluea_extract
     description: ''
     fabricUID: 2
     scheduler:
@@ -99,7 +99,7 @@ jobs:
         Single: {}
       clusterId: null
     enabled: null
-    createdAt: '2024-05-27 13:26:54'
+    createdAt: '2024-05-28 14:09:18'
     author: ashish@prophecy.io
 gemContainer:
   languageVersion: ''

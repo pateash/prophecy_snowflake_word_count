@@ -9,10 +9,10 @@ from airflow.decorators import task
 sys.path.insert(0, os.path.abspath(os.path.dirname(__file__)))
 from ashishk3s_ashish_prophecy_snowflake_word_count_sftp_to_snowflake_job.tasks import (
     CheckCustomerData,
-    CustomerByCountry,
-    CustomerData,
+    CustomerByCountryExtract,
+    CustomerDataExtract,
     RunModel,
-    SFTPToSnowflakeOperator_1
+    SFTPToSnowflake_1
 )
 PROPHECY_RELEASE_TAG = "__PROJECT_ID_PLACEHOLDER__/__PROJECT_RELEASE_VERSION_PLACEHOLDER__"
 
@@ -25,11 +25,11 @@ with DAG(
     max_active_runs = 1
 ) as dag:
     CheckCustomerData_op = CheckCustomerData()
-    SFTPToSnowflakeOperator_1_op = SFTPToSnowflakeOperator_1()
-    CustomerData_op = CustomerData()
+    SFTPToSnowflake_1_op = SFTPToSnowflake_1()
+    CustomerDataExtract_op = CustomerDataExtract()
     RunModel_op = RunModel()
-    CustomerByCountry_op = CustomerByCountry()
-    RunModel_op >> CustomerByCountry_op
-    SFTPToSnowflakeOperator_1_op >> [CustomerData_op, RunModel_op]
-    CheckCustomerData_op >> SFTPToSnowflakeOperator_1_op
-    CustomerData_op >> RunModel_op
+    CustomerByCountryExtract_op = CustomerByCountryExtract()
+    CheckCustomerData_op >> SFTPToSnowflake_1_op
+    SFTPToSnowflake_1_op >> [CustomerDataExtract_op, RunModel_op]
+    CustomerDataExtract_op >> RunModel_op
+    RunModel_op >> CustomerByCountryExtract_op

@@ -1,6 +1,6 @@
-from ashishk3s_ashish_prophecy_snowflake_word_count_sftp_to_snowflake_job.utils import *
+from ashishk3s_ashish_prophecy_snowflake_word_count_databricks_tabluea_extract.utils import *
 
-def CustomerData():
+def TableauExtract_0():
     from typing import Optional, List, Dict
     from dataclasses import dataclass, field
     from abc import ABC
@@ -10,24 +10,33 @@ def CustomerData():
     class TableauExtractProperties():
         taskId: Optional[str] = None
         source_type: str = "SNOWFLAKE"
-        snowflake_conn_id: Optional[str] = None
-        snowflake_table: Optional[str] = None
+        warehouse_conn_id: Optional[str] = None
+        databricks_conn_id: Optional[str] = None
+        table_name: Optional[str] = None
+        database_name: Optional[str] = None
+        catalog_name: Optional[str] = None
+        use_catalog: bool = False
         tableau_conn_id: Optional[str] = None
         tableau_project_name: Optional[str] = None
         tableau_extract_name: Optional[str] = None
 
     props = TableauExtractProperties(  #skiptraversal
-        taskId = "CustomerData", 
-        source_type = "SNOWFLAKE", 
-        snowflake_conn_id = "snowflake_CICD_253", 
-        snowflake_table = "CUSTOMER_DATA", 
+        taskId = "TableauExtract_0", 
+        source_type = "DATABRICKS", 
+        warehouse_conn_id = "databricks_ashish", 
+        databricks_conn_id = None, 
+        table_name = "component_runs", 
+        database_name = "prophecy_ashishk3s_dev_cloud", 
+        catalog_name = None, 
+        use_catalog = False, 
         tableau_conn_id = "tableau_ashish", 
         tableau_project_name = "Customers", 
-        tableau_extract_name = "CustomerDataExtract"
+        tableau_extract_name = "component_runs_extract"
     )
     settings = {}
     from airflow.operators.python import PythonOperator
     from airflow.providers.snowflake.hooks.snowflake import SnowflakeHook
+    from airflow.providers.databricks.hooks.databricks import DatabricksHook
     from airflow.hooks.base import BaseHook
     import pandas as pd
     import pantab
@@ -35,19 +44,46 @@ def CustomerData():
     tableau_conn_id = props.tableau_conn_id
     project_name = props.tableau_project_name
     hyper_path = f"{props.tableau_extract_name}.hyper"
-    table_name = 'Extract' # this can be handled internally
+    hyper_name = 'Extract' # this can be handled internally
+    source_type = props.source_type
     # snowflake
-    snowflake_conn_id = props.snowflake_conn_id
-    # Snowflake connection using Airflow Snowflake Hook
-    sql_query = f"SELECT * FROM {props.snowflake_table}"
+    warehouse_conn_id = props.warehouse_conn_id
+    table_name = props.table_name
+    database_name = props.database_name
+    catalog_name = props.catalog_name
+
+    def get_table_name(catalog, database, table):
+        if database and catalog:
+            return f"{catalog}.{database}.{table}"
+        elif database:
+            return f"{database}.{table}"
+        else:
+            return table
+
+    def get_info(_source_type):
+        table = table_name if _source_type == "SNOWFLAKE" else get_table_name(catalog_name, database_name, table_name)
+        hook = SnowflakeHook(warehouse_conn_id) if _source_type == "SNOWFLAKE" else DatabricksHook(warehouse_conn_id)
+
+        return hook, table
+
+    def get_databricks_sql_conn(_hook):
+        _conn = _hook.get_conn()
+        from databricks import sql
+
+        return sql.connect(
+            server_hostname = _conn.host,
+            http_path = _conn.extra_dejson.get('http_path'),
+            access_token = _conn.extra_dejson.get('token')
+        )
 
     def export_tableau_hyperfile():
+        hook, table = get_info(source_type)
+        sql_query = f"SELECT * FROM {table}"
+        # Fetch data from Snowflake into a pandas DataFrame
         # tableau
-        snowflake_hook = SnowflakeHook(snowflake_conn_id)
-        connection = snowflake_hook.get_conn()
+        connection = hook.get_conn() if source_type == "SNOWFLAKE" else get_databricks_sql_conn(hook)
         cursor = connection.cursor()
 
-        # Fetch data from Snowflake into a pandas DataFrame
         try:
             # Execute the query
             cursor.execute(sql_query)
@@ -55,9 +91,9 @@ def CustomerData():
 
             if results:
                 df = pd.DataFrame(results, columns = [col[0] for col in cursor.description])
-                print("Data fetched successfully from Snowflake.")
+                print(f"Data fetched successfully from {source_type}.")
                 # Specify the path for the Hyper file
-                pantab.frame_to_hyper(df, hyper_path, table = table_name)
+                pantab.frame_to_hyper(df, hyper_path, table = hyper_name)
                 print(f"Data written to Hyper file successfully at {hyper_path}.")
             else:
                 print("Query returned no data.")

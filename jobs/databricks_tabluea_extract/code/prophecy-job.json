@@ -1,0 +1,85 @@
+{
+  "metainfo" : {
+    "type" : "Composer",
+    "fabricId" : "2",
+    "jobId" : "jobs/databricks_tabluea_extract",
+    "name" : "databricks_tabluea_extract",
+    "dagName" : "ashishk3s_ashish_prophecy_snowflake_word_count_databricks_tabluea_extract",
+    "schedule" : "0 0 * * *",
+    "enabled" : false,
+    "alerting" : {
+      "emails" : "",
+      "onStart" : false,
+      "onSuccess" : false,
+      "onFailure" : false
+    },
+    "maxConcurrentRuns" : 1,
+    "processDefaultSettings" : {
+      "ignore_first_depends_on_past" : true,
+      "do_xcom_push" : true
+    },
+    "availableFabrics" : [ {
+      "id" : "2",
+      "name" : "Airflow-Composer"
+    }, {
+      "id" : "8",
+      "name" : "airflow-dev"
+    } ],
+    "maxActiveRuns" : 1,
+    "catchup" : false,
+    "scheduleTimeZone" : "UTC",
+    "dagParams" : {
+      "instances" : {
+        "default" : { }
+      },
+      "params" : { },
+      "selected" : "default"
+    },
+    "airflowFunctions" : [ ],
+    "dynamicPipelineStatus" : {
+      "databricks" : false,
+      "dataproc" : false,
+      "emr" : false,
+      "onprem" : false
+    }
+  },
+  "processes" : {
+    "c3nxnttbTexHb_H0nn3vN$$hCDDAkW3Jd-a2rNOFpVTH" : {
+      "id" : "c3nxnttbTexHb_H0nn3vN$$hCDDAkW3Jd-a2rNOFpVTH",
+      "component" : "TableauExtract",
+      "metadata" : {
+        "label" : "TableauExtract_0",
+        "slug" : "TableauExtract_0",
+        "x" : -200,
+        "y" : -140
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "WSiygR64giao7bsY6WjVa$$tIhxZXAs4rztnvEqhr4MP",
+          "slug" : ""
+        } ],
+        "outputs" : [ {
+          "id" : "LpONqiuTki25uAeqUiip8$$JNW08acORSyT8eR8vftPK",
+          "slug" : ""
+        } ]
+      },
+      "settings" : { },
+      "properties" : {
+        "table_name" : "component_runs",
+        "tableau_project_name" : "Customers",
+        "catalog_name" : null,
+        "databricks_conn_id" : null,
+        "source_type" : "DATABRICKS",
+        "use_catalog" : false,
+        "database_name" : "prophecy_ashishk3s_dev_cloud",
+        "tableau_conn_id" : "tableau_ashish",
+        "warehouse_conn_id" : "databricks_ashish",
+        "tableau_extract_name" : "component_runs_extract",
+        "taskId" : null
+      },
+      "connections" : [ ],
+      "processes" : { }
+    }
+  },
+  "connections" : [ ]
+}

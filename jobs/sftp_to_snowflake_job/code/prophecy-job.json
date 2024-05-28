@@ -21,6 +21,9 @@
     "availableFabrics" : [ {
       "id" : "2",
       "name" : "Airflow-Composer"
+    }, {
+      "id" : "8",
+      "name" : "airflow-dev"
     } ],
     "maxActiveRuns" : 1,
     "catchup" : false,
@@ -41,34 +44,37 @@
     }
   },
   "processes" : {
-    "fFrUVSwzgCs66tsYueRT5" : {
-      "id" : "fFrUVSwzgCs66tsYueRT5",
-      "component" : "TableauExtractOperator",
+    "5I31y848ujnxZg9fU2aoq$$K6IEvOERaIlVcRgRx3Zcr" : {
+      "id" : "5I31y848ujnxZg9fU2aoq$$K6IEvOERaIlVcRgRx3Zcr",
+      "component" : "TableauExtract",
       "metadata" : {
-        "label" : "CustomerByCountry",
-        "slug" : "CustomerByCountry",
-        "x" : 920,
-        "y" : -20
+        "label" : "CustomerDataExtract",
+        "slug" : "CustomerDataExtract",
+        "x" : 420,
+        "y" : 220
       },
       "ports" : {
         "inputs" : [ {
-          "id" : "5eclvaZOcpFDNknkTMDIt",
+          "id" : "TtfF92p519MfscciXjTg0$$2eJFrkldXHb75wCokz1-d",
           "slug" : ""
         } ],
         "outputs" : [ {
-          "id" : "etN7iYtU274BYaEbiI3ee",
+          "id" : "yCux1CuMvulIvZ-iFdXBL$$2DunNbpUdUc9k1UcGCPZx",
           "slug" : ""
         } ]
       },
       "settings" : { },
       "properties" : {
+        "table_name" : "CUSTOMER_DATA",
         "tableau_project_name" : "Customers",
-        "snowflake_conn_id" : "snowflake_CICD_253",
+        "catalog_name" : null,
+        "databricks_conn_id" : null,
         "source_type" : "SNOWFLAKE",
-        "hyper_name" : "CUSTOMERS_BY_COUNTRY",
+        "use_catalog" : false,
+        "database_name" : null,
         "tableau_conn_id" : "tableau_ashish",
-        "snowflake_table" : "CUSTOMERS_BY_COUNTRY",
-        "tableau_extract_name" : "CustomerByCountryExtract",
+        "warehouse_conn_id" : "snowflake_CICD_253",
+        "tableau_extract_name" : "CustomerDataExtract",
         "taskId" : null
       },
       "connections" : [ ],
@@ -80,8 +86,8 @@
       "metadata" : {
         "label" : "RunModel",
         "slug" : "RunModel",
-        "x" : 640,
-        "y" : 0
+        "x" : 620,
+        "y" : 60
       },
       "ports" : {
         "inputs" : [ {
@@ -180,8 +186,8 @@
       "metadata" : {
         "label" : "CheckCustomerData",
         "slug" : "CheckCustomerData",
-        "x" : -40,
-        "y" : 0
+        "x" : -60,
+        "y" : 60
       },
       "ports" : {
         "inputs" : [ {
@@ -207,22 +213,22 @@
       "connections" : [ ],
       "processes" : { }
     },
-    "N4mULvhbNxu05jYkkvsDA$$uohJ1zmjUfJdxajxmn6cr" : {
-      "id" : "N4mULvhbNxu05jYkkvsDA$$uohJ1zmjUfJdxajxmn6cr",
-      "component" : "SFTPToSnowflakeOperator",
+    "dis1z1GUc2n7A_czqNbQQ$$lbDWMshOXiJpYUwUloNV4" : {
+      "id" : "dis1z1GUc2n7A_czqNbQQ$$lbDWMshOXiJpYUwUloNV4",
+      "component" : "SFTPToSnowflake",
       "metadata" : {
-        "label" : "SFTPToSnowflakeOperator_1",
-        "slug" : "SFTPToSnowflakeOperator_1",
-        "x" : 220,
-        "y" : 0
+        "label" : "SFTPToSnowflake_1",
+        "slug" : "SFTPToSnowflake_1",
+        "x" : 160,
+        "y" : 60
       },
       "ports" : {
         "inputs" : [ {
-          "id" : "m6L76z1WNjQGA_PwfjFV4$$jBmEgw7cYoOFlPhROH4l5",
-          "slug" : "CheckCustomerData"
+          "id" : "uNUWPS8wujlTVDrlo3gLk$$kz7PscQ6eN1ZBIpLyzjOF",
+          "slug" : ""
         } ],
         "outputs" : [ {
-          "id" : "l-gVSlyaZdstMgmFktQAJ$$Ph1BHauKZnxBQB0D492Pf",
+          "id" : "D_8-HiSc9O8h-2rkrK_HW$$zTq6I3FUuGyrRVb4_BFK4",
           "slug" : ""
         } ]
       },
@@ -230,7 +236,6 @@
       "properties" : {
         "sftp_operation" : "put",
         "snowflake_conn_id" : "snowflake_CICD_253",
-        "sftpConnectionId" : "sftp_ashish",
         "file_format" : "CSV",
         "write_mode" : "APPEND",
         "sftp_conn_id" : "sftp_ashish",
@@ -243,34 +248,37 @@
       "connections" : [ ],
       "processes" : { }
     },
-    "dCtYM6Paiu3hke9hIxACw" : {
-      "id" : "dCtYM6Paiu3hke9hIxACw",
-      "component" : "TableauExtractOperator",
+    "YZbsd5KLJcw6TsPuA2GHz$$MBhNZzd_XJEKNtOFCkY2h" : {
+      "id" : "YZbsd5KLJcw6TsPuA2GHz$$MBhNZzd_XJEKNtOFCkY2h",
+      "component" : "TableauExtract",
       "metadata" : {
-        "label" : "CustomerData",
-        "slug" : "CustomerData",
-        "x" : 440,
-        "y" : 200
+        "label" : "CustomerByCountryExtract",
+        "slug" : "CustomerByCountryExtract",
+        "x" : 880,
+        "y" : 60
       },
       "ports" : {
         "inputs" : [ {
-          "id" : "3gzVJowtzbZeTyOqoRjGM",
+          "id" : "7G-JGl3TmdjSBmqyb6KdB$$4hpNBRKNjM5wJNUGs30b1",
           "slug" : ""
         } ],
         "outputs" : [ {
-          "id" : "vHXFWnjU22l62ahwi73SC",
+          "id" : "e5yhWySmnZyLPB1Sl-w_Y$$P0oNn2qpYidPVeXaFXxXJ",
           "slug" : ""
         } ]
       },
       "settings" : { },
       "properties" : {
+        "table_name" : "CUSTOMERS_BY_COUNTRY",
         "tableau_project_name" : "Customers",
-        "snowflake_conn_id" : "snowflake_CICD_253",
+        "catalog_name" : null,
+        "databricks_conn_id" : null,
         "source_type" : "SNOWFLAKE",
-        "hyper_name" : "CUSTOMER_DATA",
+        "use_catalog" : false,
+        "database_name" : null,
         "tableau_conn_id" : "tableau_ashish",
-        "snowflake_table" : "CUSTOMER_DATA",
-        "tableau_extract_name" : "CustomerDataExtract",
+        "warehouse_conn_id" : "snowflake_CICD_253",
+        "tableau_extract_name" : "CustomerByCountryExtract",
         "taskId" : null
       },
       "connections" : [ ],
@@ -278,34 +286,34 @@
     }
   },
   "connections" : [ {
-    "id" : "0Zim7L17d6_rNLUwovO8N",
-    "source" : "_OF_JkcCn5NpIb_dEEpOL",
-    "target" : "fFrUVSwzgCs66tsYueRT5",
-    "sourcePort" : "q4oyvKQ3HXveo20n1nLZv",
-    "targetPort" : "5eclvaZOcpFDNknkTMDIt"
-  }, {
-    "id" : "pAmkT4yS8oUsR6hFB8aGI",
-    "source" : "N4mULvhbNxu05jYkkvsDA$$uohJ1zmjUfJdxajxmn6cr",
-    "target" : "_OF_JkcCn5NpIb_dEEpOL",
-    "sourcePort" : "l-gVSlyaZdstMgmFktQAJ$$Ph1BHauKZnxBQB0D492Pf",
-    "targetPort" : "JsWK4BjlqEHG5YP__9egE"
-  }, {
-    "id" : "PaweS98Br_Z44c42gpP7R",
-    "source" : "N4mULvhbNxu05jYkkvsDA$$uohJ1zmjUfJdxajxmn6cr",
-    "target" : "dCtYM6Paiu3hke9hIxACw",
-    "sourcePort" : "l-gVSlyaZdstMgmFktQAJ$$Ph1BHauKZnxBQB0D492Pf",
-    "targetPort" : "3gzVJowtzbZeTyOqoRjGM"
-  }, {
-    "id" : "XhEWfEPFJcEBWR6hiDXa-",
+    "id" : "JlQdFv-_eH53Zvgb2I0Nw",
     "source" : "d28PKnX4ENp54jMP_w_2j",
-    "target" : "N4mULvhbNxu05jYkkvsDA$$uohJ1zmjUfJdxajxmn6cr",
+    "target" : "dis1z1GUc2n7A_czqNbQQ$$lbDWMshOXiJpYUwUloNV4",
     "sourcePort" : "9nRdFBgkZHVwaCEQ6fvHH",
-    "targetPort" : "m6L76z1WNjQGA_PwfjFV4$$jBmEgw7cYoOFlPhROH4l5"
+    "targetPort" : "uNUWPS8wujlTVDrlo3gLk$$kz7PscQ6eN1ZBIpLyzjOF"
   }, {
-    "id" : "zG4rXfLCjBrxgGCuv2ZjI",
-    "source" : "dCtYM6Paiu3hke9hIxACw",
+    "id" : "AT-0QcinWF_qC3-AYTClt",
+    "source" : "dis1z1GUc2n7A_czqNbQQ$$lbDWMshOXiJpYUwUloNV4",
     "target" : "_OF_JkcCn5NpIb_dEEpOL",
-    "sourcePort" : "vHXFWnjU22l62ahwi73SC",
+    "sourcePort" : "D_8-HiSc9O8h-2rkrK_HW$$zTq6I3FUuGyrRVb4_BFK4",
     "targetPort" : "JsWK4BjlqEHG5YP__9egE"
+  }, {
+    "id" : "-6jDposuL79dWSuXHtbPM",
+    "source" : "dis1z1GUc2n7A_czqNbQQ$$lbDWMshOXiJpYUwUloNV4",
+    "target" : "5I31y848ujnxZg9fU2aoq$$K6IEvOERaIlVcRgRx3Zcr",
+    "sourcePort" : "D_8-HiSc9O8h-2rkrK_HW$$zTq6I3FUuGyrRVb4_BFK4",
+    "targetPort" : "TtfF92p519MfscciXjTg0$$2eJFrkldXHb75wCokz1-d"
+  }, {
+    "id" : "EoAo6YyKSmZ6n7ElLaN7d",
+    "source" : "5I31y848ujnxZg9fU2aoq$$K6IEvOERaIlVcRgRx3Zcr",
+    "target" : "_OF_JkcCn5NpIb_dEEpOL",
+    "sourcePort" : "yCux1CuMvulIvZ-iFdXBL$$2DunNbpUdUc9k1UcGCPZx",
+    "targetPort" : "JsWK4BjlqEHG5YP__9egE"
+  }, {
+    "id" : "e1PO_tGEz0J0YrDcXsKKU$$tL6MtIWlAKaHChPAl8ACR",
+    "source" : "_OF_JkcCn5NpIb_dEEpOL",
+    "target" : "YZbsd5KLJcw6TsPuA2GHz$$MBhNZzd_XJEKNtOFCkY2h",
+    "sourcePort" : "q4oyvKQ3HXveo20n1nLZv",
+    "targetPort" : "7G-JGl3TmdjSBmqyb6KdB$$4hpNBRKNjM5wJNUGs30b1"
   } ]
 }
