@@ -217,9 +217,9 @@
       "id" : "dis1z1GUc2n7A_czqNbQQ$$lbDWMshOXiJpYUwUloNV4",
       "component" : "SFTPToSnowflake",
       "metadata" : {
-        "label" : "SFTPToSnowflake_1",
-        "slug" : "SFTPToSnowflake_1",
-        "x" : 160,
+        "label" : "CreateCustomerTable",
+        "slug" : "CreateCustomerTable",
+        "x" : 180,
         "y" : 60
       },
       "ports" : {

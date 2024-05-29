@@ -32,29 +32,6 @@ jobs:
     enabled: false
     createdAt: '2024-05-07 15:24:15'
     author: ashish@prophecy.io
-  jobs/load_customer_data_from_sftp_to_snowflake:
-    name: load_customer_data_from_sftp_to_snowflake
-    description: ''
-    fabricUID: 2
-    scheduler:
-      Composer: {}
-    cloudProvider: null
-    jobSize: null
-    scheduleCron: 0/5 * * * *
-    timeout: null
-    alerting:
-      emails: ''
-      onStart: false
-      onSuccess: false
-      onFailure: false
-    pipelines: []
-    jobClusterMode:
-      clusterMode:
-        Single: {}
-      clusterId: null
-    enabled: null
-    createdAt: '2024-05-10 12:47:55'
-    author: ashish@prophecy.io
   jobs/sftp_to_snowflake_job:
     name: sftp_to_snowflake_job
     description: ''

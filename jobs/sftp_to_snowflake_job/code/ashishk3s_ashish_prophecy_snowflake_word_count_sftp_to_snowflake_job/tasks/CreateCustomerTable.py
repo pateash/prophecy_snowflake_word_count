@@ -1,6 +1,6 @@
 from ashishk3s_ashish_prophecy_snowflake_word_count_sftp_to_snowflake_job.utils import *
 
-def SFTPToSnowflake_1():
+def CreateCustomerTable():
     from typing import Optional, List, Dict
     from dataclasses import dataclass, field
     from abc import ABC
@@ -21,7 +21,7 @@ def SFTPToSnowflake_1():
         csv_header_settings: str = "DEFAULT"
 
     props = SFTPToSnowflakeProperties(  #skiptraversal
-        taskId = "SFTPToSnowflake_1", 
+        taskId = "CreateCustomerTable", 
         snowflake_conn_id = "snowflake_CICD_253", 
         snowflake_table = "CUSTOMER_DATA", 
         write_mode = "APPEND", 
