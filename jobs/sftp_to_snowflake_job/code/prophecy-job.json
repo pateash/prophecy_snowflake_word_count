@@ -51,7 +51,7 @@
         "label" : "CustomerDataExtract",
         "slug" : "CustomerDataExtract",
         "x" : 420,
-        "y" : 220
+        "y" : -180
       },
       "ports" : {
         "inputs" : [ {
@@ -186,7 +186,7 @@
       "metadata" : {
         "label" : "CheckCustomerData",
         "slug" : "CheckCustomerData",
-        "x" : -60,
+        "x" : 20,
         "y" : 60
       },
       "ports" : {
@@ -219,7 +219,7 @@
       "metadata" : {
         "label" : "CreateCustomerTable",
         "slug" : "CreateCustomerTable",
-        "x" : 180,
+        "x" : 220,
         "y" : 60
       },
       "ports" : {
@@ -254,7 +254,7 @@
       "metadata" : {
         "label" : "CustomerByCountryExtract",
         "slug" : "CustomerByCountryExtract",
-        "x" : 880,
+        "x" : 820,
         "y" : 60
       },
       "ports" : {

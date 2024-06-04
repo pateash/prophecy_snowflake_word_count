@@ -21,15 +21,29 @@
     "availableFabrics" : [ {
       "id" : "2",
       "name" : "Airflow-Composer"
+    }, {
+      "id" : "8",
+      "name" : "airflow-dev"
     } ],
     "maxActiveRuns" : 1,
     "catchup" : false,
     "scheduleTimeZone" : "UTC",
     "dagParams" : {
       "instances" : {
-        "default" : { }
+        "default" : {
+          "SFTP_PATH" : "/sftp_user/ashish/customer/customer_data.csv"
+        }
       },
-      "params" : { },
+      "params" : {
+        "SFTP_PATH" : {
+          "type" : "StringParam",
+          "properties" : {
+            "title" : "SFTP_PATH",
+            "value" : "/sftp_user/ashish/customer/customer_data.csv",
+            "canBeNull" : false
+          }
+        }
+      },
       "selected" : "default"
     },
     "airflowFunctions" : [ ],
@@ -40,79 +54,6 @@
       "onprem" : false
     }
   },
-  "processes" : {
-    "PE9mAruZjqIYlSy8nNEF0" : {
-      "id" : "PE9mAruZjqIYlSy8nNEF0",
-      "component" : "CopyFromExternalStageToSnowflakeOperator",
-      "metadata" : {
-        "label" : "LoadFileToSnowflake",
-        "slug" : "LoadFileToSnowflake",
-        "x" : 420,
-        "y" : 20
-      },
-      "ports" : {
-        "inputs" : [ {
-          "id" : "M0MlqJvcE6RTuknMpLt_h",
-          "slug" : "TransferSFTPFileToS3"
-        } ],
-        "outputs" : [ {
-          "id" : "abcflxOjAgHsswzBtpa5T",
-          "slug" : ""
-        } ]
-      },
-      "settings" : { },
-      "properties" : {
-        "s3_bucket" : null,
-        "snowflake_database" : "ASHISH",
-        "s3_key" : "{{ params.S3_KEY_PATH }}",
-        "snowflake_conn_id" : "snowflake_ashish",
-        "file_key" : "airflow/customer",
-        "s3_key_file_format" : "(type = 'CSV', field_delimiter='\\t', record_delimiter='\\n')",
-        "file_format" : "(type = 'CSV')",
-        "snowflake_stage" : "ASHISH_S3_STAGE",
-        "snowflake_warehouse" : "COMPUTE_WH",
-        "copy_options_on_error" : "CONTINUE",
-        "snowflake_schema" : "PUBLIC",
-        "aws_conn_id" : null,
-        "snowflake_table" : "customer",
-        "taskId" : null
-      },
-      "connections" : [ ],
-      "processes" : { }
-    },
-    "YRSk9DqGf2SrWSVdrITe4$$w2yT03kxqpkNX8TWzECiG" : {
-      "id" : "YRSk9DqGf2SrWSVdrITe4$$w2yT03kxqpkNX8TWzECiG",
-      "component" : "SFTPSensor",
-      "metadata" : {
-        "label" : "ReadCustomerData",
-        "slug" : "ReadCustomerData",
-        "x" : 20,
-        "y" : 20
-      },
-      "ports" : {
-        "inputs" : [ {
-          "id" : "F8837gu0EWmsV527Tt_Mc$$6BGg-sydND5x6SH0yqBI2",
-          "slug" : ""
-        } ],
-        "outputs" : [ {
-          "id" : "TIcFj2zmaW6t8gwKW8UWA$$6AIflo5jc2pRjis-aNGVq",
-          "slug" : ""
-        } ]
-      },
-      "settings" : { },
-      "properties" : {
-        "file_pattern" : "customer_data_*.csv",
-        "pokeInterval" : 60,
-        "sftpConnectionId" : "sftp_ashish",
-        "use_file_pattern" : true,
-        "file_path" : "/sftp_user/ashish/customer",
-        "showAdvanceProperties" : false,
-        "timeout" : 600,
-        "taskId" : null
-      },
-      "connections" : [ ],
-      "processes" : { }
-    }
-  },
+  "processes" : { },
   "connections" : [ ]
 }

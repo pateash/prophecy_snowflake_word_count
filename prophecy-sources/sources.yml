@@ -9,19 +9,19 @@ sources:
   tables:
   - name: "CUSTOMER_DATA"
     columns:
-    - name: "ID"
+    - name: "id"
       dataType:
         type: "Number"
-    - name: "NAME"
+    - name: "name"
       dataType:
         type: "String"
-    - name: "COMPANY"
+    - name: "company"
       dataType:
         type: "String"
-    - name: "EMAIL"
+    - name: "email"
       dataType:
         type: "String"
-    - name: "COUNTRY"
+    - name: "country"
       dataType:
         type: "String"
 - name: "ASHISH.PUBLIC"

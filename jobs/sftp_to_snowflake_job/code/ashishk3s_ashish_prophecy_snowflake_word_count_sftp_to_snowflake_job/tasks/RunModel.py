@@ -5,17 +5,6 @@ def RunModel():
     import os
     import zipfile
     import tempfile
-    envs = {"DBT_DATABRICKS_INVOCATION_ENV" : "prophecy"}
-    dbt_props_cmd = ""
-
-    if "/home/airflow/gcs/data":
-        envs = {"DBT_DATABRICKS_INVOCATION_ENV" : "prophecy", "DBT_PROFILES_DIR" : "/home/airflow/gcs/data"}
-
-    if "run_profile_snowflake":
-        dbt_props_cmd = " --profile run_profile_snowflake"
-
-    if "customers_by_country":
-        dbt_props_cmd = dbt_props_cmd + " -m " + "customers_by_country"
 
     return BashOperator(
         task_id = "RunModel",
@@ -29,8 +18,8 @@ def RunModel():
                )
              ),
              ""
-           ),            "dbt run" + dbt_props_cmd,  "dbt test" + dbt_props_cmd]
+           ),            "dbt run --profile run_profile_snowflake -m customers_by_country",            "dbt test --profile run_profile_snowflake -m customers_by_country"]
         ),
-        env = envs,
+        env = {"DBT_DATABRICKS_INVOCATION_ENV" : "prophecy", "DBT_PROFILES_DIR" : "/home/airflow/gcs/data"},
         append_env = True,
     )

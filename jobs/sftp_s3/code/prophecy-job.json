@@ -1,0 +1,119 @@
+{
+  "metainfo" : {
+    "type" : "Composer",
+    "fabricId" : "2",
+    "jobId" : "jobs/sftp_s3",
+    "name" : "sftp_s3",
+    "dagName" : "ashishk3s_ashish_prophecy_snowflake_word_count_sftp_s3",
+    "schedule" : "0/5 * * * *",
+    "enabled" : false,
+    "alerting" : {
+      "emails" : "",
+      "onStart" : false,
+      "onSuccess" : false,
+      "onFailure" : false
+    },
+    "maxConcurrentRuns" : 1,
+    "processDefaultSettings" : {
+      "ignore_first_depends_on_past" : true,
+      "do_xcom_push" : true
+    },
+    "availableFabrics" : [ {
+      "id" : "2",
+      "name" : "Airflow-Composer"
+    }, {
+      "id" : "8",
+      "name" : "airflow-dev"
+    } ],
+    "maxActiveRuns" : 1,
+    "catchup" : false,
+    "scheduleTimeZone" : "UTC",
+    "dagParams" : {
+      "instances" : {
+        "default" : { }
+      },
+      "params" : { },
+      "selected" : "default"
+    },
+    "airflowFunctions" : [ ],
+    "dynamicPipelineStatus" : {
+      "databricks" : false,
+      "dataproc" : false,
+      "emr" : false,
+      "onprem" : false
+    }
+  },
+  "processes" : {
+    "4FWkugNXmRKL_3UbEwIVf" : {
+      "id" : "4FWkugNXmRKL_3UbEwIVf",
+      "component" : "SFTPSensor",
+      "metadata" : {
+        "label" : "CheckCustomerData",
+        "slug" : "CheckCustomerData",
+        "x" : -440,
+        "y" : -260
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "-ImKlpgFtvp9BE7i-p9Lj",
+          "slug" : ""
+        } ],
+        "outputs" : [ {
+          "id" : "VN2k9u-XmbLmvVQvjXwiW",
+          "slug" : ""
+        } ]
+      },
+      "settings" : { },
+      "properties" : {
+        "file_pattern" : "customer_data.csv",
+        "pokeInterval" : 60,
+        "sftpConnectionId" : "sftp_ashish",
+        "use_file_pattern" : false,
+        "file_path" : "/sftp_user/ashish/customer/customer_data.csv",
+        "showAdvanceProperties" : true,
+        "timeout" : 600,
+        "taskId" : null
+      },
+      "connections" : [ ],
+      "processes" : { }
+    },
+    "hYIjQrHIuMeg49spCk0S3$$DjYqe2C78rKOlAI7H4G2R" : {
+      "id" : "hYIjQrHIuMeg49spCk0S3$$DjYqe2C78rKOlAI7H4G2R",
+      "component" : "SFTPToS3",
+      "metadata" : {
+        "label" : "moveToS3",
+        "slug" : "moveToS3",
+        "x" : -80,
+        "y" : -240
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "IxpX6zPDENHdJZ4MMMFzR$$VGQUzGRa41BRp02RpgQzd",
+          "slug" : ""
+        } ],
+        "outputs" : [ {
+          "id" : "e11fP6_vB_zKX9fK7dfBm$$9CpPvOPnanOWTLOjPw8El",
+          "slug" : ""
+        } ]
+      },
+      "settings" : { },
+      "properties" : {
+        "s3_bucket" : "ashishpatel-prophecy-test",
+        "sftp_path" : "/sftp_user/ashish/customer/customer_data.csv",
+        "s3_key" : "airflow/",
+        "sftp_conn_id" : "sftp_ashish",
+        "aws_conn_id" : "aws_default",
+        "taskId" : null
+      },
+      "connections" : [ ],
+      "processes" : { }
+    }
+  },
+  "connections" : [ {
+    "id" : "aGa1eCr1ayi9GPnFHPh0S$$D8RtXrzBFbZDXzYa4eTU2",
+    "source" : "4FWkugNXmRKL_3UbEwIVf",
+    "target" : "hYIjQrHIuMeg49spCk0S3$$DjYqe2C78rKOlAI7H4G2R",
+    "sourcePort" : "VN2k9u-XmbLmvVQvjXwiW",
+    "targetPort" : "IxpX6zPDENHdJZ4MMMFzR$$VGQUzGRa41BRp02RpgQzd"
+  } ]
+}

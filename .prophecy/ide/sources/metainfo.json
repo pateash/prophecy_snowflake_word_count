@@ -14881,11 +14881,6 @@
     "name" : "word_count",
     "type" : "Model",
     "syncedOnce" : false
-  }, {
-    "name" : "CUSTOMER_DATA",
-    "type" : "Source",
-    "sourceName" : "QA_DATABASE.QA_SCHEMA",
-    "syncedOnce" : true
   } ],
   "frontEndLanguage" : "sql"
 }
