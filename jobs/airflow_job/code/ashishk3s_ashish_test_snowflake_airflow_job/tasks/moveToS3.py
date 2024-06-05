@@ -1,4 +1,4 @@
-from ashishk3s_ashish_prophecy_snowflake_word_count_sftp_s3.utils import *
+from ashishk3s_ashish_test_snowflake_airflow_job.utils import *
 
 def moveToS3():
     from airflow.providers.amazon.aws.transfers.sftp_to_s3 import SFTPToS3Operator
@@ -11,5 +11,6 @@ def moveToS3():
         s3_bucket = "ashishpatel-prophecy-test",
         s3_conn_id = "aws_default",
         use_temp_file = True,
-        do_xcom_push = True
+        email_on_retry = False, 
+        trigger_rule = "all_success"
     )

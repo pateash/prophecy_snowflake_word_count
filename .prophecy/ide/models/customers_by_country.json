@@ -28,7 +28,7 @@
         "macroDependencies" : [ ]
       },
       "properties" : {
-        "columnsSelector" : [ ],
+        "columnsSelector" : [ "VZuqmgPFEw2MDKtGJPGR5$$SFb_fcYDmJaTEQC0vIcYj##CUSTOMERS" ],
         "orders" : [ {
           "expression" : {
             "expression" : "CUSTOMERS"
@@ -167,7 +167,7 @@
           "expression" : ""
         },
         "activeTab" : "aggregate",
-        "columnsSelector" : [ ],
+        "columnsSelector" : [ "C1w78e7x6CJctKavBJBBU$$U4mf-WLtTNJxp_2JhnnL-##COUNTRY", "C1w78e7x6CJctKavBJBBU$$U4mf-WLtTNJxp_2JhnnL-##ID" ],
         "groupBy" : [ {
           "expression" : {
             "expression" : "COUNTRY"
@@ -180,27 +180,27 @@
           "schema" : {
             "providerType" : "snowflake",
             "fields" : [ {
-              "name" : "id",
+              "name" : "ID",
               "dataType" : {
                 "type" : "Number"
               }
             }, {
-              "name" : "name",
+              "name" : "NAME",
               "dataType" : {
                 "type" : "String"
               }
             }, {
-              "name" : "company",
+              "name" : "COMPANY",
               "dataType" : {
                 "type" : "String"
               }
             }, {
-              "name" : "email",
+              "name" : "EMAIL",
               "dataType" : {
                 "type" : "String"
               }
             }, {
-              "name" : "country",
+              "name" : "COUNTRY",
               "dataType" : {
                 "type" : "String"
               }
@@ -256,27 +256,27 @@
           "schema" : {
             "providerType" : "snowflake",
             "fields" : [ {
-              "name" : "id",
+              "name" : "ID",
               "dataType" : {
                 "type" : "Number"
               }
             }, {
-              "name" : "name",
+              "name" : "NAME",
               "dataType" : {
                 "type" : "String"
               }
             }, {
-              "name" : "company",
+              "name" : "COMPANY",
               "dataType" : {
                 "type" : "String"
               }
             }, {
-              "name" : "email",
+              "name" : "EMAIL",
               "dataType" : {
                 "type" : "String"
               }
             }, {
-              "name" : "country",
+              "name" : "COUNTRY",
               "dataType" : {
                 "type" : "String"
               }

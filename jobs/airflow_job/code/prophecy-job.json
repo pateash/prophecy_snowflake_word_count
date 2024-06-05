@@ -54,6 +54,152 @@
       "onprem" : false
     }
   },
-  "processes" : { },
-  "connections" : [ ]
+  "processes" : {
+    "gIsAF2DjNlQ-dY46nOgxG" : {
+      "id" : "gIsAF2DjNlQ-dY46nOgxG",
+      "component" : "SFTPSensor",
+      "metadata" : {
+        "label" : "CheckCustomerData",
+        "slug" : "CheckCustomerData",
+        "x" : -220,
+        "y" : 80
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "MMkyL0_NWm0vHXt_k4ZaO",
+          "slug" : ""
+        } ],
+        "outputs" : [ {
+          "id" : "aCuXDjjdj7AndFkJic26x",
+          "slug" : ""
+        } ]
+      },
+      "settings" : { },
+      "properties" : {
+        "file_pattern" : "customer_data.csv",
+        "pokeInterval" : 60,
+        "sftpConnectionId" : "sftp_ashish",
+        "use_file_pattern" : false,
+        "file_path" : "/sftp_user/ashish/customer/customer_data.csv",
+        "showAdvanceProperties" : true,
+        "timeout" : 600,
+        "taskId" : null
+      },
+      "connections" : [ ],
+      "processes" : { }
+    },
+    "VIEPICoKXI4ybAVSHGmAn" : {
+      "id" : "VIEPICoKXI4ybAVSHGmAn",
+      "component" : "SFTPToS3",
+      "metadata" : {
+        "label" : "moveToS3",
+        "slug" : "moveToS3",
+        "x" : -20,
+        "y" : 80
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "NZsAfEgpMd_oSBBozI3Mg",
+          "slug" : ""
+        } ],
+        "outputs" : [ {
+          "id" : "YVGPhEn_1otxyUWKOEemN",
+          "slug" : ""
+        } ]
+      },
+      "settings" : {
+        "email_on_retry" : false,
+        "trigger_rule" : "all_success"
+      },
+      "properties" : {
+        "s3_bucket" : "ashishpatel-prophecy-test",
+        "sftp_path" : "/sftp_user/ashish/customer/customer_data.csv",
+        "s3_key" : "airflow/customer_data.csv",
+        "sftp_conn_id" : "sftp_ashish",
+        "aws_conn_id" : "aws_default",
+        "taskId" : null
+      },
+      "connections" : [ ],
+      "processes" : { }
+    },
+    "AbSf2HThr77ojRbV9P-Ip" : {
+      "id" : "AbSf2HThr77ojRbV9P-Ip",
+      "component" : "Script",
+      "metadata" : {
+        "label" : "BashOperator",
+        "slug" : "BashOperator",
+        "x" : 200,
+        "y" : -120
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "fsW86tKpszMQU4c17FZ11",
+          "slug" : ""
+        } ],
+        "outputs" : [ {
+          "id" : "OhqruNxKQRcUxXRxDY8oq",
+          "slug" : ""
+        } ]
+      },
+      "settings" : { },
+      "properties" : {
+        "code" : "echo \"hello world\"",
+        "language" : "bash",
+        "taskId" : null
+      },
+      "connections" : [ ],
+      "processes" : { }
+    },
+    "TLZl76p5HTLY9_AMo90_V" : {
+      "id" : "TLZl76p5HTLY9_AMo90_V",
+      "component" : "Python",
+      "metadata" : {
+        "label" : "Python_1",
+        "slug" : "Python_1",
+        "x" : 180,
+        "y" : 80
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "fWAV8-2XEGwmxIgwv-2C4",
+          "slug" : "moveToS3"
+        } ],
+        "outputs" : [ {
+          "id" : "NOH1Ir-x5E_P9XQDAtR0A",
+          "slug" : ""
+        } ]
+      },
+      "settings" : { },
+      "properties" : {
+        "templatesExts" : null,
+        "code" : "def hello():\n    return \"Hello Ashish\"",
+        "valueInLogs" : true,
+        "opArgs" : null,
+        "templatesDict" : null,
+        "taskId" : null,
+        "opKwargs" : null
+      },
+      "connections" : [ ],
+      "processes" : { }
+    }
+  },
+  "connections" : [ {
+    "id" : "xwXHOfAEAFH2c5ulSiQe8",
+    "source" : "gIsAF2DjNlQ-dY46nOgxG",
+    "target" : "VIEPICoKXI4ybAVSHGmAn",
+    "sourcePort" : "aCuXDjjdj7AndFkJic26x",
+    "targetPort" : "NZsAfEgpMd_oSBBozI3Mg"
+  }, {
+    "id" : "Dl4T4WXgYf5OdHAnEKEbx",
+    "source" : "VIEPICoKXI4ybAVSHGmAn",
+    "target" : "TLZl76p5HTLY9_AMo90_V",
+    "sourcePort" : "YVGPhEn_1otxyUWKOEemN",
+    "targetPort" : "fWAV8-2XEGwmxIgwv-2C4"
+  }, {
+    "id" : "hOaCtH-STI872U0W_ybMX",
+    "source" : "VIEPICoKXI4ybAVSHGmAn",
+    "target" : "AbSf2HThr77ojRbV9P-Ip",
+    "sourcePort" : "YVGPhEn_1otxyUWKOEemN",
+    "targetPort" : "fsW86tKpszMQU4c17FZ11"
+  } ]
 }

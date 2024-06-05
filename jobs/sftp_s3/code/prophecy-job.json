@@ -50,8 +50,8 @@
       "metadata" : {
         "label" : "CheckCustomerData",
         "slug" : "CheckCustomerData",
-        "x" : -440,
-        "y" : -260
+        "x" : 20,
+        "y" : 20
       },
       "ports" : {
         "inputs" : [ {
@@ -83,8 +83,8 @@
       "metadata" : {
         "label" : "moveToS3",
         "slug" : "moveToS3",
-        "x" : -80,
-        "y" : -240
+        "x" : 220,
+        "y" : 20
       },
       "ports" : {
         "inputs" : [ {
@@ -96,11 +96,13 @@
           "slug" : ""
         } ]
       },
-      "settings" : { },
+      "settings" : {
+        "do_xcom_push" : true
+      },
       "properties" : {
         "s3_bucket" : "ashishpatel-prophecy-test",
         "sftp_path" : "/sftp_user/ashish/customer/customer_data.csv",
-        "s3_key" : "airflow/",
+        "s3_key" : "airflow/customer_data.csv",
         "sftp_conn_id" : "sftp_ashish",
         "aws_conn_id" : "aws_default",
         "taskId" : null
